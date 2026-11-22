@@ -3564,9 +3564,9 @@ html body #page-content .kp-tk-txt b{font-size:16px!important}
 .kp-mk-opt{align-items:flex-start!important}.kp-mk-opt input{margin-top:4px}
 html body #page-content .kp-mk-bar{margin:0 16px 10px}
 /* mục video trong mục lục: ô 🎬 riêng, dễ phân biệt với nội dung bài */
-html body .kp-rail .kp-rail-n.kp-rail-vid{background:#ffe8f3!important;border:1.5px solid #ec4899!important;font-size:16px!important}
-html body .kp-rail .kp-rail-n.kp-rail-vid.active{background:#ec4899!important}
-html body .kp-rail-pop .kp-rail-it.kp-rail-vid b{background:#ffe8f3!important;font-size:14px}
+html body .kp-rail .kp-rail-n.kp-rail-vid{background:#fff!important;border:2px solid #ec4899!important;font-size:15px!important;display:grid!important;place-items:center!important;padding:0!important;line-height:1!important;text-align:center!important;box-sizing:border-box!important}
+html body .kp-rail .kp-rail-n.kp-rail-vid.active{background:#fff!important;border-width:3px!important;box-shadow:0 0 0 3px #fbcfe8!important}
+html body .kp-rail-pop .kp-rail-it.kp-rail-vid b{background:#fff!important;border:2px solid #ec4899;font-size:13px;display:grid;place-items:center;line-height:1;padding:0;box-sizing:border-box}
 html body .kp-rail-pop .kp-rail-it.kp-rail-vid span{color:#b0186a!important;font-weight:700}
 
 /* tab con: cùng màu với nút "Xuất báo cáo" (#463fd0) */
@@ -3645,6 +3645,8 @@ html body #page-content .kp-ak-steps h3{font-size:15px!important;margin:2px 0 4p
 html body #page-content .kc-step h3{font-size:15px!important;margin:0 0 6px;color:#23205f}
 .kc-more{margin-top:12px}.kc-more summary{cursor:pointer;font-weight:700;font-size:14px;color:#4b4a63}
 .kp-intro ul{margin:6px 0 8px;padding-left:4px;list-style:none}.kp-intro li{margin:4px 0;line-height:1.55}
+.kp-prelock-wait{text-align:left;max-width:460px;margin:0 auto 14px;padding:10px 14px;border-radius:12px;background:#eef6ff;border:1px solid #cfe3fb;font-size:14px;color:#23205f}
+.kp-prelock-wait ul{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:4px}.kp-prelock-wait li{font-size:13.5px;color:#4b4a63}
 
 </style>
 </head><body><div id="app"></div><div id="toast" role="status"></div><dialog id="modal"><div id="modal-body"></div><button class="modal-close icon-button" aria-label="Đóng">✕</button></dialog>
@@ -5023,7 +5025,7 @@ render();
   KP.preLocked = preLocked;
   function preLockPage(l) {
     const n = Math.min(cfg().quizPre, approvedBank(l.id).length);
-    return `<div class="page-heading"><div><h1>${esc(l.name)}</h1><p class="subtitle">${esc(l.id)} · Làm pre-test để mở bài học</p></div></div><section class="card kp-prelock"><div class="kp-prelock-ic">🔒</div><h2>Làm pre-test để mở bài học</h2><p>Trước khi học bài <b>${esc(l.name)}</b>, bạn làm một bài pre-test ngắn để ghi nhận kiến thức ban đầu. Làm xong, bài giảng, video và hỏi đáp với Kiến sẽ mở ngay.</p><ul class="kp-prelock-list"><li>📝 <b>${n} câu</b> trắc nghiệm</li><li>⏱️ <b>${cfg().quizSec} giây</b> mỗi câu</li><li>💡 Điểm pre-test <b>không ảnh hưởng</b> kết quả học tập, cứ làm theo những gì bạn biết</li></ul><div class="kp-prelock-act"><button class="btn" data-kp="start-quiz">Làm pre-test ngay ${icon("arrow")}</button><button class="btn secondary" data-kp-act="all-lessons">Chọn bài khác</button></div></section>`;
+    return `<div class="page-heading"><div><h1>${esc(l.name)}</h1><p class="subtitle">${esc(l.id)} · Làm pre-test để mở bài học</p></div></div><section class="card kp-prelock"><div class="kp-prelock-ic">🔒</div><h2>Làm pre-test để mở bài học</h2><p>Trước khi học bài <b>${esc(l.name)}</b>, bạn làm một bài pre-test ngắn để ghi nhận kiến thức ban đầu. Làm xong, bài giảng, video và hỏi đáp với Kiến sẽ mở ngay.</p>${(() => { const S = matchingSources(l.id); if (!S.length) return ""; const ic = (s) => (s.video ? "🎬" : s.kind === "ref" ? "📚" : "📄"); return `<div class="kp-prelock-wait"><b>Đang chờ bạn sau pre-test (${S.length} mục):</b><ul>${S.slice(0, 6).map((s) => `<li>${ic(s)} ${esc(s.title)}</li>`).join("")}${S.length > 6 ? `<li>… và ${S.length - 6} mục khác</li>` : ""}</ul></div>`; })()}<ul class="kp-prelock-list"><li>📝 <b>${n} câu</b> trắc nghiệm</li><li>⏱️ <b>${cfg().quizSec} giây</b> mỗi câu</li><li>💡 Điểm pre-test <b>không ảnh hưởng</b> kết quả học tập, cứ làm theo những gì bạn biết</li></ul><div class="kp-prelock-act"><button class="btn" data-kp="start-quiz">Làm pre-test ngay ${icon("arrow")}</button><button class="btn secondary" data-kp-act="all-lessons">Chọn bài khác</button></div></section>`;
   }
   const prevLessonsPageLock = lessonsPage;
   lessonsPage = function () {
@@ -12544,7 +12546,7 @@ document.addEventListener("click", (e) => {
     const want = new Map();
     if (d.status === "published" && !d.deleted) (d.pub || d.lessons).forEach((L) => {
       const secs = (d.pubSecs || d.sections).filter((s) => s.show && (shr(d) || s.lesson === L) && (s.text.trim() || s.imgs.length));
-      if (secs.length) want.set(L, secs);
+      if (secs.length || isVid(d)) want.set(L, secs);
     });
     managedSources.forEach((s) => { if (s.fromDoc === d.id && (s.kind === "ref" || !want.has((s.lessons || [])[0]))) s.deleted = true; });
     want.forEach((secs, L) => {
@@ -12597,8 +12599,22 @@ document.addEventListener("click", (e) => {
       });
     }
     if (seedVids()) ch = true;
+    if (heal()) ch = true;
     if (ch) persist(true);
   }
+  // tự sửa: mục đã duyệt "Đang hiển thị cho SV" nhưng bản cho sinh viên bị mất/ẩn -> tạo lại
+  function heal() {
+    if (typeof managedSources === "undefined") return false;
+    let ch = false;
+    docs.forEach((d) => {
+      if (d.deleted || d.shared || d.status !== "published") return;
+      if (isRef(d) && !(d.where ? d.where !== "none" : d.svRead)) return;
+      const ok = managedSources.some((s) => s.fromDoc === d.id && !s.deleted && s.approved);
+      if (!ok) { try { sync(d); } catch (e) {} if (managedSources.some((s) => s.fromDoc === d.id && !s.deleted)) ch = true; }
+    });
+    return ch;
+  }
+  setTimeout(() => { try { if (heal()) persist(true); } catch (e) {} }, 0);
   KP.docsAdopt = adopt;
   // dữ liệu mẫu video bài giảng: đủ các tình huống để dễ nhìn (một lần cho mỗi trình duyệt)
   function seedVids() {
@@ -15099,7 +15115,7 @@ ${h.length ? `<h3 class="ph-h">Ảnh trước đây</h3><div class="ph-hist">${h
         if (LS.getItem(it.key) !== s) { put(it.key, s); ch.push(it.key); }
       });
       if (ch.length) applyKeys(ch, true);
-      if (denied) toast("Một số thay đổi cần quyền giảng viên hoặc Admin nên chưa được lưu lên máy chủ.");
+      if (denied && isStaffMe()) toast("Một số thay đổi cần quyền giảng viên hoặc Admin nên chưa được lưu lên máy chủ.");
     } catch (e) {
       if (tok === t0) {
         items.forEach((it) => { if (!dirty.has(it.key)) dirty.add(it.key); });
