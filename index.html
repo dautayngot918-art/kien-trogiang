@@ -17177,6 +17177,69 @@ ${h.length ? `<h3 class="ph-h">Ảnh trước đây</h3><div class="ph-hist">${h
     render = function () { const r = baseR.apply(this, arguments); try { if (state.page === "login") tidyLogin(); document.querySelectorAll(".demo-pill").forEach((x) => x.remove()); } catch (e) {} return r; };
   }
 })();
+// ---- Gỡ dữ liệu mẫu còn sót (từ trình duyệt cũ hoặc từ máy chủ đã nạp trước đây). Chỉ gỡ mục có đánh dấu mẫu, dữ liệu thật giữ nguyên.
+(function () {
+  const FLAG = "kien-sample-purged-v1";
+  const BUILTIN = /^(GP-0[1-9]|SL-0[1-8])$/;
+  const rd = (k, d) => { try { const v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch (e) { return d; } };
+  const arr = (k) => { const v = rd(k, null); return Array.isArray(v) ? v : null; };
+  const demoStu = (s) => s && (s.sample || s.createdAt === "demo-seed" || s.createdAt === "sample" || /Demo/.test(s.class || ""));
+  const demoGv = (t) => t && (t.seed || (t.id === "gv001" && /Demo/.test(t.name || "")));
+  const demoLec = (l) => l && /^lecture-demo/.test(String(l.id || ""));
+  const demoSrc = (s) => s && (s.sample || /^demo-/.test(String(s.id || "")));
+  const demoDoc = (d) => d && (d.sample || d.byName === "Giảng viên Demo" || /^(Video mẫu|Giáo trình mẫu)/.test(String(d.title || "")));
+  const demoRem = (r) => r && (/^smp-/.test(String(r.id || "")) || r.status === "SIMULATED");
+  const demoQ = (q) => q && q.origin === "demo";
+  function purge() {
+    const changed = [];
+    const set = (k, v) => { localStorage.setItem(k, JSON.stringify(v)); changed.push(k); };
+    const filt = (k, bad) => { const a = arr(k); if (a == null) return set(k, []); const b = a.filter((x) => !bad(x)); if (b.length !== a.length) set(k, b); };
+    filt("kien-students-v2", demoStu);
+    filt("kien-teachers", demoGv);
+    filt("kien-faculty-lectures", demoLec);
+    filt("kien-managed-sources", demoSrc);
+    filt("kien-docs-v1", demoDoc);
+    filt("kien-faculty-reminders", demoRem);
+    filt("kien-qbank-v1", demoQ);
+    if (rd("kien-sample-ids", null)) { localStorage.removeItem("kien-sample-ids"); }
+    // bài học có sẵn (GP-01…SL-08) mang nội dung mẫu: ẩn đi nếu bộ môn chưa đặt tên lại hay đưa nội dung thật vào.
+    // Chỉ làm một lần (cờ đồng bộ lên máy chủ), để bài Admin chủ động hiện lại sau này không bị ẩn lần nữa.
+    if (rd(FLAG, null)) return changed;
+    set(FLAG, Date.now());
+    const used = new Set();
+    const add = (ls) => (Array.isArray(ls) ? ls : [ls]).forEach((x) => x && used.add(x));
+    (arr("kien-custom-lessons") || []).forEach((x) => add(x && x.id));
+    (arr("kien-docs-v1") || []).forEach((d) => { if (d && !d.deleted) { add(d.lessons); add(d.pub); } });
+    (arr("kien-managed-sources") || []).forEach((s) => { if (s && !s.deleted) add(s.lessons); });
+    (arr("kien-faculty-lectures") || []).forEach((l) => l && add(l.lesson));
+    (arr("kien-qbank-v1") || []).forEach((q) => q && q.status !== "removed" && add(q.lesson));
+    const hid = arr("kien-hidden-lessons") || [];
+    const all = Array.from({ length: 9 }, (_, i) => "GP-0" + (i + 1)).concat(Array.from({ length: 8 }, (_, i) => "SL-0" + (i + 1)));
+    const need = all.filter((id) => BUILTIN.test(id) && !used.has(id) && !hid.includes(id));
+    if (need.length) set("kien-hidden-lessons", hid.concat(need));
+    return changed;
+  }
+  let done = false;
+  function run() {
+    if (done || typeof activeUser === "undefined" || !activeUser || activeUser.role !== "admin") return;
+    done = true;
+    const go = () => {
+      let ch = [];
+      try { ch = purge(); } catch (e) { console.warn("kien purge", e); }
+      if (!ch.length) return;
+      try { if (ch.includes("kien-hidden-lessons") || ch.includes("kien-custom-lessons")) applyLessonEdits(); } catch (e) {}
+      try { KP.syncApply ? KP.syncApply(ch, { render: true, quiet: true }) : render(); } catch (e) {}
+      try { toast("🧹 Đã gỡ dữ liệu mẫu còn sót. Dữ liệu thật vẫn giữ nguyên."); } catch (e) {}
+    };
+    // chờ tải xong dữ liệu (kho tài liệu lớn, máy chủ) rồi mới dọn
+    (window.KP && KP.vault ? KP.vault.ready() : Promise.resolve()).then(() => setTimeout(go, 2500));
+  }
+  if (typeof render === "function") {
+    const baseR = render;
+    render = function () { const r = baseR.apply(this, arguments); try { run(); } catch (e) {} return r; };
+  }
+  window.KP && (KP.purgeSample = purge);
+})();
 
 </script>
 </body></html>
