@@ -3845,6 +3845,32 @@ html body pre.ov-txb{content-visibility:auto;contain-intrinsic-size:auto 900px;m
 .kp-cq-tb td,.kp-cq-tb th{white-space:normal;vertical-align:top}
 .kp-cq-tb td:nth-child(-n+4),.kp-cq-tb th:nth-child(-n+4){white-space:nowrap;width:1%}
 .kp-cq-tb td:last-child{min-width:220px;word-break:break-word}
+/* minh họa trong câu trả lời: thanh thời gian, sơ đồ, bảng tự kiểm tra */
+.kp-viz{border:1px solid #e3dcf3;background:#fbfaff;border-radius:14px;padding:12px 14px;margin:10px 0}
+.kp-tl{display:block}
+.kp-tl-top{display:flex;justify-content:space-between;gap:8px;align-items:baseline}.kp-tl-top span{color:#6b6480;font-size:13px}
+.kp-tl-tot{font-size:22px;font-weight:700;margin:4px 0 8px}
+.kp-tl-row{font-weight:600;margin:10px 0 4px}
+.kp-tl-bar{display:flex;border-radius:9px;overflow:hidden;min-height:34px}
+.kp-tl-bar span{flex:none;box-sizing:border-box;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:600;padding:0 4px;min-width:0;white-space:nowrap;overflow:hidden}
+.kp-tl-leg{list-style:none;margin:10px 0 0;padding:0}.kp-tl-leg li{display:flex;align-items:center;gap:8px;padding:3px 0}.kp-tl-leg b{margin-left:auto}
+.kp-tl-leg i,.kp-tl-key i{display:inline-block;width:11px;height:11px;border-radius:50%}
+.kp-tl-key{display:flex;gap:16px;justify-content:center;margin-top:8px;font-size:13px}.kp-tl-key span{display:flex;align-items:center;gap:6px}
+.kp-fl{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
+.kp-fl-col{display:flex;flex-direction:column;align-items:center;min-width:180px;flex:1 1 200px;max-width:300px}
+.kp-fl-box{border:2px solid #4f86bd;background:#eef4fb;border-radius:14px;padding:10px 12px;text-align:center;width:100%}
+.kp-fl-box b{display:block;color:#24507e}.kp-fl-box small{color:#3e5f80}
+.kp-fl-arrow{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:24px;color:#4f86bd}
+.kp-fl-arrow em{font-size:13px;font-style:normal;color:#2f7d4f;font-weight:600}
+.kp-fl-arrow.shut{color:#c2525c}.kp-fl-arrow.shut em{color:#c2525c}
+.kp-ck-top{display:flex;justify-content:space-between;margin-bottom:6px}
+.kp-ck label{display:flex;gap:10px;align-items:flex-start;padding:5px 0;cursor:pointer}
+.kp-ck input{width:18px;height:18px;margin-top:2px;accent-color:#6b42c1}
+.kp-ck small{color:#6b6480}.kp-ck.done{border-color:#9fd3ae;background:#f3faf5}
+.kp-lv{font-weight:600;color:#6b6480}.kp-lv.ok{color:#1d6b3a}.kp-lv.mid{color:#8a6100}.kp-lv.no{color:#b3261e}
+.kp-cq-top{display:flex;justify-content:space-between;align-items:baseline}.kp-cq-top span{color:#6b6480;font-size:13px}
+.kp-cq-prog{height:6px;background:#ece7f7;border-radius:4px;margin:6px 0 8px;overflow:hidden}.kp-cq-prog i{display:block;height:100%;background:#6b42c1;border-radius:4px}
+.kp-inl-opts{margin-top:4px}
 
 </style>
 </head><body><div id="app"></div><div id="toast" role="status"></div><dialog id="modal"><div id="modal-body"></div><button class="modal-close icon-button" aria-label="Đóng">✕</button></dialog>
@@ -5305,7 +5331,62 @@ render();
       .replace(/\[(\d+)\]/g, '<sup class="kp-cite">$1</sup>');
   }
   const HEADFIX = /^(#{1,4}\s*(?:🎯|🧬|🩺|💡)[^—\n]*?)\s+[—–-]\s+.*$/gmu;
+  // khối minh họa do Kiến viết: thanh thời gian tỷ lệ, sơ đồ mũi tên, bảng tự kiểm tra có ô đánh dấu
+  const numV = (x) => { const m = /(\d+(?:[.,]\d+)?)/.exec(String(x)); return m ? parseFloat(m[1].replace(",", ".")) : 0; };
+  const PAL = ["#d0843a", "#c2525c", "#4f86bd", "#6aa66f", "#8a6cc9", "#c9a43b"];
+  function vizBar(body) {
+    const L = body.split("\n").map((x) => x.trim()).filter(Boolean);
+    if (!L.length) return "";
+    const head = L[0].split("|").map((x) => x.trim());
+    const rows = [];
+    let cur = null;
+    L.slice(1).forEach((ln) => {
+      if (/^#/.test(ln)) { cur = { name: ln.replace(/^#+\s*/, ""), segs: [] }; rows.push(cur); return; }
+      const c = ln.split("|").map((x) => x.trim());
+      if (c.length < 2 || !numV(c[1])) return;
+      if (!cur) { cur = { name: "", segs: [] }; rows.push(cur); }
+      cur.segs.push({ label: c[0], v: numV(c[1]), raw: c[1], kind: norm(c[2] || c[0]) });
+    });
+    if (!rows.length) return "";
+    const colorOf = (sg, i) => (/(^| )(co|thu|tam thu|dong)( |$)/.test(sg.kind) && !/truong|gian/.test(sg.kind) ? "#c2525c" : /(gian|truong|nghi)/.test(sg.kind) ? "#4f86bd" : PAL[i % PAL.length]);
+    const one = rows.length === 1;
+    const bars = rows.map((r) => {
+      const tot = r.segs.reduce((a, x) => a + x.v, 0) || 1;
+      return `${r.name ? `<div class="kp-tl-row">${inline(r.name)}</div>` : ""}<div class="kp-tl-bar">${r.segs.map((sg, i) => `<span style="width:${((sg.v / tot) * 100).toFixed(2)}%;background:${one ? PAL[i % PAL.length] : colorOf(sg, i)}" title="${esc(sg.label)}">${(sg.v / tot) > 0.12 && !one ? esc(sg.label.length < 14 ? sg.label + " " + sg.raw : sg.raw) : esc(sg.raw)}</span>`).join("")}</div>` + (one ? `<ul class="kp-tl-leg">${r.segs.map((sg, i) => `<li><i style="background:${PAL[i % PAL.length]}"></i>${inline(sg.label)}<b>${String(Math.round((sg.v / tot) * 1000) / 10).replace(".", ",")}%</b></li>`).join("")}</ul>` : "");
+    }).join("");
+    return `<div class="kp-viz kp-tl"><div class="kp-tl-top"><b>${inline(head[0] || "")}</b><span>${inline(head.slice(2).join(" · "))}</span></div>${head[1] ? `<div class="kp-tl-tot">${inline(head[1])}</div>` : ""}${bars}${one ? "" : `<div class="kp-tl-key"><span><i style="background:#c2525c"></i>Co (tâm thu)</span><span><i style="background:#4f86bd"></i>Giãn (tâm trương)</span></div>`}</div>`;
+  }
+  function vizFlow(body) {
+    const L = body.split("\n").map((x) => x.trim()).filter(Boolean);
+    const cols = L.map((ln) => {
+      const m = /^(.+?)\s*(-x>|->|→|⇒|=>)\s*(.+?)(?:\s*:\s*(.+))?$/.exec(ln);
+      if (!m) return "";
+      const shut = m[2] === "-x>";
+      const box = (t) => { const [a, b] = t.split(/\s*\(|\)\s*$/); return `<div class="kp-fl-box"><b>${inline(a)}</b>${b ? `<small>${inline(b)}</small>` : ""}</div>`; };
+      return `<div class="kp-fl-col">${box(m[1])}<div class="kp-fl-arrow${shut ? " shut" : ""}"><span>${shut ? "✕" : "↓"}</span>${m[4] ? `<em>${inline(m[4])}</em>` : ""}</div>${box(m[3])}</div>`;
+    }).filter(Boolean);
+    return cols.length ? `<div class="kp-viz kp-fl">${cols.join("")}</div>` : "";
+  }
+  function vizCheck(body) {
+    const L = body.split("\n").map((x) => x.replace(/^[-*•\d.)\s]+/, "").trim()).filter(Boolean);
+    if (!L.length) return "";
+    return `<div class="kp-viz kp-ck"><div class="kp-ck-top"><b>Bảng tự kiểm tra kiến thức</b><span class="kp-ck-n">0/${L.length}</span></div>${L.map((t) => `<label><input type="checkbox" class="kp-ck-i"> ${inline(t)}</label>`).join("")}<small>Chỉ đánh dấu khi bạn có thể tự giải thích mà không nhìn tài liệu.</small></div>`;
+  }
+  document.addEventListener("change", (e) => { const c = e.target; if (!c.classList || !c.classList.contains("kp-ck-i")) return; const box = c.closest(".kp-ck"); const n = box.querySelectorAll(".kp-ck-i:checked").length, t = box.querySelectorAll(".kp-ck-i").length; box.querySelector(".kp-ck-n").textContent = n + "/" + t; if (n === t) box.classList.add("done"); else box.classList.remove("done"); });
   function md(text) {
+    const parts = String(text).split(/```[ \t]*([a-zA-ZÀ-ỹ]*)[ \t]*\n([\s\S]*?)```/);
+    if (parts.length === 1) return mdBase(text);
+    let out = "";
+    for (let i = 0; i < parts.length; i += 3) {
+      out += mdBase(parts[i]);
+      if (i + 2 < parts.length) {
+        const k = norm(parts[i + 1]), b = parts[i + 2];
+        out += /^(thanh|bar|timeline)$/.test(k) ? vizBar(b) : /^(sodo|flow|so do)$/.test(k) ? vizFlow(b) : /^(tukiemtra|checklist|kiemtra)$/.test(k) ? vizCheck(b) : mdBase(b);
+      }
+    }
+    return out;
+  }
+  function mdBase(text) {
     const lines = String(text).replace(/\r/g, "").replace(HEADFIX, "$1").replace(/^\((?:nội dung|noi dung):[^)]*\)\s*$/gimu, "").split("\n");
     let html = "",
       list = null,
@@ -5508,7 +5589,7 @@ render();
   const OUT = "[NGOAI_MON]",
     NODOC = "[CHUA_CO_TAI_LIEU]";
   const history = {};
-  function buildPrompt(q, lesson, sources, hist, chk) {
+  function buildPrompt(q, lesson, sources, hist, chk, opt2) {
     const system = [
       "Bạn là Kiến – trợ giảng ảo học phần Giải phẫu – Sinh lý cho sinh viên năm nhất Điều dưỡng, Hộ sinh, Phục hồi chức năng, Gây mê hồi sức, Xét nghiệm y học và Chẩn đoán hình ảnh. Giúp người học hiểu bài, ghi nhớ, hệ thống hóa, ôn tập, luyện trắc nghiệm; không thay thế giảng viên, không nhận quyền thay giảng viên.",
       "Chủ đề: giải phẫu hệ xương, cơ, hô hấp, tuần hoàn, tiêu hóa, thần kinh, tiết niệu, sinh dục, giác quan; sinh lý máu, thận, nội tiết, hô hấp, tuần hoàn, tiêu hóa, thần kinh, sinh dục và nội dung khác khi thuộc học liệu chính thức.",
@@ -5537,6 +5618,14 @@ render();
       "(B) CÂU HỎI VỀ MỘT PHẦN hay MỘT CHI TIẾT cụ thể (ví dụ: 'đầu trên xương đùi', 'đường ráp nằm ở đâu'): trả lời thẳng và đầy đủ ĐÚNG phần được hỏi, dùng đoạn ngắn hoặc bảng | Chi tiết | Đặc điểm |; có thể thêm 1–2 gạch đầu dòng **Ghi nhớ:**; dòng cuối cùng là **Câu hỏi tiếp theo:** một câu hỏi về ý gần kề để sinh viên tự kiểm tra.",
       "(C) SINH VIÊN ĐANG TRẢ LỜI câu hỏi Kiến vừa đặt (khi có mục CÂU HỎI KIỂM TRA KIẾN VỪA ĐẶT): mở đầu bằng **Chính xác!** nếu đúng; **Gần đúng!** nếu đúng một phần (nói rõ phần còn thiếu); **Chưa đúng.** nếu sai (nêu đáp án đúng, nhẹ nhàng động viên). Sau đó 1–3 câu giải thích theo giáo trình (in đậm ý chính, có số nguồn), rồi dòng cuối **Câu hỏi tiếp theo:** hỏi tiếp một ý kế cận, khó dần lên. Ngắn gọn, KHÔNG trình bày lại cả bài. Nếu tin nhắn thực ra là một câu hỏi mới thì dùng khung (A) hoặc (B).",
       "Câu hỏi tiếp theo và câu hỏi tự kiểm tra phải trả lời được từ chính các trích đoạn, không hỏi lại điều vừa giải thích xong.",
+      "BÀI SINH LÝ (khung A): # Tên (thuật ngữ quốc tế) → ## 1. Khái niệm → ## 2. Các giai đoạn / Cơ chế (mỗi giai đoạn một tiêu đề ### kèm thời gian nếu có, gạch đầu dòng diễn biến) → ## 3. Bảng tổng hợp dễ học → ## 4. Mẹo ghi nhớ khi đi thi (câu vần, công thức như 0,1 + 0,3 + 0,4 = 0,8 giây, bản chất cần hiểu) → ## 5. Câu hỏi tự kiểm tra.",
+      "MINH HỌA TRỰC QUAN (chỉ khi trích đoạn có đủ số liệu/quan hệ): hệ thống tự vẽ các khối sau, viết đúng cú pháp:",
+      "• Thanh thời gian/tỷ lệ (ví dụ các giai đoạn chu kỳ tim). Dòng đầu: Tiêu đề | Tổng | Ghi chú; mỗi dòng sau: Tên giai đoạn | số. Nhiều hàng thì mở mỗi hàng bằng dòng '# Tên hàng' và thêm cột thứ ba co hoặc giãn. Ví dụ:\n```thanh\nCác giai đoạn của chu kỳ tim | 0,8 giây | 75 nhịp/phút\nTâm nhĩ thu | 0,1\nTâm thất thu | 0,3\nTâm trương toàn bộ | 0,4\n```",
+      "• Sơ đồ mũi tên (dòng chảy, áp suất, van mở/đóng). Mỗi dòng một cột: Ô trên (chú thích) -> Ô dưới (chú thích) : nhãn mũi tên; dùng -x> khi bị chặn (van đóng). Ví dụ:\n```sodo\nTâm nhĩ (áp suất cao hơn thất) -> Tâm thất (áp suất thấp) : Van nhĩ thất mở\n```",
+      "• Bảng tự kiểm tra có ô đánh dấu: mỗi dòng một mục 'Nêu được… / Giải thích được… / Phân biệt được…'. Ví dụ:\n```tukiemtra\nNêu được định nghĩa chu kỳ tim.\nGiải thích được sự đóng mở của các van tim.\n```",
+      "KHI SINH VIÊN TRẢ LỜI 'không biết', trả lời sai hoặc bối rối: không chỉ đưa đáp án; hãy giải thích lại đơn giản hơn bằng MỘT nguyên tắc cốt lõi (in đậm), có thể kèm khối sodo, thêm **Ghi nhớ:** 1–2 gạch đầu dòng, rồi **Câu hỏi tiếp theo:** một câu DỄ hơn dạng trắc nghiệm 2–4 phương án. Khi sinh viên trả lời đúng liên tiếp thì tăng dần lên câu vận dụng, phân tích.",
+      "Câu hỏi trắc nghiệm trong hội thoại: viết dưới nhãn **Câu hỏi tiếp theo:**, mỗi phương án một dòng riêng dạng 'A. …', 'B. …'. Có thể đặt tên loại câu ngay sau nhãn, ví dụ **Câu hỏi tiếp theo:** (vận dụng) …",
+      "KHI SINH VIÊN HỎI 'mình đủ kiến thức chưa / đánh giá giúp mình': dựa trên NHẬT KÝ ÔN TẬP (nếu có) và hội thoại: câu nhận định ngắn (in đậm) → ## 1. Đánh giá kiến thức hiện tại: bảng | Nội dung | Mức độ nắm vững | với các mức Đã hiểu / Khá tốt / Cần củng cố / Chưa vững / Chưa kiểm tra → ## 2. Những kiến thức bạn cần nắm để đi thi: khối tukiemtra → ## 3. Bạn nên học tiếp như thế nào? (điểm còn dễ nhầm, mục tiêu nên đạt, đề xuất làm bài kiểm tra 10 câu). Nói rõ nếu số câu đã trả lời còn ít thì chưa đánh giá chính xác được.",
       "Trích đoạn có ghi 'Mục:' là tên các đề mục chứa đoạn đó; dùng nó để hiểu đoạn đang nói về cấu trúc nào. Đọc kỹ toàn bộ trích đoạn: câu trả lời có thể nằm giữa hoặc cuối trích đoạn, kể cả khi chữ bị lỗi quét (OCR) nhẹ; khi viết thì sửa lỗi chính tả do OCR cho đúng thuật ngữ.",
       "TẬP TRUNG ĐÚNG TRỌNG TÂM (nhất là khung B và C): xác định chính xác cấu trúc/vấn đề sinh viên hỏi và chỉ trả lời về đúng phần đó. Ví dụ hỏi 'đầu trên xương đùi' thì chỉ trình bày đầu trên (chỏm, cổ, mấu chuyển…); KHÔNG trình bày thân xương hay đầu dưới, nhiều nhất 1 câu ngắn giới thiệu bối cảnh.",
       "Trích đoạn thường chứa cả nội dung lân cận không được hỏi: BỎ QUA phần đó. Không mở rộng sang cấu trúc, cơ quan hay chức năng khác nếu sinh viên không hỏi.",
@@ -5554,6 +5643,7 @@ render();
       (hist.length
         ? "\n\nHỘI THOẠI GẦN ĐÂY:\n" + hist.map((h) => (h.role === "user" ? "Sinh viên: " : "Trợ giảng: ") + String(h.content).slice(0, 400)).join("\n")
         : "") +
+      (opt2 && opt2.log && opt2.log.length ? "\n\nNHẬT KÝ ÔN TẬP TRONG BUỔI NÀY (câu Kiến hỏi → sinh viên trả lời → kết quả):\n" + opt2.log.slice(-12).map((x, i) => (i + 1) + ". " + x.q.slice(0, 160) + " → " + x.reply.slice(0, 80) + " → " + ({ ok: "đúng", mid: "gần đúng", no: "sai" }[x.v] || "chưa rõ")).join("\n") : "") +
       (chk ? "\n\nCÂU HỎI KIỂM TRA KIẾN VỪA ĐẶT: " + chk.q + (chk.ans ? " (đáp án theo giáo trình: " + chk.ans + ")" : "") + "\nTIN NHẮN DƯỚI ĐÂY LÀ CÂU TRẢ LỜI CỦA SINH VIÊN cho câu hỏi đó (dùng khung C), trừ khi rõ ràng là một câu hỏi mới." : "") +
       "\n\n" + (chk ? "TIN NHẮN" : "CÂU HỎI") + " CỦA SINH VIÊN:\n" +
       q;
@@ -5715,12 +5805,17 @@ render();
   KP.askGV = () => read(ASKGV, []);
   // ---- Dạy kiểu gia sư: câu hỏi tự kiểm tra, chấm câu trả lời, bố cục tổng quan (dùng cả khi có và không có AI)
   const PEND = {}; // bài học -> câu hỏi kiểm tra Kiến vừa đặt { q, ans, full, doc, page, pool, at, ai }
+  const TLOG = {}; // bài học -> nhật ký ôn tập trong buổi: { q, reply, v: ok|mid|no|? }
+  const tlog = (l, x) => { (TLOG[l] ||= []).push(x); if (TLOG[l].length > 40) TLOG[l].shift(); };
+  KP.tutorLog = (l) => TLOG[l] || [];
+  const ASSESS = /(du kien thuc|nam (vung|duoc|het)( bai)? chua|da (vung|on|hieu bai) chua|danh gia (giup|kien thuc|muc do|trinh do)|minh (hoc|biet|hieu) (du|toi dau|den dau)|du (de|suc) (di )?thi chua|san sang (di )?thi)/;
+  const isAssess = (q) => ASSESS.test(norm(q));
   const QWORD = /\?|^(tai sao|vi sao|the nao|nhu the nao|mo ta|trinh bay|neu|ke ten|so sanh|giai thich|phan biet|cho (em|minh|toi) hoi|lam sao|chuc nang|cau tao|dac diem|hay|giup)\b|(la gi|the nao|tai sao|vi sao|o dau|nhu nao)( |$)/;
   function replyTo(lessonId, q) {
     const P = PEND[lessonId];
     if (!P || Date.now() - P.at > 45 * 60000) return null;
     const n = norm(q).trim();
-    if (!n || n.split(/\s+/).length > 16 || QWORD.test(n)) return null;
+    if (!n || n.split(/\s+/).length > 16 || QWORD.test(n) || ASSESS.test(n)) return null;
     return P;
   }
   KP.tutorPending = (l) => PEND[l] || null;
@@ -5769,6 +5864,7 @@ render();
   // chấm câu trả lời của sinh viên khi không có AI
   function gradeHTML(P, q, lesson) {
     const sc = gradeReply(P, q);
+    tlog(lesson.id, { q: P.q, reply: q, v: sc >= 0.99 ? "ok" : sc >= 0.5 ? "mid" : "no", ans: P.ans });
     const v = sc >= 0.99 ? `<p class="kp-tt-ok">✅ <b>Chính xác!</b></p>` : sc >= 0.5 ? `<p class="kp-tt-mid">🟡 <b>Gần đúng!</b> Đáp án đầy đủ là: <b>${esc(P.ans)}</b>.</p>` : `<p class="kp-tt-no">❌ <b>Chưa đúng.</b> Đáp án đúng là: <b>${esc(P.ans)}</b>. Không sao, bạn đọc lại câu dưới đây nhé.</p>`;
     const expl = `<div class="kp-focus"><div class="kp-focus-h">📖 Theo giáo trình</div><p>${esc(P.full)}</p><div class="kp-focus-src">${esc(P.doc || "")}${P.page ? " — " + esc(P.page) : ""}</div></div>`;
     const nx = clozeFrom(P.pool || [], new Set(P.used || []));
@@ -5820,6 +5916,13 @@ render();
         if (G) return wrap(`<p>Kiến chưa kết nối được AI nên chưa chấm được câu trả lời <b>“${esc(q)}”</b>. Bạn tự đối chiếu với giáo trình nhé:</p><div class="kp-focus"><div class="kp-focus-h">❓ ${esc(P.q)}</div><ul>${G.sents.map((x) => `<li>${hlText(stripNum(x), G.hl)}</li>`).join("")}</ul><div class="kp-focus-src">📖 ${esc(G.doc)}${G.page ? " — " + esc(G.page) : ""}</div></div>`);
       }
     }
+    if (isAssess(q)) {
+      const L = TLOG[lesson.id] || [];
+      const ok = L.filter((x) => x.v === "ok").length, mid = L.filter((x) => x.v === "mid").length;
+      const lv = (v) => (v === "ok" ? `<span class="kp-lv ok">Đã hiểu</span>` : v === "mid" ? `<span class="kp-lv mid">Cần củng cố</span>` : v === "no" ? `<span class="kp-lv no">Chưa vững</span>` : `<span class="kp-lv">Chưa rõ</span>`);
+      const verdict = !L.length ? "Bạn chưa trả lời câu hỏi kiểm tra nào trong buổi này nên mình chưa đánh giá được." : ok / L.length >= 0.8 && L.length >= 5 ? "Bạn đã nắm khá vững các ý đã ôn." : "Bạn đã nắm được một phần kiến thức, nhưng chưa đủ vững để tự tin đi thi.";
+      return wrap(`<p><b>${esc(verdict)}</b>${L.length ? ` Bạn trả lời đúng ${ok}/${L.length} câu${mid ? ", gần đúng " + mid + " câu" : ""}.` : ""}</p>${L.length ? `<h4 class="kp-tt-sub">1. Đánh giá kiến thức hiện tại</h4><div class="table-wrap"><table class="kp-md-table"><thead><tr><th>Câu Kiến đã hỏi</th><th>Bạn trả lời</th><th>Mức độ</th></tr></thead><tbody>${L.slice(-10).map((x) => `<tr><td>${esc(x.q.slice(0, 160))}</td><td>${esc(x.reply)}</td><td>${lv(x.v)}</td></tr>`).join("")}</tbody></table></div>` : ""}<h4 class="kp-tt-sub">${L.length ? "2" : "1"}. Bạn nên học tiếp như thế nào?</h4><p>${L.length < 5 ? "Số câu bạn đã trả lời còn ít nên mình chưa thể đánh giá chính xác toàn bộ kiến thức. " : ""}Mình đề xuất bạn làm <b>bài kiểm tra 10 câu</b> của bài này. Sau 10 câu, mình sẽ chấm điểm, chỉ ra phần còn yếu và hướng dẫn ôn tập. <b>Mục tiêu nên đạt: ít nhất 9/10 câu.</b></p><div class="suggestions"><button data-prompt="Bắt đầu bài kiểm tra 10 câu, từ trung bình đến khó">📝 Bắt đầu bài kiểm tra 10 câu</button></div>`);
+    }
     let F = null;
     try { F = focusAnswer(q, lesson.id); } catch (e) { console.warn(e); }
     // câu hỏi tổng quát: trình bày theo bố cục giáo trình
@@ -5854,11 +5957,31 @@ render();
   }
   // AI vừa đặt câu hỏi kiểm tra: ghi nhớ để lượt sau hiểu tin nhắn của sinh viên là câu trả lời
   function notePend(lessonId, text) {
-    const m = /(?:Câu hỏi tiếp theo|Câu hỏi tự kiểm tra)\**\s*:?\**\s*\n?([\s\S]{5,400})/i.exec(String(text || ""));
-    if (!m) { delete PEND[lessonId]; return; }
-    const qq = m[1].split(/\n\s*\n/)[0].replace(/\[\d+\]/g, "").replace(/[*_#>]/g, "").replace(/^\s*[-•\d.)]+\s*/gm, "").replace(/\s+/g, " ").trim();
+    const T = String(text || "");
+    const re = /(?:^|\n)\s*(?:#+\s*)?\**\s*(Câu hỏi tiếp theo|Câu hỏi tự kiểm tra|Câu hỏi vận dụng|Câu hỏi phân tích|Thử trả lời[^:\n]{0,40}|Bạn thử lại[^:\n]{0,40}|Bạn thử trả lời[^:\n]{0,40})\**\s*:?\**\s*/gi;
+    let m, last = null;
+    while ((m = re.exec(T))) last = m;
+    if (!last) { delete PEND[lessonId]; return; }
+    const lines = T.slice(last.index + last[0].length).split("\n").map((x) => x.trim());
+    const out = [];
+    let opts = 0;
+    for (let li = 0; li < lines.length; li++) {
+      const ln = lines[li];
+      if (!ln) {
+        if (!out.length) continue;
+        let nx = li + 1; while (nx < lines.length && !lines[nx]) nx++;
+        if (nx < lines.length && /^\**[A-D][.)]\s/.test(lines[nx])) continue;
+        break;
+      }
+      if (/^#{1,4}\s/.test(ln) || /^```/.test(ln)) break;
+      if (/^\**[A-D][.)]\s/.test(ln)) opts++;
+      else if (opts) break;
+      out.push(ln);
+      if (out.length > 8) break;
+    }
+    const qq = out.join(" ").replace(/\[\d+\]/g, "").replace(/[*_#>]/g, "").replace(/\s+/g, " ").trim();
     if (qq.length < 5) { delete PEND[lessonId]; return; }
-    PEND[lessonId] = { q: qq.slice(0, 300), ai: true, at: Date.now() };
+    PEND[lessonId] = { q: qq.slice(0, 500), ai: true, at: Date.now() };
   }
   async function askAI(q, lesson, opt = {}) {
     const hist = (history[lesson.id] ||= []);
@@ -5866,8 +5989,9 @@ render();
     const standalone = hits.length > 0;
     const follow = /(^| )(no|do|nay|vay|the|ay|chung|tren|kia|con|phan nay|y nay)( |$)/.test(norm(q)) && q.split(/\s+/).length <= 12;
     const chk = replyTo(lesson.id, q);
+    const assess = isAssess(q);
     if (chk) hits = retrieve(chk.q.replace(/……/g, " ") + " " + q, lesson.id);
-    const hit = standalone && !chk ? cacheGet(lesson.id, q) : null;
+    const hit = standalone && !chk && !assess ? cacheGet(lesson.id, q) : null;
     if (hit) {
       notePend(lesson.id, hit.text);
       hist.push({ role: "user", content: q }, { role: "assistant", content: hit.text });
@@ -5916,7 +6040,7 @@ render();
       scope = /NGOAI_MON/.test(cls) ? "off" : "nodoc";
       text = scope === "off" ? MSG.off : hasDocs ? MSG.nodoc : MSG.nodoc + " (Bài này hiện chưa có tài liệu được duyệt.)";
     } else {
-      const p = buildPrompt(q, lesson, sources, hist.slice(-2), chk);
+      const p = buildPrompt(q, lesson, sources, hist.slice(-4), chk, { log: assess || chk ? TLOG[lesson.id] || [] : [] });
       text = String(await callAI(p.system, p.user, false, opt)).trim();
       if (text.includes(OUT) && text.replace(OUT, "").trim().length < 40) scope = "off";
       else if (text.includes(NODOC) && text.replace(NODOC, "").trim().length < 40) scope = "nodoc";
@@ -5936,8 +6060,10 @@ render();
     hist.push({ role: "user", content: q }, { role: "assistant", content: text });
     if (hist.length > 12) hist.splice(0, hist.length - 12);
     const out = { text, scope, sources: used, via: sources.length ? lastVia : "shared" };
+    if (chk) { const t0 = norm(String(text).slice(0, 80)); tlog(lesson.id, { q: chk.q, reply: q, v: /^(khong biet|chiu|khong nho|bo qua|em khong biet|minh khong biet)/.test(norm(q)) ? "no" : /(chinh xac|dung roi|rat tot|tuyet voi)/.test(t0) ? "ok" : /gan dung|dung mot phan/.test(t0) ? "mid" : /(chua dung|sai|chua chinh xac)/.test(t0) ? "no" : "?" }); }
     if (scope === "in") notePend(lesson.id, text); else if (chk) delete PEND[lesson.id];
-    if (standalone && !chk) cachePut(lesson.id, q, out);
+    if (standalone && !chk && !assess) cachePut(lesson.id, q, out);
+    out.assess = assess;
     return out;
   }
   function answerHTML(r) {
@@ -5954,7 +6080,7 @@ render();
       )
       .join(
         "",
-      )}</div>${/Câu hỏi (tiếp theo|tự kiểm tra)/i.test(r.text) ? `<p class="kp-tt-hint">✍️ Bạn gõ câu trả lời vào ô chat, Kiến sẽ chấm và hỏi tiếp.</p>` : `<p>Đến đây bạn đã hiểu rõ chưa, hay bạn có hỏi gì thêm không?</p>`}<div class="suggestions"><button data-prompt="Tôi đã nắm kiến thức">Tôi đã nắm kiến thức</button></div>`;
+      )}</div>${/Câu hỏi (tiếp theo|tự kiểm tra)/i.test(r.text) ? `<p class="kp-tt-hint">✍️ Bạn gõ câu trả lời vào ô chat, Kiến sẽ chấm và hỏi tiếp.</p>` : `<p>Đến đây bạn đã hiểu rõ chưa, hay bạn có hỏi gì thêm không?</p>`}${(() => { const T = String(r.text); const i = T.search(/Câu hỏi (tiếp theo|vận dụng|tự kiểm tra|phân tích)|Thử trả lời|Bạn thử lại/i); if (i < 0) return ""; const ops = [...T.slice(i).matchAll(/^\**([A-D])[.)]\**\s+(.+)$/gm)].slice(0, 4); return ops.length >= 2 ? `<div class="kp-cq-opts kp-inl-opts">${ops.map((m) => `<button type="button" data-prompt="${m[1]}. ${esc(m[2].replace(/[*_]/g, "").trim())}"><b>${m[1]}.</b> ${esc(m[2].replace(/[*_]/g, "").trim())}</button>`).join("")}</div>` : ""; })()}<div class="suggestions">${r.assess || /kiểm tra (gồm )?10 câu/i.test(r.text) ? `<button data-prompt="Bắt đầu bài kiểm tra 10 câu, từ trung bình đến khó">📝 Bắt đầu bài kiểm tra 10 câu</button>` : ""}<button data-prompt="Tôi đã nắm kiến thức">Tôi đã nắm kiến thức</button></div>`;
   }
   const prevSend = sendMessage;
   sendMessage = async function (q) {
@@ -6099,7 +6225,7 @@ render();
   // ---- Trắc nghiệm trong khung chat (giống trợ giảng của bộ môn): mỗi lượt N câu (mặc định 10), hỏi từng câu, không lộ đáp án
   // cho đến hết lượt; cuối lượt báo điểm, tỷ lệ, từng câu đúng/sai kèm giải thích có nguồn; mời làm lượt mới / ôn câu sai / đổi chủ đề.
   const CQ = {}; // bài -> lượt đang làm
-  const QZ_START = /(^| )(trac nghiem|quiz|lam bai kiem tra|kiem tra (nhanh|thu)|on tap \d+ cau|\d+ cau (hoi )?(trac nghiem|kiem tra|on tap))( |$)/;
+  const QZ_START = /(^| )(trac nghiem|quiz|(lam|bat dau) (bai|luot) kiem tra|bai kiem tra \d+ cau|kiem tra (nhanh|thu|\d+ cau)|on tap \d+ cau|\d+ cau (hoi )?(trac nghiem|kiem tra|on tap))( |$)/;
   const QZ_STOP = /^(dung|thoi|ket thuc|xem dap an|cho xem dap an|huy|stop|dung lai|nop bai)( .*)?$/;
   const LET = "ABCD";
   const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -6107,7 +6233,7 @@ render();
     const idx = shuffle([0, 1, 2, 3]);
     return { ...q, opts: idx.map((i) => q.opts[i]), answer: idx.indexOf(q.answer) };
   }
-  const topicOf = (q) => String(q).replace(/(tạo|làm|cho|mình|em|tôi|một|lượt|bài|trắc nghiệm|quiz|kiểm tra|ôn tập|\d+\s*câu( hỏi)?|về|từ|trung bình|đến|khó|dễ|nhé|nha|giúp|với|đi)/giu, " ").replace(/[,.!?:;]/g, " ").replace(/\s+/g, " ").trim();
+  const topicOf = (q) => String(q).replace(/(bắt đầu|mô tả|trình bày|hãy|tạo|làm|cho|mình|em|tôi|một|lượt|bài|trắc nghiệm|quiz|kiểm tra|ôn tập|\d+\s*câu( hỏi)?|về|từ|trung bình|đến|khó|dễ|nhé|nha|giúp|với|đi)/giu, " ").replace(/[,.!?:;]/g, " ").replace(/\s+/g, " ").trim();
   // câu hỏi soạn từ giáo trình khi không có AI: điền khuyết thành 4 phương án
   function offlineMCQ(lessonId, topic, n) {
     const okH = (c) => !QUIZH.test(c.head || "") && !/^\s*\d+\s*\//.test(c.text);
@@ -6175,7 +6301,8 @@ render();
   }
   function qHTML(Z) {
     const q = Z.qs[Z.i];
-    return `<div class="kp-cq"><div class="kp-cq-h">📝 Câu ${Z.i + 1}/${Z.qs.length}</div><p class="kp-cq-stem">${esc(q.stem)}</p><div class="kp-cq-opts">${q.opts.map((o, k) => `<button type="button" data-prompt="${LET[k]}"><b>${LET[k]}.</b> ${esc(o)}</button>`).join("")}</div><small>Chọn một đáp án (bấm nút hoặc gõ A, B, C, D). Kiến sẽ chấm sau câu ${Z.qs.length}. Gõ “dừng” để kết thúc sớm và xem đáp án.</small></div>`;
+    const lvl = q.level === 3 ? "Phân tích" : q.level === 2 ? "Vận dụng" : q.origin === "doc" ? "Ghi nhớ" : "Thông hiểu";
+    return `<div class="kp-cq"><div class="kp-cq-top"><b>Câu ${Z.i + 1}/${Z.qs.length}</b><span>Mức độ: ${lvl}</span></div><div class="kp-cq-prog"><i style="width:${Math.round(((Z.i + 1) / Z.qs.length) * 100)}%"></i></div><p class="kp-cq-stem">${esc(q.stem)}</p><div class="kp-cq-opts">${q.opts.map((o, k) => `<button type="button" data-prompt="${LET[k]}"><b>${LET[k]}.</b> ${esc(o)}</button>`).join("")}</div><small>Chọn một đáp án (bấm nút hoặc gõ A, B, C, D). Kiến sẽ chấm sau câu ${Z.qs.length}. Gõ “dừng” để kết thúc sớm và xem đáp án.</small></div>`;
   }
   function reportHTML(Z, stopped) {
     const done = Z.ans.length, ok = Z.qs.slice(0, done).filter((q, i) => Z.ans[i] === q.answer).length;
@@ -6219,7 +6346,8 @@ render();
     let n = 10;
     const m = /(\d+)\s*câu/i.exec(q);
     if (m) n = Math.max(3, Math.min(20, parseInt(m[1], 10)));
-    const topic = again ? Z.topic : /^lam luot/.test(nq) && Z ? Z.topic : topicOf(q);
+    let topic = again ? Z.topic : /^lam luot/.test(nq) && Z ? Z.topic : topicOf(q);
+    if (!topic && !again) { const hu = (history[lesson.id] || []).filter((h) => h.role === "user" && String(h.content).split(/\s+/).length >= 3 && !isAssess(h.content)).pop(); if (hu) topic = topicOf(hu.content).slice(0, 60); }
     box.insertAdjacentHTML("beforeend", `<div class="message user">${typeof baseAvatar === "function" ? baseAvatar() : avatar()}<div class="bubble">${esc(q)}</div></div><div class="message" id="kp-pending"><div class="avatar">${icon("dna")}</div><div class="bubble">⏳ Kiến đang soạn ${again ? "lại các câu sai" : n + " câu trắc nghiệm"}…</div></div>`);
     box.scrollTop = box.scrollHeight;
     let qs = [], note = "";
