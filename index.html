@@ -3715,7 +3715,7 @@ html body .kd-nopdf.kd-anyfile{background:#e8f6ee;border-color:#9fd8b5;color:#14
 .kp-mdl-st{display:block;font-size:12.5px;font-weight:500;color:#8a5a00;margin-top:4px;min-height:1em}.kp-mdl-st.ok{color:#16794a}
 .kp-mdl-hint{font-weight:400;color:#888}
 @media (max-width:480px){.kp-mdl-row{flex-direction:column}}
-html body .kp-gvinfo .kp-tks.kp-home-tks{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important;margin:14px 0 0!important;max-width:760px}
+html body .kp-gvinfo .kp-tks.kp-home-tks{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(168px,1fr))!important;gap:10px!important;margin:14px 0 0!important;max-width:none}
 html body .kp-gvinfo .kp-home-tks .kp-tk{padding:10px 12px!important;min-height:0!important}
 html body .kp-gvinfo .kp-home-tks .kp-tk b{font-size:20px!important;line-height:1.2}
 html body .kp-gvinfo .kp-home-tks .kp-tk small{font-size:12.5px!important}
@@ -3728,7 +3728,7 @@ html body .kp-gvinfo .kp-home-tks .kp-tk span{font-size:11.5px!important}
 html body .card:has(> .rs-head:first-child){padding-top:0!important}
 html body .card > .rs-head:first-child{margin:0 -18px 14px!important;border-radius:11px 11px 0 0!important;padding:12px 18px!important;background:#e6effd!important;border:0!important;border-bottom:1px solid #dad9f7!important;box-shadow:none!important}
 /* ô thống kê gọn: tự chia cột theo bề ngang, không bè to */
-html body #page-content .kp-tks:not(.kp-home-tks){grid-template-columns:repeat(auto-fill,minmax(168px,1fr))!important;gap:10px!important}
+html body #page-content .kp-tks:not(.kp-home-tks){grid-template-columns:repeat(auto-fit,minmax(168px,1fr))!important;gap:10px!important}
 html body #page-content .kp-tks:not(.kp-home-tks) .kp-tk{padding:11px 13px!important;min-height:0!important}
 html body #page-content .kp-tks:not(.kp-home-tks) .kp-tk>b{font-size:22px!important;line-height:1.25!important}
 @media (max-width:420px){html body #page-content .kp-tks:not(.kp-home-tks){grid-template-columns:repeat(2,minmax(0,1fr))!important}}
@@ -3909,6 +3909,145 @@ html body pre.ov-txb{content-visibility:auto;contain-intrinsic-size:auto 900px;m
 .kp-ch-s b{color:#24507e;font-size:15px}.kp-ch-s span{color:#434163;font-size:13.5px}
 .kp-ch-ar{text-align:center;color:#4f86bd;font-size:18px;line-height:1.4}
 .kp-ch-loop{text-align:center;color:#4f86bd;margin-top:8px;font-weight:600}
+/* điểm dừng sau 5 câu, kiểm tra nhanh */
+.kp-brk{margin-top:14px;border:1px solid #d9d4ff;background:linear-gradient(180deg,#f7f5ff,#fff);border-radius:16px;padding:14px 16px}
+.kp-brk-h{font-weight:700;font-size:16px;color:#4b2a91;margin-bottom:4px}
+.kp-brk p{margin:6px 0}
+.kp-brk .kp-rp-next{margin-top:10px}
+.kp-brk-f{display:block;margin-top:10px;color:#6b6480}
+.kp-gate{border-radius:14px;padding:12px 16px;margin:0 0 12px}
+.kp-gate p{margin:4px 0 0}
+.kp-gate.ok{background:#eaf7ef;border:1px solid #9fd5b4;color:#1f5e3c}
+.kp-gate.no{background:#fff4e8;border:1px solid #f2c08f;color:#7a4510}
+/* chi tiết từng câu của một lượt kiểm tra (GV/Admin) */
+.kp-ad-row>td{padding:0 8px 8px!important;background:#fbfbff}
+.kp-ad-row details>summary{cursor:pointer;color:#4b2a91;font-weight:600;padding:6px 0;font-size:13px}
+.kp-ad{margin:4px 0 6px}
+.kp-ad-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:4px 0 8px}
+.kp-ad-tiles{display:flex;gap:4px;flex-wrap:wrap}
+.kp-ad-t{display:inline-flex;align-items:center;gap:2px;border-radius:8px;padding:2px 7px;font-size:12px;border:1px solid}
+.kp-ad-t i{font-style:normal}
+.kp-ad-t.ok{color:#2f8a5c;border-color:#9fd5b4;background:#eaf7ef}.kp-ad-t.no{color:#b2434d;border-color:#efb1b6;background:#fdeef0}
+.kp-ad-tb td,.kp-ad-tb th{white-space:normal;word-break:break-word;vertical-align:top;font-size:13px}
+.kp-ad-tb tr.no td:first-child{box-shadow:inset 3px 0 0 #d9707a}.kp-ad-tb tr.ok td:first-child{box-shadow:inset 3px 0 0 #5bb585}
+.kp-ad-tb details summary{cursor:pointer;color:#6b6480;font-size:12px}
+.kp-ad-note{color:#6b6480;font-size:13px}
+.kp-ad-ids{display:flex;flex-wrap:wrap;gap:4px}.kp-ad-ids span{font-size:12px;border-radius:6px;padding:2px 6px;background:#f0eff9}.kp-ad-ids .no{color:#b2434d}.kp-ad-ids .ok{color:#2f8a5c}
+.kp-ct-sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:4px 0 12px}
+.kp-ct-sum div{border:1px solid #e4e3f3;border-radius:12px;padding:10px 12px;background:#fbfbff}
+.kp-ct-sum small{display:block;color:#57557a}.kp-ct-sum b{font-size:20px;color:#211f4a}
+.kp-ct-row{cursor:pointer}.kp-ct-row:hover td{background:#f7f6ff}
+.kp-ct-tb td{vertical-align:top}
+.kp-ct-b{display:inline-block;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600}
+.kp-ct-b.ok{background:#eaf7ef;color:#1f6e45}.kp-ct-b.mid{background:#fff4e8;color:#8a4b12}.kp-ct-b.no{background:#fdeef0;color:#9e2f3a}
+.kp-ct-btn{white-space:nowrap;padding:4px 10px!important;font-size:12px!important}
+.kp-md .kp-st-table{max-height:none;overflow-x:auto;overflow-y:visible}
+.kp-ad .table-wrap{max-height:none;overflow-x:auto}
+.kp-ct-card .kp-st-table{max-height:560px}
+.kp-ad-tb th:first-child,.kp-ad-tb td:first-child{width:42px;white-space:nowrap;word-break:normal}
+.kp-ad-tb th:last-child,.kp-ad-tb td:last-child{width:72px;white-space:nowrap;word-break:normal}
+.kp-qk-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+.kp-qk-tabs button{border:1px solid #d9d4ff;background:#fff;border-radius:999px;padding:7px 14px;font:inherit;font-size:14px;cursor:pointer;color:#433a8a}
+.kp-qk-tabs button.on{background:#4b3fd6;color:#fff;border-color:#4b3fd6}
+.kp-qk-q td{vertical-align:top;white-space:normal}
+.kp-qk-q td:first-child{min-width:260px}
+.kp-qk-opts{list-style:none;padding:0;margin:8px 0;display:flex;flex-direction:column;gap:6px}
+.kp-qk-opts li{display:grid;grid-template-columns:auto 1fr;gap:4px 8px;align-items:center;border:1px solid #e4e3f3;border-radius:10px;padding:8px 10px}
+.kp-qk-opts li.ok{border-color:#9fd5b4;background:#eaf7ef}
+.kp-qk-opts li small{grid-column:2;color:#57557a}
+.kp-qk-bar{grid-column:2;display:block;height:6px;background:#efeef8;border-radius:6px;overflow:hidden}
+.kp-qk-bar i{display:block;height:100%;background:#8f86e6}
+.kp-qk-opts li.ok .kp-qk-bar i{background:#3f9a6b}
+.kp-qk-stem{font-size:15px}
+/* bảng kiểm tra trong hỏi đáp / kiểm tra nhanh: chữ tự xuống dòng, không tràn sang ô bên cạnh */
+html body #page-content .kp-ct-card .table-wrap td,html body #page-content .kp-ct-card .table-wrap th,#modal .kp-ad-tb td,#modal .kp-md .kp-st-table td{white-space:normal!important;overflow-wrap:anywhere;word-break:normal;overflow:hidden;vertical-align:top}
+html body #page-content .kp-ct-card .table-wrap th{white-space:nowrap!important}
+html body #page-content .kp-ct-card table{table-layout:auto!important;width:100%}
+html body #page-content .kp-qk-q td:nth-child(1){min-width:280px;max-width:460px}
+html body #page-content .kp-qk-q td:nth-child(3){min-width:120px;max-width:200px}
+html body #page-content .kp-qk-q td:nth-child(6),html body #page-content .kp-qk-q td:nth-child(7){min-width:120px;max-width:240px}
+html body #page-content .kp-ct-tb td:nth-child(5){max-width:220px}
+html body #page-content .kp-ct-card .table-wrap{overflow-x:auto}
+.kp-ppq-tb td:nth-child(1){min-width:280px;max-width:460px}
+.kp-gvrp-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.kp-gvrp-top .btn{white-space:nowrap}
+.kp-ad-acts{margin:4px 0 8px}
+.kp-ad-acts .btn{font-size:13px!important;padding:6px 12px!important}
+.kp-gvrp h3{font-size:16px;margin:16px 0 8px;color:#211f4a}
+.kp-gvrp-adv li{margin:4px 0}
+.kp-ctf-row{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:flex-end}
+.kp-ctf-f{display:flex;flex-direction:column;gap:4px;font-size:13px;color:#57557a;min-width:190px;flex:1 1 190px;position:relative}
+.kp-ms{position:relative}
+.kp-ms>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:6px;width:100%;box-sizing:border-box;white-space:nowrap;padding:8px 32px 8px 12px;min-height:40px;position:relative;color:#2b2a45;border:1px solid #cfcce6;border-radius:10px;background:#fff}
+.kp-ms>summary .kp-ms-t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.kp-ms>summary:hover{border-color:#8b85e0}
+.kp-ms>summary::-webkit-details-marker{display:none}
+.kp-ms>summary::after{content:"▾";position:absolute;right:10px;top:50%;transform:translateY(-50%);color:#6b6990}
+.kp-ms>summary.on{border-color:#4f46e5;background:#f3f2ff;font-weight:600}
+.kp-ms-n{flex:none;background:#4f46e5;color:#fff;border-radius:999px;font-size:11px;padding:1px 7px;font-weight:700}
+.kp-ms-pop{position:absolute;z-index:40;left:0;top:calc(100% + 4px);min-width:100%;width:max-content;max-width:min(420px,90vw);background:#fff;border:1px solid #dcdaf0;border-radius:12px;box-shadow:0 12px 30px rgba(40,30,90,.18);padding:10px;box-sizing:border-box}
+.kp-ms-q{width:100%;box-sizing:border-box;margin-bottom:8px}
+.kp-ms-act{display:flex;gap:6px;margin-bottom:6px}
+.kp-ms-act .btn{padding:4px 10px;font-size:12px;min-height:0}
+.kp-ms-list{max-height:260px;overflow:auto;display:flex;flex-direction:column}
+.kp-ms-it{display:flex;align-items:center;gap:8px;padding:6px 6px;border-radius:8px;cursor:pointer;color:#2b2a45;font-size:14px}
+.kp-ms-it:hover{background:#f3f2ff}
+.kp-ms-it[hidden]{display:none}
+.kp-ms-it input{width:16px;height:16px;flex:none;accent-color:#4f46e5}
+.kp-ctf-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.kp-ctf-chip{border:1px solid #c9c5f5;background:#f3f2ff;color:#3730a3;border-radius:999px;padding:3px 10px;font-size:13px;cursor:pointer}
+.kp-ctf-chip:hover{background:#e6e3ff}
+.kp-ctf-info{margin:10px 0 6px;font-size:14px}
+.kp-ctf-exp{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+.kp-ctf-help{font-size:13px}
+
+.kp-ctf-cmps{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:8px 0 6px;font-size:14px;color:#57557a}
+.kp-ctf-cmp{display:inline-flex;align-items:center;gap:6px;border:1px solid #d6d3f0;background:#faf9ff;border-radius:10px;padding:6px 12px;cursor:pointer;color:#2b2a45;font-weight:600}
+.kp-ctf-cmp small{font-weight:400;color:#6b6990}
+.kp-ctf-cmp input{width:16px;height:16px;accent-color:#4f46e5}
+.kp-ctf-cmp:has(input:checked){border-color:#4f46e5;background:#eeecff}
+.kp-ctf-cmp.off{opacity:.55;cursor:not-allowed}
+
+.rp-paper .rp-tbl th,.rp-paper .rp-tbl td{overflow-wrap:anywhere;word-break:normal;white-space:normal}
+.rp-paper .rp-tbl.rp-wide,.rp-paper .rp-tbl.rp-wide th{font-size:10pt}
+.rp-paper .rp-tbl.rp-wide th,.rp-paper .rp-tbl.rp-wide td{padding:2px 4px}
+.rp-paper .rp-cap{font-weight:bold;margin:10px 0 4px}
+.rp-paper figure.rp-fig svg{max-width:100%;height:auto}
+
+/* Khung chat kiểu Zalo / Messenger */
+body.kp-student .chat-shell{position:relative;display:flex;flex-direction:column;min-height:0;max-height:none}
+body.kp-student .chat-shell .chat-toolbar,body.kp-student .chat-shell .chat-compose{flex:none}
+body.kp-student .chat-shell #messages{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scroll-behavior:auto}
+body.kp-student .chat-shell #messages .bubble{max-width:100%;min-width:0;overflow-wrap:anywhere}
+body.kp-student .chat-shell #messages .bubble img,body.kp-student .chat-shell #messages .bubble svg,body.kp-student .chat-shell #messages .bubble table{max-width:100%}
+body.kp-student .chat-shell #messages .bubble pre{white-space:pre-wrap}
+.kp-chat-down{position:absolute;left:50%;transform:translateX(-50%);z-index:6;border:1px solid #cfcbf5;background:#fff;color:#3730a3;border-radius:999px;padding:7px 14px;font-weight:700;font-size:14px;box-shadow:0 8px 20px -8px #3b2f9a66;cursor:pointer}
+.kp-chat-down[hidden]{display:none}
+.kp-chat-down.kp-new{background:#4f46e5;color:#fff;border-color:#4f46e5}
+.kp-chat-down.kp-new span::after{content:" ✨"}
+@media(max-width:700px){
+ body.kp-student .chat-shell .chat-toolbar{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px}
+ body.kp-student .chat-shell .chat-toolbar .lesson-meta{font-size:12px}
+ body.kp-student .chat-shell .chat-toolbar .btn.secondary{padding:6px 10px;font-size:13px;min-height:0;white-space:nowrap}
+ body.kp-student .chat-shell .chat-compose{padding:8px 10px}
+ body.kp-student .chat-shell .chat-compose .chat-note{font-size:11px;line-height:1.35;margin-top:4px}
+ body.kp-student .chat-shell .chat-compose .chat-note .kb-disc{display:none}
+}
+
+/* Chấm tròn cập nhật nổi phía trên */
+.kp-upd{position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;align-items:center;gap:0;height:30px;min-width:30px;padding:0 8px;border-radius:999px;border:1px solid #d9d5ff;background:rgba(255,255,255,.96);box-shadow:0 8px 22px -10px #3b2f9a88;color:#3730a3;font:600 12.5px/1 inherit;cursor:default;transition:opacity .25s,transform .25s;backdrop-filter:blur(6px)}
+.kp-upd[hidden]{display:none}
+.kp-upd .kp-upd-dot{width:14px;height:14px;border-radius:50%;border:2.5px solid #c7c2ff;border-top-color:#4f46e5;animation:kpUpdSpin .8s linear infinite;flex:none}
+.kp-upd .kp-upd-t{max-width:0;overflow:hidden;white-space:nowrap;transition:max-width .25s,margin .25s}
+.kp-upd:hover .kp-upd-t,.kp-upd[data-st=wait] .kp-upd-t{max-width:260px;margin-left:8px}
+.kp-upd[data-st=wait]{cursor:pointer;background:#4f46e5;color:#fff;border-color:#4f46e5}
+.kp-upd[data-st=wait] .kp-upd-dot{border:0;background:#fff;animation:kpUpdPulse 1.2s ease-in-out infinite}
+.kp-upd[data-st=done]{background:#e9f8ef;border-color:#9fdcb7;color:#1d7a46}
+.kp-upd[data-st=done] .kp-upd-dot{border:0;background:#2e9e5b;animation:none;position:relative}
+.kp-upd[data-st=done] .kp-upd-dot::after{content:"✓";position:absolute;inset:0;color:#fff;font-size:10px;line-height:14px;text-align:center}
+@keyframes kpUpdSpin{to{transform:rotate(360deg)}}
+@keyframes kpUpdPulse{0%,100%{transform:scale(.8);opacity:.75}50%{transform:scale(1.1);opacity:1}}
+@media (prefers-reduced-motion:reduce){.kp-upd .kp-upd-dot{animation:none}}
 
 </style>
 </head><body><div id="app"></div><div id="toast" role="status"></div><dialog id="modal"><div id="modal-body"></div><button class="modal-close icon-button" aria-label="Đóng">✕</button></dialog>
@@ -4016,6 +4155,85 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
 </script>
 <script>
 (function(){var L=function(){delete window.XLSX;var t=document.getElementById('lib-xlsx');if(t){var s=document.createElement('script');s.text=t.textContent;document.head.appendChild(s);t.remove();}return window.XLSX;};Object.defineProperty(window,'XLSX',{configurable:true,get:L,set:function(v){delete window.XLSX;window.XLSX=v;}});})();
+</script>
+<script>
+// ---- Nhiều tài khoản mở cùng lúc trên một trình duyệt (chế độ máy chủ chung)
+// Mỗi tab đăng nhập tài khoản nào thì dùng bản dữ liệu riêng của tài khoản đó (khóa có tiền tố "kns:<mã>|"),
+// nên SV học bài 1, SV khác làm pre-test, GV đang soạn bài… mở song song mà không tab nào đè dữ liệu tab nào.
+// Chế độ không có máy chủ (dữ liệu chỉ trên máy này) giữ nguyên như cũ: mọi tài khoản dùng chung một kho.
+(function () {
+  const P = Storage.prototype;
+  const G0 = P.getItem, S0 = P.setItem, R0 = P.removeItem, K0 = P.key;
+  const LD = Object.getOwnPropertyDescriptor(P, "length");
+  const L0 = LD && LD.get;
+  let LSo = null;
+  try { LSo = window.localStorage; } catch (e) { return; }
+  if (!LSo || !L0) return;
+  const PRE = "kns:";
+  let NS = "";
+  // khóa nào tách theo tài khoản: mọi dữ liệu đồng bộ với máy chủ + dấu "đang đăng nhập"
+  const scoped = (k) => {
+    if (typeof k !== "string" || !/^kien-/.test(k)) return false;
+    if (k === "kien-cloud-who") return true;
+    const f = window.__kienKind;
+    return f ? f(k) !== "local" : false;
+  };
+  const isLS = (st) => st === LSo;
+  let list = null; // danh sách khóa nhìn thấy trong tab này (tính lại khi kho đổi)
+  const dirty = () => { list = null; };
+  function keys() {
+    if (list) return list;
+    const n = L0.call(LSo), out = [];
+    for (let i = 0; i < n; i++) {
+      const k = K0.call(LSo, i);
+      if (k == null) continue;
+      if (k.startsWith(PRE)) { if (NS && k.startsWith(NS)) out.push(k.slice(NS.length)); continue; }
+      if (NS && scoped(k)) continue;
+      out.push(k);
+    }
+    return (list = out);
+  }
+  const map = (k) => (NS && scoped(k) ? NS + k : k);
+  P.getItem = function (k) { return isLS(this) ? G0.call(this, map(String(k))) : G0.apply(this, arguments); };
+  P.setItem = function (k, v) { if (!isLS(this)) return S0.apply(this, arguments); dirty(); return S0.call(this, map(String(k)), v); };
+  P.removeItem = function (k) { if (!isLS(this)) return R0.apply(this, arguments); dirty(); return R0.call(this, map(String(k))); };
+  P.key = function (i) { if (!isLS(this)) return K0.apply(this, arguments); const a = keys(); return i >= 0 && i < a.length ? a[i] : null; };
+  Object.defineProperty(P, "length", { configurable: true, enumerable: LD.enumerable, get: function () { return isLS(this) ? keys().length : L0.call(this); } });
+  // sự kiện "storage" từ tab khác: chỉ chuyển cho tab cùng tài khoản, bỏ tiền tố
+  const AE = window.addEventListener, RE = window.removeEventListener, W = new WeakMap();
+  const wrap = (fn) => {
+    if (W.has(fn)) return W.get(fn);
+    const w = function (e) {
+      dirty();
+      const k = e.key;
+      if (k == null) return typeof fn === "function" ? fn.call(this, e) : fn.handleEvent(e);
+      let key = k;
+      if (k.startsWith(PRE)) { if (!NS || !k.startsWith(NS)) return; key = k.slice(NS.length); }
+      else if (NS && scoped(k)) return;
+      const ev = key === k ? e : { type: "storage", key, newValue: e.newValue, oldValue: e.oldValue, url: e.url, storageArea: e.storageArea, target: e.target };
+      return typeof fn === "function" ? fn.call(this, ev) : fn.handleEvent(ev);
+    };
+    W.set(fn, w); return w;
+  };
+  window.addEventListener = function (t, fn, o) { return AE.call(this, t, t === "storage" && fn ? wrap(fn) : fn, o); };
+  window.removeEventListener = function (t, fn, o) { return RE.call(this, t, t === "storage" && fn && W.has(fn) ? W.get(fn) : fn, o); };
+  AE.call(window, "storage", dirty);
+  // dọn bản dữ liệu của các tài khoản đã đóng tab (không còn báo "đang đăng nhập" trong 2 phút) — máy dùng chung không lộ dữ liệu
+  try {
+    const n = L0.call(LSo), by = {};
+    for (let i = 0; i < n; i++) { const k = K0.call(LSo, i); if (k && k.startsWith(PRE)) { const ns = k.slice(0, k.indexOf("|") + 1); (by[ns] ||= []).push(k); } }
+    Object.keys(by).forEach((ns) => {
+      let w = null; try { w = JSON.parse(G0.call(LSo, ns + "kien-cloud-who") || "null"); } catch (e) {}
+      if (!w || !w.t || Date.now() - w.t > 120000) by[ns].forEach((k) => R0.call(LSo, k));
+    });
+  } catch (e) {}
+  window.__kienNS = {
+    // đặt bản dữ liệu riêng cho tài khoản đang đăng nhập ở tab này ("" = dùng chung)
+    set(id) { NS = id ? PRE + String(id).toLowerCase() + "|" : ""; dirty(); },
+    get: () => NS,
+  };
+})();
+
 </script>
 <script>
 // ---- Bắt đầu sạch: lần đầu mở bản này trên mỗi trình duyệt, xóa toàn bộ dữ liệu cũ và dữ liệu mẫu (giữ khóa AI, máy chủ, logo)
@@ -5644,7 +5862,7 @@ render();
       "Bạn là Kiến – trợ giảng ảo học phần Giải phẫu – Sinh lý cho sinh viên năm nhất Điều dưỡng, Hộ sinh, Phục hồi chức năng, Gây mê hồi sức, Xét nghiệm y học và Chẩn đoán hình ảnh. Giúp người học hiểu bài, ghi nhớ, hệ thống hóa, ôn tập, luyện trắc nghiệm; không thay thế giảng viên, không nhận quyền thay giảng viên.",
       "Chủ đề: giải phẫu hệ xương, cơ, hô hấp, tuần hoàn, tiêu hóa, thần kinh, tiết niệu, sinh dục, giác quan; sinh lý máu, thận, nội tiết, hô hấp, tuần hoàn, tiêu hóa, thần kinh, sinh dục và nội dung khác khi thuộc học liệu chính thức.",
       "Ưu tiên bài giảng, đề cương, tài liệu chính thức của học phần; sách tham khảo dùng bổ trợ. Không truy cập, tra cứu hay viện dẫn Internet và nguồn bên ngoài, kể cả đường dẫn có trong sách.",
-      "GIAO TIẾP: tiếng Việt là chính; giữ thuật ngữ quốc tế khi cần và giải nghĩa ngắn ở lần đầu. Giải thích khoa học, rõ, từ trọng tâm đến cơ chế, nối cấu trúc – chức năng; dùng bảng, sơ đồ chữ, so sánh khi hữu ích. Khi sinh viên bối rối: giọng gần gũi, gọn, thực tế, động viên vừa phải. Câu hỏi mơ hồ: trả lời ý trọng tâm hợp lý nhất và nói rõ giả định, rồi hỏi lại một ý để làm rõ.",
+      "GIAO TIẾP: tiếng Việt là chính; giữ thuật ngữ quốc tế khi cần và giải nghĩa ngắn ở lần đầu. Giải thích khoa học, rõ, từ trọng tâm đến cơ chế, nối cấu trúc – chức năng; dùng bảng, sơ đồ chữ, so sánh khi hữu ích. Giọng Kiến: thân thiện, dễ thương, quan tâm như một người bạn học giỏi; xưng 'mình' – gọi 'bạn'; khen cụ thể khi sinh viên đúng (ví dụ 'Chính xác! Bạn nhớ đúng cả thời gian từng giai đoạn luôn 👏'), động viên nhẹ nhàng khi sai ('Không sao đâu, câu này nhiều bạn nhầm lắm 🤗'); dùng 1–2 emoji vừa phải mỗi câu trả lời, không lạm dụng. Khi sinh viên bối rối: gần gũi, gọn, thực tế. Câu hỏi mơ hồ: trả lời ý trọng tâm hợp lý nhất và nói rõ giả định, rồi hỏi lại một ý để làm rõ.",
       "Khi sinh viên xin TÓM TẮT / HỆ THỐNG HÓA: theo thứ tự Khái niệm → Cấu trúc/thành phần → Cơ chế → Chức năng → Liên hệ học thuật (nếu có nguồn) → Ghi nhớ. Khi sinh viên xin SO SÁNH hoặc hay nhầm: lập bảng so sánh theo từng tiêu chí. Khi xin GIẢNG LẠI: giảng từ dễ đến khó, có ví dụ trong tài liệu. Gợi ý cách học chủ động (tự nhớ lại, ôn ngắt quãng, vẽ sơ đồ, so sánh) và kết thúc bằng gợi ý ngắn bước học tiếp theo.",
       "Nếu sinh viên đưa thông tin định danh (họ tên, mã số, thông tin bệnh nhân), nhắc nhẹ nên ẩn danh; không yêu cầu, không lưu, không nhắc lại các thông tin đó.",
       "QUY TẮC NGUỒN: Chỉ dùng thông tin trong các TRÍCH ĐOẠN TÀI LIỆU được cung cấp bên dưới. Tuyệt đối không dùng kiến thức bên ngoài, không suy đoán, không bịa số liệu.",
@@ -5674,6 +5892,7 @@ render();
       "• Sơ đồ mũi tên (dòng chảy, áp suất, van mở/đóng). Mỗi dòng một cột: Ô trên (chú thích) -> Ô dưới (chú thích) : nhãn mũi tên; dùng -x> khi bị chặn (van đóng). Ví dụ:\n```sodo\nTâm nhĩ (áp suất cao hơn thất) -> Tâm thất (áp suất thấp) : Van nhĩ thất mở\n```",
       "• Sơ đồ trình tự (các giai đoạn nối tiếp, đường đi, chuỗi phản xạ). Dòng đầu là tiêu đề; mỗi bước một dòng: Tên | ý 1 | ý 2; thêm dòng '↻ Lặp lại chu kỳ' nếu là chu kỳ. Ví dụ:\n```chuoi\nSơ đồ hoạt động của tâm thất\nCo đẳng tích | Áp suất tăng – Thể tích không đổi | Tất cả van đóng\nTống máu | Van bán nguyệt mở | Thể tích thất giảm\n↻ Lặp lại chu kỳ\n```",
       "• Bảng tự kiểm tra có ô đánh dấu: mỗi dòng một mục 'Nêu được… / Giải thích được… / Phân biệt được…'. Ví dụ:\n```tukiemtra\nNêu được định nghĩa chu kỳ tim.\nGiải thích được sự đóng mở của các van tim.\n```",
+      "KHI SINH VIÊN NÓI 'tiếp tục hỏi mình câu tiếp theo': mở đầu bằng một câu ngắn vui vẻ, rồi đặt ngay MỘT câu hỏi mới (khác các câu đã hỏi trong hội thoại) về chủ đề đó dưới nhãn **Câu hỏi tiếp theo:**. KHI SINH VIÊN XIN 'đổi cách học': trình bày lại thật gọn bằng sơ đồ (khối chuoi/sodo/thanh nếu phù hợp), bảng so sánh, **Mẹo ghi nhớ** (câu vần, chữ viết tắt), rồi một câu hỏi tự kiểm tra dễ.",
       "KHI SINH VIÊN TRẢ LỜI 'không biết', trả lời sai hoặc bối rối: không chỉ đưa đáp án; hãy giải thích lại đơn giản hơn bằng MỘT nguyên tắc cốt lõi (in đậm), có thể kèm khối sodo, thêm **Ghi nhớ:** 1–2 gạch đầu dòng, rồi **Câu hỏi tiếp theo:** một câu DỄ hơn dạng trắc nghiệm 2–4 phương án. Khi sinh viên trả lời đúng liên tiếp thì tăng dần lên câu vận dụng, phân tích.",
       "Câu hỏi trắc nghiệm trong hội thoại: viết dưới nhãn **Câu hỏi tiếp theo:**, mỗi phương án một dòng riêng dạng 'A. …', 'B. …'. Có thể đặt tên loại câu ngay sau nhãn, ví dụ **Câu hỏi tiếp theo:** (vận dụng) …",
       "KHI SINH VIÊN HỎI 'mình đủ kiến thức chưa / đánh giá giúp mình': dựa trên NHẬT KÝ ÔN TẬP (nếu có) và hội thoại: câu nhận định ngắn (in đậm) → ## 1. Đánh giá kiến thức hiện tại: bảng | Nội dung | Mức độ nắm vững | với các mức Đã hiểu / Khá tốt / Cần củng cố / Chưa vững / Chưa kiểm tra → ## 2. Những kiến thức bạn cần nắm để đi thi: khối tukiemtra → ## 3. Bạn nên học tiếp như thế nào? (điểm còn dễ nhầm, mục tiêu nên đạt, đề xuất làm bài kiểm tra 10 câu). Nói rõ nếu số câu đã trả lời còn ít thì chưa đánh giá chính xác được.",
@@ -5695,6 +5914,7 @@ render();
         ? "\n\nHỘI THOẠI GẦN ĐÂY:\n" + hist.map((h) => (h.role === "user" ? "Sinh viên: " : "Trợ giảng: ") + String(h.content).slice(0, 400)).join("\n")
         : "") +
       (opt2 && opt2.log && opt2.log.length ? "\n\nNHẬT KÝ ÔN TẬP TRONG BUỔI NÀY (câu Kiến hỏi → sinh viên trả lời → kết quả):\n" + opt2.log.slice(-12).map((x, i) => (i + 1) + ". " + x.q.slice(0, 160) + " → " + x.reply.slice(0, 80) + " → " + ({ ok: "đúng", mid: "gần đúng", no: "sai" }[x.v] || "chưa rõ")).join("\n") : "") +
+      (opt2 && opt2.brk ? "\n\nĐÂY LÀ CÂU TRẢ LỜI THỨ 5 LIÊN TIẾP: chấm và giải thích ngắn như khung C nhưng KHÔNG đặt câu hỏi tiếp theo, KHÔNG viết nhãn 'Câu hỏi tiếp theo'; kết thúc bằng một câu khen hoặc động viên ấm áp (hệ thống sẽ tự hỏi sinh viên muốn học tiếp theo cách nào)." : "") +
       (chk ? "\n\nCÂU HỎI KIỂM TRA KIẾN VỪA ĐẶT: " + chk.q + (chk.ans ? " (đáp án theo giáo trình: " + chk.ans + ")" : "") + "\nTIN NHẮN DƯỚI ĐÂY LÀ CÂU TRẢ LỜI CỦA SINH VIÊN cho câu hỏi đó (dùng khung C), trừ khi rõ ràng là một câu hỏi mới." : "") +
       "\n\n" + (chk ? "TIN NHẮN" : "CÂU HỎI") + " CỦA SINH VIÊN:\n" +
       q;
@@ -5857,7 +6077,58 @@ render();
   // ---- Dạy kiểu gia sư: câu hỏi tự kiểm tra, chấm câu trả lời, bố cục tổng quan (dùng cả khi có và không có AI)
   const PEND = {}; // bài học -> câu hỏi kiểm tra Kiến vừa đặt { q, ans, full, doc, page, pool, at, ai }
   const TLOG = {}; // bài học -> nhật ký ôn tập trong buổi: { q, reply, v: ok|mid|no|? }
-  const tlog = (l, x) => { (TLOG[l] ||= []).push(x); if (TLOG[l].length > 40) TLOG[l].shift(); };
+  const STREAK = {}, BRKPOOL = {}, LASTQ = {}; // chuỗi câu trả lời liên tiếp, kho câu hỏi để hỏi tiếp, chủ đề đang học
+  const BREAK_N = 5;
+  const tlog = (l, x) => {
+    (TLOG[l] ||= []).push(x); if (TLOG[l].length > 40) TLOG[l].shift();
+    if (!x.quiz) { const s = (STREAK[l] ||= { n: 0, ok: 0 }); s.n++; s.ok += x.v === "ok" ? 1 : x.v === "mid" ? 0.5 : 0; }
+  };
+  const CONT = /^tiep tuc hoi (minh|em|toi)?\s*(cau|them)/;
+  function topicNow(l) { const q = LASTQ[l] || ""; try { return topicOf(q).slice(0, 60); } catch (e) { return ""; } }
+  // phần tiếp theo trong giáo trình, sau phần sinh viên vừa học
+  function nextPart(l, topic) {
+    try {
+      const all = lessonChunks(l).filter((c) => !QUIZH.test(c.head || ""));
+      if (!all.length) return "";
+      const h0 = topic ? retrieve(topic, l, 3)[0] : null;
+      if (!h0) return "";
+      const i0 = all.findIndex((c) => c.id === h0.id);
+      const cur = norm(lastSeg(h0.head || ""));
+      for (let i = i0 + 1; i < all.length; i++) {
+        const c = all[i];
+        if (c.docTitle !== h0.docTitle) break;
+        const h = lastSeg(c.head || "");
+        const t = (typeof skillName === "function" ? skillName(h, "") : h) || "";
+        if (t && norm(t) !== cur && !norm(topic).includes(norm(t))) return t;
+      }
+    } catch (e) { console.warn(e); }
+    return "";
+  }
+  // điểm dừng sau 5 câu liên tiếp: khen, cho nghỉ, hỏi muốn học tiếp theo cách nào
+  // câu điền khuyết kế tiếp; hết kho thì lấy thêm câu từ các đoạn cùng chủ đề
+  function nextCloze(l, pool, used, seed) {
+    pool = pool || [];
+    let nx = clozeFrom(pool, new Set(used || []));
+    if (!nx) { try { pool = pool.concat(retrieve(topicNow(l) || seed || "", l, 6).flatMap((c) => String(c.text).split(/(?<=[.;])\s+/).filter((t) => t.length > 25 && t.length < 400).map((t) => ({ t, h: lastSeg(c.head), doc: c.docTitle, page: c.page })))); nx = clozeFrom(pool, new Set(used || [])); } catch (e) { console.warn(e); } }
+    if (!nx) { try { const h0 = retrieve(topicNow(l) || seed || "", l, 1)[0]; const par = h0 ? String(h0.head || "").split(" › ")[0] : ""; const sib = lessonChunks(l).filter((c) => par && String(c.head || "").split(" › ")[0] === par && !QUIZH.test(c.head || "")).sort(() => Math.random() - 0.5).slice(0, 25); pool = pool.concat(sib.flatMap((c) => String(c.text).split(/(?<=[.;])\s+/).filter((t) => t.length > 25 && t.length < 400).map((t) => ({ t, h: lastSeg(c.head), doc: c.docTitle, page: c.page })))); nx = clozeFrom(pool, new Set(used || [])); } catch (e) { console.warn(e); } }
+    return [nx, pool];
+  }
+  function breakHTML(l) {
+    const s = STREAK[l] || { n: BREAK_N, ok: 0 };
+    STREAK[l] = { n: 0, ok: 0 };
+    const ok = Math.round(s.ok * 10) / 10, n = s.n;
+    const tp = topicNow(l);
+    const cheer = ok >= n * 0.8 ? pick(["Bạn đang học rất “vào” đó, Kiến nể ghê 💪", "Phong độ quá trời luôn! 🌟", "Bạn nhớ bài tốt thật sự, Kiến tự hào về bạn lắm 🥰"]) : ok >= n * 0.4 ? pick(["Bạn tiến bộ từng câu một, Kiến thấy rõ luôn 😊", "Có câu đúng, có câu chưa, vậy là đang học thật đó 👍", "Cố gắng vậy là đáng khen lắm rồi 🌱"]) : pick(["Mấy câu vừa rồi hơi khó nhỉ? Không sao đâu, ai mới học cũng vậy 🤗", "Sai bây giờ để nhớ lâu hơn lúc thi mà, đừng nản nha 💛", "Kiến biết bạn đang cố gắng, mình đổi cách học cho dễ vào hơn nhé 🤗"]);
+    const about = tp ? " về " + tp : "";
+    const cards = [
+      ["▶️", "Tiếp tục hỏi đáp", "Kiến hỏi tiếp câu mới cùng chủ đề.", "Tiếp tục hỏi mình câu tiếp theo" + about],
+      ["🎨", "Học theo cách khác", "Tóm tắt bằng sơ đồ và mẹo nhớ cho dễ vào hơn.", "Đổi cách học: tóm tắt lại phần vừa học" + about + " bằng sơ đồ và mẹo ghi nhớ thật dễ hiểu"],
+      ["✅", "Kiểm tra nhanh 5 câu", "Đúng từ 4/5 câu là qua phần này, chưa đạt thì Kiến ôn cùng bạn tiếp.", "Kiểm tra nhanh 5 câu" + about],
+    ];
+    return `<div class="kp-brk"><div class="kp-brk-h">🌟 Bạn đã cùng Kiến trả lời ${n} câu liên tiếp rồi!</div><p>Bạn đúng ${ok % 1 ? "khoảng " : ""}<b>${String(ok).replace(".", ",")}/${n}</b> câu. ${cheer}</p><p>Mình nghỉ tay một chút nhé ☕ Bạn muốn học tiếp theo cách nào?</p><div class="kp-rp-next">${cards.map((c) => `<button type="button" data-prompt="${esc(c[3])}"><span class="kp-rp-ic">${c[0]}</span><span><b>${esc(c[1])}</b><small>${esc(c[2])}</small></span><span class="kp-rp-ar">›</span></button>`).join("")}</div><small class="kp-brk-f">Hoặc bạn cứ nghỉ ngơi một lát, lúc nào quay lại Kiến vẫn ở đây chờ bạn nha 🌱</small></div>`;
+  }
+  KP.tutorStreak = (l) => STREAK[l] || { n: 0, ok: 0 };
+  KP.tutorNext = (l) => ({ has: !!BRKPOOL[l], pool: BRKPOOL[l] ? BRKPOOL[l].pool.length : 0, nx: BRKPOOL[l] ? nextCloze(l, BRKPOOL[l].pool, BRKPOOL[l].used, "")[0] : null, cont: CONT.test(norm("Tiếp tục hỏi mình câu tiếp theo về đầu trên xương đùi").replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim()) });
   KP.tutorLog = (l) => TLOG[l] || [];
   const ASSESS = /(du kien thuc|nam (vung|duoc|het)( bai)? chua|da (vung|on|hieu bai) chua|danh gia (giup|kien thuc|muc do|trinh do)|minh (hoc|biet|hieu) (du|toi dau|den dau)|du (de|suc) (di )?thi chua|san sang (di )?thi)/;
   const isAssess = (q) => ASSESS.test(norm(q));
@@ -5916,10 +6187,11 @@ render();
   function gradeHTML(P, q, lesson) {
     const sc = gradeReply(P, q);
     tlog(lesson.id, { q: P.q, reply: q, v: sc >= 0.99 ? "ok" : sc >= 0.5 ? "mid" : "no", ans: P.ans });
-    const v = sc >= 0.99 ? `<p class="kp-tt-ok">✅ <b>Chính xác!</b></p>` : sc >= 0.5 ? `<p class="kp-tt-mid">🟡 <b>Gần đúng!</b> Đáp án đầy đủ là: <b>${esc(P.ans)}</b>.</p>` : `<p class="kp-tt-no">❌ <b>Chưa đúng.</b> Đáp án đúng là: <b>${esc(P.ans)}</b>. Không sao, bạn đọc lại câu dưới đây nhé.</p>`;
+    const v = sc >= 0.99 ? `<p class="kp-tt-ok">✅ <b>Chính xác!</b> ${pick(["Giỏi quá 👏", "Bạn nhớ bài tốt ghê 🌟", "Chuẩn luôn 💯", "Tuyệt vời, cứ thế phát huy nha 💪"])}</p>` : sc >= 0.5 ? `<p class="kp-tt-mid">🟡 <b>Gần đúng!</b> Chỉ thiếu chút xíu thôi 😊 Đáp án đầy đủ là: <b>${esc(P.ans)}</b>.</p>` : `<p class="kp-tt-no">❌ <b>Chưa đúng.</b> Đáp án đúng là: <b>${esc(P.ans)}</b>. ${pick(["Không sao đâu, sai để nhớ lâu hơn mà 🤗", "Đừng lo nha, mình đọc lại câu dưới đây là nhớ liền 💛", "Câu này dễ nhầm lắm, bạn xem lại giáo trình bên dưới nhé 🌱"])}</p>`;
     const expl = `<div class="kp-focus"><div class="kp-focus-h">📖 Theo giáo trình</div><p>${esc(P.full)}</p><div class="kp-focus-src">${esc(P.doc || "")}${P.page ? " — " + esc(P.page) : ""}</div></div>`;
-    const nx = clozeFrom(P.pool || [], new Set(P.used || []));
-    setPend(lesson.id, nx, P.pool, P.used);
+    if ((STREAK[lesson.id] || {}).n >= BREAK_N) { BRKPOOL[lesson.id] = { pool: P.pool || [], used: P.used || [] }; setPend(lesson.id, null); return v + expl + breakHTML(lesson.id); }
+    const [nx, pool] = nextCloze(lesson.id, P.pool, P.used, P.q);
+    setPend(lesson.id, nx, pool, P.used);
     return v + expl + qBlock(nx, "Câu hỏi tiếp theo");
   }
   // câu hỏi tổng quát ("mô tả xương đùi"): trình bày theo bố cục của giáo trình, từng mục con
@@ -5953,8 +6225,14 @@ render();
   function offlineHTML(q, lesson, why) {
     const keyBtn0 = () => (cfg().allowOwnKey ? `<button type="button" class="btn secondary" data-kp-mykey="open">🔑 ${myKey() ? "Xem / thêm khóa riêng của mình" : "Dùng khóa AI riêng của mình"}</button>` : "");
     const wrap = (inner) => `<div class="kp-offline"><div class="kp-off-head">📖 <b>Kiến đang ở chế độ không cần AI.</b> ${esc(why)}</div>${inner}<div class="kp-off-acts">${keyBtn0()}<button type="button" class="btn secondary" data-kp-askgv="${esc(q)}">✉️ Gửi câu hỏi cho giảng viên</button></div></div>`;
+    const nq0 = norm(q).replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
+    if (CONT.test(nq0) && BRKPOOL[lesson.id]) {
+      const B = BRKPOOL[lesson.id], [nx, pool] = nextCloze(lesson.id, B.pool, B.used, "");
+      if (nx) { setPend(lesson.id, nx, pool, B.used); return wrap(`<p>${pick(["Mình học tiếp nào 😊", "Sẵn sàng chưa? Câu mới đây 💪", "Tiếp tục thôi, bạn đang làm tốt lắm 🌟"])}</p>` + qBlock(nx, "Câu hỏi tiếp theo")); }
+    }
     // sinh viên đang trả lời câu hỏi kiểm tra
     const P = replyTo(lesson.id, q);
+    if (!P && !isAssess(q) && !CONT.test(nq0) && norm(q).split(/\s+/).length >= 2) LASTQ[lesson.id] = q;
     if (P) {
       if (P.ans) {
         let fresh = false;
@@ -6041,6 +6319,8 @@ render();
     const follow = /(^| )(no|do|nay|vay|the|ay|chung|tren|kia|con|phan nay|y nay)( |$)/.test(norm(q)) && q.split(/\s+/).length <= 12;
     const chk = replyTo(lesson.id, q);
     const assess = isAssess(q);
+    const brk = !!chk && ((STREAK[lesson.id] || {}).n || 0) + 1 >= BREAK_N;
+    if (!chk && !assess && !CONT.test(norm(q).replace(/[^a-z0-9 ]/g, " ").trim()) && norm(q).split(/\s+/).length >= 2) LASTQ[lesson.id] = q;
     if (chk) hits = retrieve(chk.q.replace(/……/g, " ") + " " + q, lesson.id);
     const hit = standalone && !chk && !assess ? cacheGet(lesson.id, q) : null;
     if (hit) {
@@ -6091,7 +6371,7 @@ render();
       scope = /NGOAI_MON/.test(cls) ? "off" : "nodoc";
       text = scope === "off" ? MSG.off : hasDocs ? MSG.nodoc : MSG.nodoc + " (Bài này hiện chưa có tài liệu được duyệt.)";
     } else {
-      const p = buildPrompt(q, lesson, sources, hist.slice(-4), chk, { log: assess || chk ? TLOG[lesson.id] || [] : [] });
+      const p = buildPrompt(q, lesson, sources, hist.slice(-4), chk, { log: assess || chk ? TLOG[lesson.id] || [] : [], brk });
       text = String(await callAI(p.system, p.user, false, opt)).trim();
       if (text.includes(OUT) && text.replace(OUT, "").trim().length < 40) scope = "off";
       else if (text.includes(NODOC) && text.replace(NODOC, "").trim().length < 40) scope = "nodoc";
@@ -6113,6 +6393,7 @@ render();
     const out = { text, scope, sources: used, via: sources.length ? lastVia : "shared" };
     if (chk) { const t0 = norm(String(text).slice(0, 80)); tlog(lesson.id, { q: chk.q, reply: q, v: /^(khong biet|chiu|khong nho|bo qua|em khong biet|minh khong biet)/.test(norm(q)) ? "no" : /(chinh xac|dung roi|rat tot|tuyet voi)/.test(t0) ? "ok" : /gan dung|dung mot phan/.test(t0) ? "mid" : /(chua dung|sai|chua chinh xac)/.test(t0) ? "no" : "?" }); }
     if (scope === "in") notePend(lesson.id, text); else if (chk) delete PEND[lesson.id];
+    if (chk && (STREAK[lesson.id] || {}).n >= BREAK_N) { delete PEND[lesson.id]; out.brk = lesson.id; }
     if (standalone && !chk && !assess) cachePut(lesson.id, q, out);
     out.assess = assess;
     return out;
@@ -6131,7 +6412,7 @@ render();
       )
       .join(
         "",
-      )}</div>${/Câu hỏi (tiếp theo|tự kiểm tra)/i.test(r.text) ? `<p class="kp-tt-hint">✍️ Bạn gõ câu trả lời vào ô chat, Kiến sẽ chấm và hỏi tiếp.</p>` : `<p>Đến đây bạn đã hiểu rõ chưa, hay bạn có hỏi gì thêm không?</p>`}${(() => { const T = String(r.text); const i = T.search(/Câu hỏi (tiếp theo|vận dụng|tự kiểm tra|phân tích)|Thử trả lời|Bạn thử lại/i); if (i < 0) return ""; const ops = [...T.slice(i).matchAll(/^\**([A-D])[.)]\**\s+(.+)$/gm)].slice(0, 4); return ops.length >= 2 ? `<div class="kp-cq-opts kp-inl-opts">${ops.map((m) => `<button type="button" data-prompt="${m[1]}. ${esc(m[2].replace(/[*_]/g, "").trim())}"><b>${m[1]}.</b> ${esc(m[2].replace(/[*_]/g, "").trim())}</button>`).join("")}</div>` : ""; })()}<div class="suggestions">${r.assess || /kiểm tra (gồm )?10 câu/i.test(r.text) ? `<button data-prompt="Bắt đầu bài kiểm tra 10 câu, từ trung bình đến khó">📝 Bắt đầu bài kiểm tra 10 câu</button>` : ""}<button data-prompt="Tôi đã nắm kiến thức">Tôi đã nắm kiến thức</button></div>`;
+      )}</div>${r.brk ? breakHTML(r.brk) : /Câu hỏi (tiếp theo|tự kiểm tra)/i.test(r.text) ? `<p class="kp-tt-hint">✍️ Bạn gõ câu trả lời vào ô chat, Kiến sẽ chấm và hỏi tiếp.</p>` : `<p>Đến đây bạn đã hiểu rõ chưa, hay bạn có hỏi gì thêm không?</p>`}${(() => { const T = String(r.text); const i = T.search(/Câu hỏi (tiếp theo|vận dụng|tự kiểm tra|phân tích)|Thử trả lời|Bạn thử lại/i); if (i < 0) return ""; const ops = [...T.slice(i).matchAll(/^\**([A-D])[.)]\**\s+(.+)$/gm)].slice(0, 4); return ops.length >= 2 ? `<div class="kp-cq-opts kp-inl-opts">${ops.map((m) => `<button type="button" data-prompt="${m[1]}. ${esc(m[2].replace(/[*_]/g, "").trim())}"><b>${m[1]}.</b> ${esc(m[2].replace(/[*_]/g, "").trim())}</button>`).join("")}</div>` : ""; })()}<div class="suggestions">${r.assess || /kiểm tra (gồm )?10 câu/i.test(r.text) ? `<button data-prompt="Bắt đầu bài kiểm tra 10 câu, từ trung bình đến khó">📝 Bắt đầu bài kiểm tra 10 câu</button>` : ""}<button data-prompt="Tôi đã nắm kiến thức">Tôi đã nắm kiến thức</button></div>`;
   }
   const prevSend = sendMessage;
   sendMessage = async function (q) {
@@ -6284,7 +6565,7 @@ render();
     const idx = shuffle([0, 1, 2, 3]);
     return { ...q, opts: idx.map((i) => q.opts[i]), answer: idx.indexOf(q.answer) };
   }
-  const topicOf = (q) => String(q).replace(/(bắt đầu|mô tả|trình bày|hãy|tạo|làm|cho|mình|em|tôi|một|lượt|bài|trắc nghiệm|quiz|kiểm tra|ôn tập|\d+\s*câu( hỏi)?|về|từ|trung bình|đến|khó|dễ|nhé|nha|giúp|với|đi)/giu, " ").replace(/[,.!?:;]/g, " ").replace(/\s+/g, " ").trim();
+  const topicOf = (q) => String(q).replace(/(bắt đầu|mô tả|trình bày|hãy|tạo|làm|cho|mình|em|tôi|một|lượt|bài|trắc nghiệm|quiz|kiểm tra|nhanh|ôn tập|\d+\s*câu( hỏi)?|về|từ|trung bình|đến|khó|dễ|nhé|nha|giúp|với|đi)/giu, " ").replace(/[,.!?:;]/g, " ").replace(/\s+/g, " ").trim();
   // câu hỏi soạn từ giáo trình khi không có AI: điền khuyết thành 4 phương án
   function skillName(h, topic) {
     let t = String(h || "").replace(/^[\dIVX]+[.)]\s*/, "").replace(/\s+/g, " ").trim();
@@ -6393,6 +6674,7 @@ render();
     const pct = Math.round((ok / done) * 100);
     Z.wrong = Z.qs.slice(0, done).filter((q, i) => Z.ans[i] !== q.answer);
     const L = state.lesson;
+    try { saveChatTest(Z, L, ok, done); } catch (e) { console.warn(e); }
     Z.qs.slice(0, done).forEach((q, i) => tlog(L.id, { q: q.stem, reply: Z.ans[i] >= 0 ? LET[Z.ans[i]] + ". " + q.opts[Z.ans[i]] : "—", v: Z.ans[i] === q.answer ? "ok" : "no", quiz: true }));
     const score = String(Math.round((ok / done) * 100) / 10).replace(".", ",");
     const verdict = pct >= 80 ? ["Nắm vững kiến thức", "ok"] : pct >= 50 ? ["Khá, cần ôn thêm", "mid"] : ["Cần củng cố kiến thức", "no"];
@@ -6413,7 +6695,28 @@ render();
     ];
     const adv = pct < 50 ? "Mình khuyên bạn nên giảng lại từ cơ bản trước khi làm đề mới. Mục tiêu là hiểu bản chất, không phải chỉ nhớ đáp án." : pct < 80 ? "Mình khuyên bạn ôn lại các câu sai, sau đó làm một lượt mới để kiểm tra lại." : "Bạn làm tốt! Hãy thử một lượt mới khó hơn để chắc chắn phần vận dụng.";
     Z.rid = "kp-rv-" + Date.now();
-    return `<div class="kp-cq kp-rp"><h2 class="kp-rp-h">${stopped ? "Kết quả (kết thúc sớm)" : "Kết quả bài kiểm tra"}${Z.topic ? " " + esc(Z.topic) : ""}</h2>
+    if (Z.gate) {
+      const pass = pct >= 80, nx = pass ? nextPart(L.id, Z.topic) : "";
+      cards.length = 0;
+      if (pass) {
+        if (nx) cards.push(["🚀", "Học phần tiếp theo: " + nx, "Bạn đã sẵn sàng rồi, mình đi tiếp nhé!", "Giảng cho mình phần " + nx]);
+        cards.push(["📝", "Làm bài kiểm tra 10 câu", "Thử sức với cả chủ đề, từ trung bình đến khó.", `Bắt đầu bài kiểm tra 10 câu${Z.topic ? " về " + Z.topic : ""}, từ trung bình đến khó`]);
+        if (Z.wrong.length) cards.push(["🔁", `Xem lại ${Z.wrong.length} câu sai`, "Gỡ nốt chỗ còn nhầm cho chắc.", "Ôn lại các câu sai"]);
+      } else {
+        cards.push(["📖", "Học lại phần này thật dễ hiểu", "Kiến giảng lại từ cơ bản, có sơ đồ và mẹo nhớ.", reteach]);
+        if (Z.wrong.length) cards.push(["🔁", `Ôn lại ${Z.wrong.length} câu sai`, "Tập trung đúng chỗ còn nhầm.", "Ôn lại các câu sai"]);
+        cards.push(["✅", "Kiểm tra nhanh lại 5 câu", "Khi bạn thấy đã sẵn sàng.", `Kiểm tra nhanh 5 câu${Z.topic ? " về " + Z.topic : ""}`]);
+      }
+      const banner = pass
+        ? `<div class="kp-gate ok"><b>🎉 Chúc mừng! Bạn đã ĐẠT phần ${esc(Z.topic || "này")}</b><p>${pick(["Kiến biết bạn làm được mà 🥳", "Giỏi quá đi, công sức ôn tập đã được đền đáp rồi 💯", "Bạn xứng đáng được tự thưởng một chút đó 🍀"])} ${nx ? `Mình qua phần tiếp theo <b>${esc(nx)}</b> nhé!` : "Bạn có thể làm bài 10 câu để chắc chắn cả chủ đề."}</p></div>`
+        : `<div class="kp-gate no"><b>💪 Lần này mình chưa đạt (cần đúng từ 4/5 câu)</b><p>${pick(["Không sao đâu, giờ mình đã biết rõ chỗ cần ôn rồi đó 🤗", "Chưa đạt lần đầu là chuyện bình thường, học thêm chút nữa là được thôi 💛", "Kiến tin bạn sẽ qua ở lần sau, mình cùng ôn lại nhé 🌱"])} Mình học lại phần này thêm một chút rồi kiểm tra lại nha.</p></div>`;
+      return reportHTML.gateWrap(banner, cards, pass, Z, stopped, pct, ok, done, score, verdict, tiles, rows, exps, sk, comment);
+    }
+    return reportBody("", cards, adv, Z, stopped, pct, ok, done, score, verdict, tiles, rows, exps, sk, comment);
+  }
+  reportHTML.gateWrap = (banner, cards, pass, Z, stopped, pct, ok, done, score, verdict, tiles, rows, exps, sk, comment) => reportBody(banner, cards, pass ? "Bạn đang làm rất tốt, cứ giữ nhịp học này nhé 🌟" : "Mục tiêu là hiểu bản chất, không phải chỉ nhớ đáp án. Kiến luôn ở đây học cùng bạn 💛", Z, stopped, pct, ok, done, score, verdict, tiles, rows, exps, sk, comment);
+  function reportBody(banner, cards, adv, Z, stopped, pct, ok, done, score, verdict, tiles, rows, exps, sk, comment) {
+    return `<div class="kp-cq kp-rp"><h2 class="kp-rp-h">${Z.gate ? "Kết quả kiểm tra nhanh" : stopped ? "Kết quả (kết thúc sớm)" : "Kết quả bài kiểm tra"}${Z.topic ? " " + esc(Z.topic) : ""}</h2>${banner}
 <div class="kp-rp-card"><div class="kp-rp-top"><div class="kp-rp-rw">${ringSVG(pct)}<div class="kp-rp-pc"><b>${pct}%</b><small>${ok}/${done} câu</small></div></div><div class="kp-rp-sum"><div class="kp-rp-sc">${score}/10 điểm</div><div class="kp-rp-l ok"><i>✓</i> ${ok} câu đúng</div><div class="kp-rp-l no"><i>✕</i> ${done - ok} câu sai</div><div class="kp-rp-vd ${verdict[1]}">${verdict[0]}</div></div></div><div class="kp-rp-grid">${tiles}</div></div>
 <h3>1. Đáp án và giải thích</h3><div class="table-wrap"><table class="kp-md-table kp-rp-tb"><thead><tr><th>Câu</th><th>Bạn chọn</th><th>Đáp án đúng</th><th>Kết quả</th></tr></thead><tbody>${rows}</tbody></table></div>
 <details class="kp-rp-exp" ${Z.wrong.length ? "open" : ""}><summary>Giải thích từng câu</summary><div class="table-wrap"><table class="kp-md-table kp-rp-tb"><thead><tr><th>Câu</th><th>Giải thích</th></tr></thead><tbody>${exps}</tbody></table></div></details>
@@ -6477,7 +6780,7 @@ render();
       if (k < 0) return botSay(box, `<p>Bạn đang làm câu ${Z.i + 1}/${Z.qs.length}. Hãy chọn A, B, C hoặc D nhé (gõ “dừng” nếu muốn kết thúc sớm).</p>` + qHTML(Z), q);
       Z.ans.push(k); Z.i++;
       if (Z.i >= Z.qs.length) { Z.over = true; botSay(box, reportHTML(Z, false), q); return reviewAI(Z, lesson.id); }
-      return botSay(box, `<p class="kp-cq-ack">Đã ghi nhận câu ${Z.i}: <b>${LET[k]}</b>.</p>` + qHTML(Z), q);
+      return botSay(box, `<p class="kp-cq-ack">Đã ghi nhận câu ${Z.i}: <b>${LET[k]}</b>. ${Z.qs.length - Z.i === 1 ? "Câu cuối rồi, cố lên nào 🏁" : Z.i === Math.floor(Z.qs.length / 2) ? "Đã được nửa chặng đường rồi đó 💪" : pick(["Tiếp nào ✍️", "Bạn làm tốt lắm 👍", "Bình tĩnh đọc kỹ nha 😊", ""])}</p>` + qHTML(Z), q);
     }
     const again = /^on lai (cac )?cau sai/.test(nq) && Z && Z.wrong && Z.wrong.length;
     const change = /^doi chu de/.test(nq);
@@ -6492,7 +6795,7 @@ render();
     box.insertAdjacentHTML("beforeend", `<div class="message user">${typeof baseAvatar === "function" ? baseAvatar() : avatar()}<div class="bubble">${esc(q)}</div></div><div class="message" id="kp-pending"><div class="avatar">${icon("dna")}</div><div class="bubble">⏳ Kiến đang soạn ${again ? "lại các câu sai" : n + " câu trắc nghiệm"}…</div></div>`);
     box.scrollTop = box.scrollHeight;
     let qs = [], note = "";
-    if (again) { qs = shuffle(Z.wrong).map(mixOpts); note = "Ôn lại các câu bạn làm sai (đã đảo thứ tự phương án)."; }
+    if (again) { qs = shuffle(Z.wrong).map(mixOpts); note = "Ôn lại các câu bạn làm sai (đã đảo thứ tự phương án). Cố lên nha 💪"; }
     else {
       const bankQs = shuffle(approvedBank(lesson.id).filter((x) => x.opts && x.opts.length === 4)).filter((x) => !topic || topic.split(" ").length < 2 || norm(x.stem + " " + x.opts.join(" ")).includes(norm(topic).split(" ").slice(0, 2).join(" ")));
       qs = bankQs.slice(0, n).map((x) => mixOpts({ stem: x.stem, opts: x.opts, answer: x.answer, explain: x.explain, sourceTitle: x.sourceTitle || "", origin: "bank" }));
@@ -6502,7 +6805,7 @@ render();
     }
     $("#kp-pending")?.remove();
     if (!qs.length) return botSay(box, `<p>Mình chưa soạn được câu trắc nghiệm nào từ tài liệu của bài này${topic ? " về <b>" + esc(topic) + "</b>" : ""}. Bạn thử chủ đề khác hoặc nhờ giảng viên bổ sung ngân hàng câu hỏi nhé.</p>`);
-    const NZ = (CQ[lesson.id] = { qs, i: 0, ans: [], topic, over: false });
+    const NZ = (CQ[lesson.id] = { qs, i: 0, ans: [], topic, over: false, gate: /kiem tra nhanh/.test(nq) || !!(again && Z && Z.gate), review: !!again });
     botSay(box, `<p>Bắt đầu lượt trắc nghiệm <b>${qs.length} câu</b>${topic ? " về <b>" + esc(topic) + "</b>" : ""}. ${esc(note)} Mỗi lần mình hỏi 1 câu, chấm và giải thích sau khi bạn làm xong cả lượt.</p>` + qHTML(NZ));
   };
 
@@ -6753,6 +7056,7 @@ render();
       questionIds: quiz.qs.map((q) => q.id),
       wrongIds: quiz.qs.filter((q, i) => quiz.answers[i] !== q.answer).map((q) => q.id),
       answers: [...quiz.answers],
+      items: quiz.qs.map((q) => ({ stem: String((quiz.variant && q.alt ? q.alt : q.stem) || "").slice(0, 600), opts: (q.opts || []).map((o) => String(o).slice(0, 300)), answer: q.answer, explain: String(q.explain || "").slice(0, 400), skill: String(q.skill || String(q.sourceTitle || "").split(" · ")[1] || "").slice(0, 60), src: String(q.sourceTitle || "").slice(0, 120) })),
       times: [...(quiz.times || [])],
       duration: Math.round((Date.now() - quiz.started) / 1000),
     };
@@ -6846,25 +7150,554 @@ render();
       .map((p, i) => `<circle cx="${x(i)}" cy="${y(p.a.score)}" r="5" class="pt ${p.l === "Pre" ? "pre" : chipCls(p.a.score)}"/><text x="${x(i)}" y="${y(p.a.score) - 10}" text-anchor="middle" class="v">${fmtScore(p.a.score)}</text><text x="${x(i)}" y="${H - 8}" text-anchor="middle">${p.l}</text>`)
       .join("")}</svg></div>`;
   }
-  function masteryDetail(sid, lessonId) {
+  const L4 = "ABCD";
+  function attItems(a, lessonId) {
+    if (Array.isArray(a.items) && a.items.length) return a.items;
+    const byId = new Map(bank().map((q) => [String(q.id), q]));
+    const ids = (a.questionIds || []).map(String);
+    if (!ids.length || !ids.every((id) => byId.has(id))) return null;
+    return ids.map((id) => { const q = byId.get(id); return { stem: q.stem, opts: q.opts || [], answer: q.answer, explain: q.explain || "" }; });
+  }
+  function attDetailHTML(a, lessonId) {
+    const it = attItems(a, lessonId), ans = a.answers || [];
+    if (!it) {
+      const w = new Set((a.wrongIds || []).map(String));
+      return `<p class="kp-ad-note">Lượt này làm trước khi Kiến lưu nội dung câu hỏi${(a.questionIds || []).length ? ` nên chỉ còn kết quả theo mã câu` : ""}.</p>${(a.questionIds || []).length ? `<div class="kp-ad-ids">${a.questionIds.map((id, i) => `<span class="${w.has(String(id)) ? "no" : "ok"}">Câu ${i + 1} · ${esc(id)} ${w.has(String(id)) ? "✕" : "✓"}</span>`).join("")}</div>` : ""}`;
+    }
+    const ok = it.filter((q, i) => ans[i] === q.answer).length;
+    const tiles = it.map((q, i) => `<span class="kp-ad-t ${ans[i] === q.answer ? "ok" : "no"}" title="Câu ${i + 1}">${i + 1}<i>${ans[i] === q.answer ? "✓" : "✕"}</i></span>`).join("");
+    const opt = (q, k) => (k == null || k < 0 || k > 3 ? "—" : `<b>${L4[k]}.</b> ${esc(q.opts[k] || "")}`);
+    return `<div class="kp-ad"><div class="kp-ad-top"><b>${ok}/${it.length} câu đúng</b><div class="kp-ad-tiles">${tiles}</div></div><div class="table-wrap"><table class="kp-md-table kp-ad-tb"><thead><tr><th>Câu</th><th>Câu hỏi</th><th>Sinh viên chọn</th><th>Đáp án đúng</th><th>Kết quả</th></tr></thead><tbody>${it.map((q, i) => { const r = ans[i], good = r === q.answer; return `<tr class="${good ? "ok" : "no"}"><td>${i + 1}</td><td>${esc(q.stem)}${q.explain ? `<details><summary>Giải thích</summary>${esc(q.explain)}</details>` : ""}</td><td>${opt(q, r)}</td><td>${opt(q, q.answer)}</td><td class="kp-rp-v ${good ? "ok" : "no"}">${r == null || r < 0 ? "Bỏ trống" : good ? "Đúng" : "Sai"}</td></tr>`; }).join("")}</tbody></table></div></div>`;
+  }
+  function findAtt(sid, aid, ctid) {
+    if (ctid) { const r = chatTestsOf(sid).find((x) => String(x.id) === String(ctid)); return r ? { r, kind: r.kind === "quick" ? "Kiểm tra nhanh" : r.review ? "Ôn câu sai" : "Kiểm tra " + (r.of || r.total) + " câu (hỏi đáp)", gate: r.kind === "quick" } : null; }
+    const list = attemptsOf(sid), r = list.find((x) => String(x.id) === String(aid));
+    if (!r) return null;
+    const m = mastery(list, r.lesson || "GP-01");
+    return { r, kind: r.kind === "pre" ? "Pre-test" : "Post-test lần " + (m ? m.posts.indexOf(r) + 1 : ""), gate: false };
+  }
+  function gvAnalysis(A, sid) {
+    const r = A.r, lid = r.lesson || "GP-01", it = attItems(r, lid) || [], ans = r.answers || [];
+    const done = it.length || r.total || 0;
+    const ok = it.length ? it.filter((q, i) => ans[i] === q.answer).length : Number(r.correct || 0);
+    const pct = done ? Math.round((ok / done) * 100) : 0;
+    const groups = new Map();
+    it.forEach((q, i) => { const k = q.skill || (A.gate || r.kind === "chat" ? r.topic : "") || "Kiến thức chung"; const g = groups.get(norm(k)) || { name: k, ok: 0, n: 0, idx: [] }; g.n++; g.idx.push(i + 1); if (ans[i] === q.answer) g.ok++; groups.set(norm(k), g); });
+    const sk = [...groups.values()].map((g) => ({ ...g, v: g.ok === g.n ? (g.n >= 2 ? "Nắm vững" : "Khá tốt") : g.ok / g.n >= 0.5 ? "Chưa vững" : "Cần ôn lại" }));
+    const weak = sk.filter((x) => x.v === "Chưa vững" || x.v === "Cần ôn lại");
+    const wrong = it.filter((q, i) => ans[i] !== q.answer);
+    const pass = A.gate ? pct >= 80 : pct >= PASS * 10;
+    const verdict = pct >= 80 ? "Nắm vững kiến thức" : pct >= 50 ? "Khá, cần ôn thêm" : "Cần củng cố kiến thức";
+    const st = mStudents().find((x) => x.id === sid) || { name: sid, id: sid };
+    const advice = [];
+    if (pass) advice.push(A.gate ? "Sinh viên đã đạt phần này; có thể học tiếp phần sau." : "Sinh viên đạt yêu cầu; có thể giao nội dung nâng cao hoặc mời hỗ trợ bạn cùng lớp.");
+    else {
+      if (weak.length) advice.push("Nhắc sinh viên ôn lại: " + weak.map((x) => x.name).join(", ") + ".");
+      advice.push(pct < 50 ? "Kết quả thấp: nên giảng lại phần cơ bản hoặc hướng dẫn sinh viên hỏi Kiến từng phần trước khi làm lại." : "Đề nghị sinh viên ôn các câu sai rồi làm lại để kiểm tra.");
+    }
+    if (r.kind === "post" || r.kind === "pre") { const m = mastery(attemptsOf(sid), lid); if (m && m.pre && r.kind === "post") { const d = Math.round((Number(r.score) - Number(m.pre.score)) * 10) / 10; advice.push(`So với Pre-test (${fmtScore(m.pre.score)}): ${d >= 0 ? "tăng" : "giảm"} ${fmtScore(Math.abs(d))} điểm.`); } }
+    return { r, lid, it, ans, done, ok, pct, sk, weak, wrong, pass, verdict, st, advice, score: done ? Math.round((ok / done) * 100) / 10 : Number(r.score || 0) };
+  }
+  function gvReport(sid, aid, ctid) {
+    const A = findAtt(sid, aid, ctid);
+    if (!A) return modal(`<h2>Không tìm thấy lượt kiểm tra</h2>`);
+    const X = gvAnalysis(A, sid), r = X.r, l = lessons.find((x) => x.id === X.lid);
+    const tiles = X.it.length ? X.it.map((q, i) => `<div class="kp-rp-t ${X.ans[i] === q.answer ? "ok" : "no"}"><span>Câu ${i + 1}</span><i>${X.ans[i] === q.answer ? "✓" : "✕"}</i></div>`).join("") : "";
+    const banner = A.gate ? (X.pass ? `<div class="kp-gate ok"><b>🎉 Đạt (đúng ${X.ok}/${X.done} câu, cần từ 4/5)</b></div>` : `<div class="kp-gate no"><b>Chưa đạt (đúng ${X.ok}/${X.done} câu, cần từ 4/5)</b></div>`) : "";
+    const review = X.wrong.length ? `<ul>${X.wrong.slice(0, 8).map((q) => `<li><b>${esc(q.stem)}</b><br>Đáp án đúng: ${esc((q.opts || [])[q.answer] || "")}${q.explain ? ` · ${esc(q.explain)}` : ""}</li>`).join("")}</ul>${[...new Set(X.wrong.map((q) => q.src).filter(Boolean))].length ? `<p class="kp-rp-src"><i>Nguồn đối chiếu:</i> ${[...new Set(X.wrong.map((q) => q.src).filter(Boolean))].map((x) => `<span>📄 ${esc(x)}</span>`).join(" ")}</p>` : ""}` : `<p>Sinh viên không làm sai câu nào.</p>`;
+    modal(`<div class="kp-md kp-rp kp-gvrp"><div class="kp-gvrp-top"><div><h2 class="kp-rp-h">Kết quả ${esc(A.kind)}${r.topic ? " · " + esc(r.topic) : ""}</h2><p class="modal-text" style="margin:0">${esc(X.st.name)} · ${esc(sid)}${X.st.class ? " · Lớp " + esc(X.st.class) : ""} · ${esc(X.lid)}${l ? " " + esc(l.name) : ""} · ${fmtDT(new Date(r.date).getTime())}${r.duration ? " · làm trong " + r.duration + " giây" : ""}</p></div><button type="button" class="btn primary" data-kp="gv-rep-export" data-sid="${esc(sid)}" data-aid="${esc(aid || "")}" data-ctid="${esc(ctid || "")}">⬇️ Xuất báo cáo</button></div>${banner}
+<div class="kp-rp-card"><div class="kp-rp-top"><div class="kp-rp-rw">${ringSVG(X.pct)}<div class="kp-rp-pc"><b>${X.pct}%</b><small>${X.ok}/${X.done} câu</small></div></div><div class="kp-rp-sum"><div class="kp-rp-sc">${fmtScore(X.score)}/10 điểm</div><div class="kp-rp-l ok"><i>✓</i> ${X.ok} câu đúng</div><div class="kp-rp-l no"><i>✕</i> ${X.done - X.ok} câu sai</div><div class="kp-rp-vd ${X.pct >= 80 ? "ok" : X.pct >= 50 ? "mid" : "no"}">${X.verdict}</div></div></div>${tiles ? `<div class="kp-rp-grid">${tiles}</div>` : ""}</div>
+<h3>1. Đáp án và giải thích</h3>${attDetailHTML(r, X.lid)}
+${X.sk.length ? `<h3>2. Đánh giá năng lực hiện tại</h3><div class="table-wrap kp-st-table"><table class="kp-md-table kp-rp-tb"><thead><tr><th>Kiến thức</th><th>Số câu đúng</th><th>Đánh giá</th></tr></thead><tbody>${X.sk.map((x) => `<tr><td>${esc(x.name)}<br><small>Câu ${x.idx.join(", ")}</small></td><td>${x.ok}/${x.n}</td><td class="kp-rp-v ${SKC(x.v)}">${x.v}</td></tr>`).join("")}</tbody></table></div>` : ""}
+<h3>${X.sk.length ? 3 : 2}. Kiến thức sinh viên cần học lại</h3>${review}
+<h3>${X.sk.length ? 4 : 3}. Gợi ý cho giảng viên</h3><ul class="kp-gvrp-adv">${X.advice.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>`);
+  }
+  function gvReportExport(sid, aid, ctid) {
+    const A = findAtt(sid, aid, ctid);
+    if (!A || !KP.preview) return;
+    const X = gvAnalysis(A, sid), r = X.r;
+    const rows = [["Câu", "Câu hỏi", "Sinh viên chọn", "Đáp án đúng", "Kết quả", "Mảng kiến thức", "Giải thích"]];
+    X.it.forEach((q, i) => { const c = X.ans[i]; rows.push([i + 1, q.stem, c == null || c < 0 ? "Bỏ trống" : L4[c] + ". " + ((q.opts || [])[c] || ""), L4[q.answer] + ". " + ((q.opts || [])[q.answer] || ""), c === q.answer ? "Đúng" : "Sai", q.skill || r.topic || "", q.explain || ""]); });
+    if (rows.length < 2) rows.push(["—", "Lượt này làm trước khi Kiến lưu nội dung câu hỏi", "", "", "", "", ""]);
+    const name = `ket-qua-${A.kind.replace(/[^\wÀ-ỹ]+/g, "-")}-${sid}-${X.lid}`.toLowerCase();
+    KP.preview({
+      rows, name: name + ".xlsx",
+      title: `Kết quả ${A.kind}${r.topic ? " · " + r.topic : ""} · ${X.st.name} (${sid})`,
+      kind: "BÁO CÁO", sub: `Kết quả ${A.kind} của sinh viên ${X.st.name} · ${X.lid}`,
+      intro: `Sinh viên ${X.st.name} (${sid}${X.st.class ? ", lớp " + X.st.class : ""}) làm ${A.kind} bài ${X.lid}${r.topic ? ", chủ đề " + r.topic : ""} lúc ${fmtDT(new Date(r.date).getTime())}. Kết quả: ${X.ok}/${X.done} câu đúng (${X.pct}%), ${fmtScore(X.score)}/10 điểm. Đánh giá: ${X.verdict}${A.gate ? (X.pass ? " (Đạt)" : " (Chưa đạt)") : ""}.`,
+      summary: [["Điểm", fmtScore(X.score) + "/10"], ["Số câu đúng", X.ok + "/" + X.done], ["Đánh giá", X.verdict + (A.gate ? (X.pass ? " · Đạt" : " · Chưa đạt") : "")], ...X.sk.map((x) => [x.name, `${x.ok}/${x.n} · ${x.v}`])],
+      remark: X.advice.map((x) => "– " + x).join("\n"),
+      note: `${A.kind} · ${fmtDT(new Date(r.date).getTime())}`, back: "Theo dõi kiểm tra",
+    });
+  }
+  // xuất toàn bộ kết quả từng câu của một sinh viên ở một bài (Pre/Post-test + kiểm tra trong hỏi đáp)
+  function gvStudentExport(sid, lessonId) {
+    if (!KP.preview) return;
+    const st = mStudents().find((x) => x.id === sid) || { name: sid };
+    const m = mastery(attemptsOf(sid), lessonId);
+    const all = [...(m ? m.list.map((a) => ({ a, kind: a === m.pre ? "Pre-test" : "Post-test lần " + (m.posts.indexOf(a) + 1) })) : []), ...chatTestsOf(sid).filter((r) => r.lesson === lessonId).map((a) => ({ a, kind: a.kind === "quick" ? "Kiểm tra nhanh" + (a.topic ? " · " + a.topic : "") : "Kiểm tra trong hỏi đáp" + (a.topic ? " · " + a.topic : "") }))].sort((x, y) => Date.parse(x.a.date) - Date.parse(y.a.date));
+    const rows = [["Lượt", "Thời điểm", "Điểm", "Câu", "Câu hỏi", "Sinh viên chọn", "Đáp án đúng", "Kết quả"]];
+    all.forEach(({ a, kind }) => { const it = attItems(a, lessonId), ans = a.answers || []; if (!it) return rows.push([kind, fmtDT(new Date(a.date).getTime()), fmtScore(a.score), "—", "(chưa lưu nội dung câu hỏi)", "", "", `${a.correct ?? "—"}/${a.total ?? 10} đúng`]); it.forEach((q, i) => { const c = ans[i]; rows.push([kind, fmtDT(new Date(a.date).getTime()), fmtScore(a.score), i + 1, q.stem, c == null || c < 0 ? "Bỏ trống" : L4[c] + ". " + ((q.opts || [])[c] || ""), L4[q.answer] + ". " + ((q.opts || [])[q.answer] || ""), c === q.answer ? "Đúng" : "Sai"]); }); });
+    if (rows.length < 2) return toast("Chưa có lượt kiểm tra nào để xuất.");
+    KP.preview({ rows, name: `ket-qua-kiem-tra-${sid}-${lessonId}.xlsx`.toLowerCase(), title: `Kết quả kiểm tra từng câu · ${st.name} (${sid}) · ${lessonId}`, kind: "BÁO CÁO", sub: `Kết quả kiểm tra của sinh viên ${st.name} · ${lessonId}`, back: "Theo dõi kiểm tra", summary: [["Số lượt", all.length], ["Pre-test", m && m.pre ? fmtScore(m.pre.score) : "—"], ["Post-test cao nhất", m && m.best != null ? fmtScore(m.best) : "—"], ["Kiểm tra nhanh đạt", (() => { const q = all.filter((x) => x.a.kind === "quick"); return q.length ? q.filter((x) => x.a.pass).length + "/" + q.length : "—"; })()]] });
+  }
+  // bài kiểm tra trong khung hỏi đáp (10 câu, kiểm tra nhanh 5 câu): lưu riêng, không tính vào Pre/Post-test
+  const CTK = (id) => "kien-chattests:" + id;
+  function chatTestsOf(sid) { const v = read(CTK(sid), []); return Array.isArray(v) ? v : []; }
+  function saveChatTest(Z, L, ok, done) {
+    if (Z.saved || !done || typeof activeUser === "undefined" || !activeUser || !L) return;
+    if (typeof isStudent === "function" && !isStudent()) return;
+    Z.saved = true;
+    const pct = Math.round((ok / done) * 100);
+    const rec = { id: Date.now(), date: new Date().toISOString(), lesson: L.id, kind: Z.gate ? "quick" : "chat", topic: String(Z.topic || "").slice(0, 80), total: done, of: Z.qs.length, correct: ok, score: Math.round((ok / done) * 100) / 10, pass: Z.gate ? pct >= 80 : pct >= PASS * 10, review: !!Z.review, answers: Z.ans.slice(0, done), items: Z.qs.slice(0, done).map((q) => ({ stem: String(q.stem || "").slice(0, 600), opts: (q.opts || []).map((o) => String(o).slice(0, 300)), answer: q.answer, explain: String(q.explain || "").slice(0, 400), skill: q.skill || "", src: q.sourceTitle || "" })) };
+    const all = chatTestsOf(activeUser.id); all.push(rec);
+    save(CTK(activeUser.id), all.slice(-200));
+  }
+  const ctKind = (r) => (r.kind === "quick" ? "Kiểm tra nhanh" : r.review ? "Ôn câu sai" : "Kiểm tra " + (r.of || r.total) + " câu");
+  const ctRes = (r) => (r.kind === "quick" ? (r.pass ? `<span class="kp-ct-b ok">Đạt</span>` : `<span class="kp-ct-b no">Chưa đạt</span>`) : `<span class="kp-ct-b ${r.score >= 8 ? "ok" : r.score >= 5 ? "mid" : "no"}">${r.score >= 8 ? "Nắm vững" : r.score >= 5 ? "Khá" : "Cần củng cố"}</span>`);
+  function chatTestDetail(sid, id) {
+    return gvReport(sid, null, id);
+    const st = mStudents().find((x) => x.id === sid);
+    const r = chatTestsOf(sid).find((x) => String(x.id) === String(id));
+    if (!r) return modal(`<h2>Không tìm thấy lượt kiểm tra</h2>`);
+    const l = lessons.find((x) => x.id === r.lesson);
+    modal(`<div class="kp-md"><h2>${esc(ctKind(r))}${r.topic ? " · " + esc(r.topic) : ""}</h2><p class="modal-text" style="margin:0 0 10px">${esc(st ? st.name : sid)} · ${esc(sid)} · ${esc(r.lesson)}${l ? " · " + esc(l.name) : ""} · ${fmtDT(new Date(r.date).getTime())}</p><div class="kp-md-sum"><div><small>Điểm</small><b>${fmtScore(r.score)}</b></div><div><small>Đúng</small><b>${r.correct}/${r.total}</b></div><div><small>Kết quả</small>${ctRes(r)}</div><div><small>Hình thức</small><b style="font-size:14px">Trong hỏi đáp với Kiến</b></div></div>${attDetailHTML(r, r.lesson)}</div>`);
+  }
+  let CTQ = [];
+  // ---- Bộ lọc chung cho các bảng kết quả kiểm tra: lớp, sinh viên, bài, loại bài + xuất báo cáo
+  const CTF = { cls: [], sv: [], lesson: [], kind: [] };
+  const CTF_UI = { open: "", q: {}, cmp: {} };
+  function ctAllowed() { return typeof staffLessons === "function" ? staffLessons() : lessons.map((l) => l.id); }
+  function ctLessons() {
+    const allowed = ctAllowed();
+    const pickL = CTF.lesson.filter((x) => allowed.includes(x));
+    if (pickL.length) return new Set(pickL);
+    const chosen = typeof mChosen === "function" ? mChosen(allowed) : [];
+    return new Set(chosen.length ? chosen : allowed);
+  }
+  function ctStudents() {
+    return mStudents().filter((st) => (!CTF.cls.length || CTF.cls.includes(String(st.class || ""))) && (!CTF.sv.length || CTF.sv.includes(String(st.id))));
+  }
+  const KINDS = [["pre", "Pre-test"], ["post", "Post-test"], ["quick", "Kiểm tra nhanh 5 câu"], ["chat", "Bài 10 câu trong hỏi đáp"]];
+  const kindOk = (k) => !CTF.kind.length || CTF.kind.includes(k);
+  // mọi câu trả lời của sinh viên (theo bộ lọc): dùng cho xuất báo cáo
+  function ctResponses() {
+    const set = ctLessons(), out = [];
+    ctStudents().forEach((st) => {
+      const atts = attemptsOf(st.id);
+      atts.forEach((a) => {
+        const lid = a.lesson || "GP-01", k = a.kind === "pre" ? "pre" : "post";
+        if (!set.has(lid) || !kindOk(k)) return;
+        const it = attItems(a, lid); if (!it) return;
+        const m = mastery(atts, lid);
+        const lab = k === "pre" ? "Pre-test" : "Post-test lần " + (m ? m.posts.indexOf(a) + 1 : "");
+        it.forEach((q, i) => out.push({ st, lid, k, lab, a, q, i, c: (a.answers || [])[i] }));
+      });
+      chatTestsOf(st.id).forEach((a) => {
+        const k = a.kind === "quick" ? "quick" : "chat";
+        if (!set.has(a.lesson) || !kindOk(k)) return;
+        (a.items || []).forEach((q, i) => out.push({ st, lid: a.lesson, k, lab: (k === "quick" ? "Kiểm tra nhanh" : a.review ? "Ôn câu sai" : "Bài 10 câu") + (a.topic ? " · " + a.topic : ""), a, q, i, c: (a.answers || [])[i] }));
+      });
+    });
+    return out;
+  }
+  const lvOf = (p) => (p >= 80 ? "Hiểu tốt" : p >= 50 ? "Hiểu một phần" : "Chưa hiểu");
+  const kLab = (k) => (KINDS.find((x) => x[0] === k) || ["", k])[1];
+  const svName = (id) => { const st = mStudents().find((x) => String(x.id) === id); return st ? st.name + " (" + id + ")" : id; };
+  const lst = (a, f) => (a.length <= 4 ? a.map(f).join(", ") : a.slice(0, 3).map(f).join(", ") + " và " + (a.length - 3) + " mục khác");
+  const ctNote = () => [CTF.cls.length ? "Lớp " + lst(CTF.cls, (x) => x) : "Tất cả lớp", CTF.sv.length ? "Sinh viên: " + lst(CTF.sv, svName) : "", CTF.lesson.length ? "Bài " + lst(CTF.lesson, (x) => x) : "Các bài đang chọn", CTF.kind.length ? lst(CTF.kind, kLab) : "Tất cả loại bài"].filter(Boolean).join(" · ");
+  // ô chọn nhiều: bấm mở danh sách có ô tích, tìm nhanh, chọn tất cả / bỏ chọn
+  function ctfBox(k, label, allTxt, unit, opts, searchPh) {
+    const cur = CTF[k], q = CTF_UI.q[k] || "", nq = norm(q).trim();
+    const sum = !cur.length ? allTxt : cur.length <= 2 ? cur.map((v) => (opts.find((o) => o[0] === v) || [v, v])[2] || (opts.find((o) => o[0] === v) || [v, v])[1]).join(", ") : cur.length + " " + unit + " đã chọn";
+    const items = opts.map(([v, t]) => `<label class="kp-ms-it"${nq && !norm(t).includes(nq) ? " hidden" : ""} data-t="${esc(t)}"><input type="checkbox" data-ctfm="${k}" value="${esc(v)}" ${cur.includes(v) ? "checked" : ""}><span>${esc(t)}</span></label>`).join("");
+    return `<div class="kp-ctf-f"><span>${label}</span><details class="kp-ms" data-ms="${k}" ${CTF_UI.open === k ? "open" : ""}><summary class="${cur.length ? "on" : ""}" title="${esc(sum)}"><span class="kp-ms-t">${esc(sum)}</span>${cur.length ? ` <b class="kp-ms-n">${cur.length}</b>` : ""}</summary><div class="kp-ms-pop">${searchPh ? `<input class="input kp-ms-q" type="search" data-msq="${k}" placeholder="${esc(searchPh)}" value="${esc(q)}">` : ""}<div class="kp-ms-act"><button type="button" class="btn secondary" data-kp="ms-all" data-ms="${k}">Chọn ${searchPh ? "các mục đang hiện" : "tất cả"}</button><button type="button" class="btn secondary" data-kp="ms-none" data-ms="${k}">Bỏ chọn</button></div><div class="kp-ms-list">${items || `<p class="kp-muted">Chưa có mục nào.</p>`}</div></div></details></div>`;
+  }
+  function ctChips() {
+    const ch = [];
+    const add = (k, v, t) => ch.push(`<button type="button" class="kp-ctf-chip" data-kp="ms-rm" data-ms="${k}" data-v="${esc(v)}" title="Bỏ mục này">${esc(t)} ✕</button>`);
+    CTF.cls.forEach((v) => add("cls", v, "Lớp " + v));
+    CTF.sv.forEach((v) => add("sv", v, svName(v)));
+    CTF.lesson.forEach((v) => add("lesson", v, "Bài " + v));
+    CTF.kind.forEach((v) => add("kind", v, kLab(v)));
+    return ch.length ? `<div class="kp-ctf-chips">${ch.join("")}</div>` : "";
+  }
+  function ctFilterBar() {
+    const S = mStudents(), cls = [...new Set(S.map((x) => String(x.class || "")).filter(Boolean))].sort();
+    const L = ctAllowed();
+    const svOpts = S.filter((st) => !CTF.cls.length || CTF.cls.includes(String(st.class || ""))).sort((a, b) => String(a.class || "").localeCompare(String(b.class || "")) || String(a.name).localeCompare(String(b.name))).map((st) => [String(st.id), st.name + " · " + st.id + (st.class ? " · " + st.class : ""), st.name]);
+    const any = CTF.cls.length || CTF.sv.length || CTF.lesson.length || CTF.kind.length;
+    const R = ctResponses(), stN = new Set(R.map((x) => x.st.id)).size;
+    return `<section class="card kp-ctf"><div class="card-title"><div><h2>Lọc và xuất báo cáo kết quả kiểm tra</h2><p class="subtitle">Mỗi ô đều chọn được nhiều mục: bấm vào ô rồi tích các lớp, sinh viên (tìm theo tên hoặc MSSV), bài và loại bài kiểm tra cần xem. Để trống một ô nghĩa là lấy tất cả. Các bảng bên dưới và nút xuất báo cáo lấy đúng số liệu đang lọc.</p></div></div>
+<div class="kp-ctf-row">${ctfBox("cls", "Lớp", "Tất cả lớp", "lớp", cls.map((c) => [c, c]))}${ctfBox("sv", "Sinh viên", CTF.cls.length ? "Tất cả sinh viên của lớp đã chọn" : "Tất cả sinh viên", "sinh viên", svOpts, "Tìm tên hoặc MSSV")}${ctfBox("lesson", "Bài", "Các bài đang chọn ở trên", "bài", L.map((id) => { const l = lessons.find((x) => x.id === id); return [id, id + (l ? " · " + l.name : ""), id]; }), L.length > 8 ? "Tìm bài" : "")}${ctfBox("kind", "Loại bài kiểm tra", "Tất cả loại bài", "loại", KINDS)}${any ? `<button type="button" class="btn secondary" data-kp="ctf-clear">✕ Bỏ lọc</button>` : ""}</div>${ctChips()}
+<p class="kp-ctf-info">Đang lọc: <b>${esc(ctNote())}</b> · ${stN} sinh viên có bài làm · ${R.length} câu trả lời đã ghi nhận</p>
+${(() => { const nC = new Set(R.map((x) => String(x.st.class || "").trim() || "-")).size; const box = (k, n, t, d) => `<label class="kp-ctf-cmp${n < 2 ? " off" : ""}" title="${esc(n < 2 ? "Cần từ 2 " + d + " có bài làm theo bộ lọc" : "Báo cáo sẽ có thêm bảng và biểu đồ so sánh")}"><input type="checkbox" data-ctcmp="${k}" ${n >= 2 && CMP_ON(k) ? "checked" : ""} ${n < 2 ? "disabled" : ""}> ${t} <small>(${n} ${d})</small></label>`; return `<div class="kp-ctf-cmps"><span>Thêm vào báo cáo:</span>${box("cls", nC, "📊 So sánh giữa các lớp", "lớp")}${box("sv", stN, nC === 1 ? "👥 So sánh sinh viên trong lớp" : "👥 So sánh giữa các sinh viên", "sinh viên")}</div>`; })()}<div class="kp-ctf-exp"><button type="button" class="btn primary" data-kp="ctx-q">⬇️ Báo cáo theo câu hỏi</button><button type="button" class="btn primary" data-kp="ctx-sv">⬇️ Báo cáo theo sinh viên</button><button type="button" class="btn secondary" data-kp="ctx-all">⬇️ Chi tiết từng câu của từng sinh viên</button></div>
+<p class="kp-muted kp-ctf-help"><b>Theo câu hỏi:</b> mỗi câu một dòng, số sinh viên trả lời, tỉ lệ đúng, mức độ hiểu (Hiểu tốt từ 80%, Hiểu một phần 50–79%, Chưa hiểu dưới 50%), phương án sai hay chọn. <b>Theo sinh viên:</b> mỗi sinh viên mỗi bài một dòng, điểm Pre/Post, kiểm tra nhanh, tỉ lệ đúng, mức độ hiểu, mảng kiến thức cần ôn. <b>So sánh:</b> khi có từ 2 lớp hoặc 2 sinh viên, tích ô so sánh để báo cáo có thêm bảng xếp hạng, bảng theo mảng kiến thức, biểu đồ so sánh và nhận xét chênh lệch (bật tắt lại được ở bước 4 trang Lập báo cáo).</p></section>`;
+  }
+  // ---- So sánh giữa các lớp / giữa các sinh viên (bảng + biểu đồ) cho trang Lập báo cáo
+  const pctS = (v) => (v == null ? "—" : v + "%");
+  const avg1 = (a) => (a.length ? Math.round((a.reduce((t, v) => t + v, 0) / a.length) * 10) / 10 : null);
+  const sc1 = (v) => (v == null ? "—" : fmtScore(v));
+  const shortName = (n) => String(n || "").trim().split(/\s+/).slice(-2).join(" ");
+  // chỉ số của một nhóm câu trả lời
+  function ctStat(rs) {
+    const ok = rs.filter((x) => x.c === x.q.answer).length, pct = rs.length ? Math.round((ok / rs.length) * 100) : null;
+    const sv = new Set(rs.map((x) => x.st.id));
+    const pairs = new Map(), quick = new Map();
+    rs.forEach((x) => {
+      if (x.k === "pre" || x.k === "post") {
+        const key = x.st.id + "|" + x.lid; let e = pairs.get(key); if (!e) pairs.set(key, (e = { pre: null, post: [] }));
+        const v = Number(x.a.score); if (!isFinite(v)) return;
+        if (x.k === "pre") e.pre = v; else if (!e.post.includes(x.a)) e.post.push(x.a);
+      }
+      if (x.k === "quick") quick.set(x.a.id, x.a);
+    });
+    const P = [...pairs.values()].map((e) => ({ pre: e.pre, best: e.post.length ? Math.max(...e.post.map((a) => Number(a.score))) : null }));
+    const preA = avg1(P.filter((e) => e.pre != null).map((e) => e.pre)), postA = avg1(P.filter((e) => e.best != null).map((e) => e.best));
+    const gains = P.filter((e) => e.pre != null && e.best != null).map((e) => e.best - e.pre);
+    const mast = P.length ? Math.round((P.filter((e) => (e.pre != null && e.pre >= PASS) || (e.best != null && e.best >= PASS)).length / P.length) * 100) : null;
+    const qk = [...quick.values()];
+    const lv = { "Hiểu tốt": 0, "Hiểu một phần": 0, "Chưa hiểu": 0 };
+    [...sv].forEach((id) => { const r2 = rs.filter((x) => x.st.id === id); lv[lvOf(Math.round((r2.filter((x) => x.c === x.q.answer).length / r2.length) * 100))]++; });
+    return { n: rs.length, ok, pct, sv: sv.size, preA, postA, gain: gains.length ? avg1(gains) : null, mast, qk: qk.length, qkPass: qk.filter((a) => a.pass).length, lv };
+  }
+  const skOf = (x) => String(x.q.skill || x.a.topic || "").trim() || "Chưa phân mảng";
+  const pctOf = (rs) => (rs.length ? Math.round((rs.filter((x) => x.c === x.q.answer).length / rs.length) * 100) : null);
+  const heat = (v) => (v == null ? "" : v >= 80 ? "background:#dff3e4" : v >= 50 ? "background:#fff3d6" : "background:#fbe0de");
+  // bảng HTML cho văn bản; ô phần trăm tô màu theo mức hiểu
+  function cmpTable(cap, head, rows, o = {}) {
+    const td = (v, j) => { const t = v == null ? "" : String(v); const m = o.heat && j >= (o.heatFrom || 1) && j < (o.heatTo || 1e9) && /^\d+%$/.test(t) ? heat(parseInt(t, 10)) : ""; return `<td style="${m}${j && /^[-+−]?[\d,.]+%?$|^—$/.test(t) ? ";text-align:center" : ""}">${esc(t)}</td>`; };
+    return `<p class="rp-cap">${esc(cap)}</p><table class="rp-tbl${head.length > 7 ? " rp-wide" : ""}"><thead><tr>${head.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${rows.map((r) => `<tr${r._sum ? ' class="rp-sum"' : ""}>${r.map(td).join("")}</tr>`).join("")}</tbody></table>${o.note ? `<p style="font-size:10pt;font-style:italic;margin:2px 0 8px">${esc(o.note)}</p>` : ""}`;
+  }
+  function cmpChunk(cap, fixH, varH, rowsF, rowsV, per, o) {
+    if (varH.length <= per) return cmpTable(cap, [...fixH, ...varH], rowsF.map((r, i) => [...r, ...rowsV[i]]), o);
+    let h = "";
+    for (let a = 0; a < varH.length; a += per) h += cmpTable(cap + (a ? ` (tiếp, cột ${a + 1}–${Math.min(varH.length, a + per)})` : ` (cột 1–${per})`), [...fixH, ...varH.slice(a, a + per)], rowsF.map((r, i) => [...r, ...rowsV[i].slice(a, a + per)]), a + per >= varH.length ? o : { ...o, note: "" });
+    return h;
+  }
+  const HEATNOTE = "Ô xanh: từ 80% đúng (Hiểu tốt); ô vàng: 50–79% (Hiểu một phần); ô đỏ: dưới 50% (Chưa hiểu).";
+  function ctCompare(R) {
+    const out = [];
+    const clsOf = (x) => String(x.st.class || "").trim() || "(chưa có lớp)";
+    const CL = [...new Set(R.map(clsOf))].sort();
+    const SV = [...new Map(R.map((x) => [x.st.id, x.st])).values()];
+    const skills = [...new Set(R.map(skOf))];
+    const lessonsIn = [...new Set(R.map((x) => x.lid))].sort();
+    const hasPP = R.some((x) => x.k === "pre" || x.k === "post"), hasQ = R.some((x) => x.k === "quick");
+    const all = ctStat(R);
+    if (CL.length >= 2) {
+      const S = CL.map((c) => ({ c, rs: R.filter((x) => clsOf(x) === c) })).map((g) => ({ ...g, s: ctStat(g.rs) }));
+      const rank = [...S].sort((a, b) => b.s.pct - a.s.pct);
+      const qkS = (s) => (s.qk ? s.qkPass + "/" + s.qk : "—");
+      out.push({
+        id: "Cls", title: `So sánh giữa các lớp (${CL.length} lớp)`, on: CMP_ON("cls"),
+        tLabel: "Bảng so sánh giữa các lớp", tDesc: "Chỉ số chính, theo mảng kiến thức, theo bài, câu chênh lệch nhiều", cLabel: "Biểu đồ so sánh giữa các lớp", cDesc: "Tỉ lệ đúng, Pre/Post, phân bố mức hiểu, theo mảng kiến thức",
+        tables: () => {
+          const rowOf = (c, s2, rk) => [c, s2.sv, s2.n, pctS(s2.pct), ...(hasPP ? [sc1(s2.preA) + " → " + sc1(s2.postA), s2.gain == null ? "—" : (s2.gain > 0 ? "+" : "") + fmtScore(s2.gain), pctS(s2.mast)] : []), ...(hasQ ? [qkS(s2)] : []), s2.lv["Hiểu tốt"] + " / " + s2.lv["Hiểu một phần"] + " / " + s2.lv["Chưa hiểu"], rk];
+          let h = cmpTable("Bảng 1. Chỉ số chính của từng lớp", ["Lớp", "Số SV", "Lượt trả lời", "Tỉ lệ đúng", ...(hasPP ? ["Pre-test TB → Post-test cao nhất TB", "Mức tăng TB", "Tỉ lệ thuần thục"] : []), ...(hasQ ? ["Kiểm tra nhanh đạt"] : []), "Số SV hiểu tốt / một phần / chưa hiểu", "Xếp hạng"],
+            [...S.map((g) => rowOf(g.c, g.s, 1 + S.filter((o) => o.s.pct > g.s.pct).length)), Object.assign(rowOf("Toàn bộ", all, ""), { _sum: 1 })],
+            { heat: true, heatFrom: 3, note: "Điểm Pre/Post thang 10; thuần thục là đạt từ 8/10 ở Pre-test hoặc một lần Post-test. Xếp hạng theo tỉ lệ trả lời đúng. " + HEATNOTE });
+          let n = 1;
+          if (skills.length >= 1) {
+            const rows = skills.map((k) => { const v = S.map((g) => pctOf(g.rs.filter((x) => skOf(x) === k))); const f = v.filter((x) => x != null); return [k, ...v.map(pctS), f.length >= 2 ? Math.max(...f) - Math.min(...f) + "%" : "—"]; }).sort((a, b) => parseInt(b.at(-1)) - parseInt(a.at(-1)) || 0);
+            h += CL.length <= 6 ? cmpTable(`Bảng ${++n}. Tỉ lệ đúng theo mảng kiến thức của từng lớp`, ["Mảng kiến thức", ...CL.map((c) => "Lớp " + c), "Chênh lệch"], rows, { heat: true, heatTo: CL.length + 1, note: "Xếp theo mức chênh lệch giữa lớp cao nhất và thấp nhất. " + HEATNOTE })
+              : cmpChunk(`Bảng ${++n}. Tỉ lệ đúng theo mảng kiến thức của từng lớp`, ["Mảng kiến thức", "Chênh lệch"], CL.map((c) => "Lớp " + c), rows.map((r) => [r[0], r.at(-1)]), rows.map((r) => r.slice(1, -1)), 6, { heat: true, heatFrom: 2, note: HEATNOTE });
+          }
+          if (lessonsIn.length >= 2) h += cmpChunk(`Bảng ${++n}. Tỉ lệ đúng theo bài của từng lớp`, ["Bài"], CL.map((c) => "Lớp " + c), lessonsIn.map((l) => [l]), lessonsIn.map((l) => S.map((g) => pctS(pctOf(g.rs.filter((x) => x.lid === l))))), 7, { heat: true });
+          const QM = new Map(); R.forEach((x) => { const k = norm(x.q.stem).replace(/\s+/g, " ").trim(); if (!QM.has(k)) QM.set(k, { stem: x.q.stem, rs: [] }); QM.get(k).rs.push(x); });
+          const qd = [...QM.values()].map((e) => { const v = S.map((g) => pctOf(e.rs.filter((x) => clsOf(x) === g.c))); const f = v.filter((x) => x != null); return { e, v, d: f.length >= 2 ? Math.max(...f) - Math.min(...f) : -1 }; }).filter((x) => x.d >= 0).sort((a, b) => b.d - a.d).slice(0, 10);
+          if (qd.length) h += cmpChunk(`Bảng ${++n}. Các câu hỏi có tỉ lệ đúng chênh lệch nhiều nhất giữa các lớp`, ["Câu hỏi", "Chênh lệch"], CL.map((c) => "Lớp " + c), qd.map((x) => [x.e.stem, x.d + "%"]), qd.map((x) => x.v.map(pctS)), 5, { heat: true, heatFrom: 2 });
+          return h;
+        },
+        charts: (D, T) => {
+          const c = [D.bar(S.map((g) => "Lớp " + g.c), S.map((g) => g.s.pct || 0), T("So sánh tỉ lệ trả lời đúng giữa các lớp"), "% đúng")];
+          if (hasPP) c.push(D.gbar(S.map((g) => "Lớp " + g.c), [{ n: "Pre-test TB", c: "#e0962b", v: S.map((g) => g.s.preA) }, { n: "Post-test cao nhất TB", c: "#6a3fd0", v: S.map((g) => g.s.postA) }], T("So sánh điểm Pre-test và Post-test trung bình giữa các lớp"), "điểm (thang 10)", 10));
+          c.push(D.gbar(S.map((g) => "Lớp " + g.c), [["Hiểu tốt", "#2e9e5b"], ["Hiểu một phần", "#e0a72b"], ["Chưa hiểu", "#d4483b"]].map(([k, col]) => ({ n: k, c: col, v: S.map((g) => g.s.lv[k]) })), T("Phân bố sinh viên theo mức độ hiểu ở từng lớp"), "sinh viên"));
+          if (skills.length >= 2 && skills.length <= 12) c.push(D.gbar(skills.map((k) => k.slice(0, 22)), S.map((g) => ({ n: "Lớp " + g.c, v: skills.map((k) => pctOf(g.rs.filter((x) => skOf(x) === k))) })), T("So sánh tỉ lệ đúng theo mảng kiến thức giữa các lớp"), "% đúng", 100));
+          if (lessonsIn.length >= 2) c.push(D.gbar(lessonsIn, S.map((g) => ({ n: "Lớp " + g.c, v: lessonsIn.map((l) => pctOf(g.rs.filter((x) => x.lid === l))) })), T("So sánh tỉ lệ đúng theo bài giữa các lớp"), "% đúng", 100));
+          return c;
+        },
+        remark: () => {
+          const hi = rank[0], lo = rank.at(-1), gap = (hi.s.pct || 0) - (lo.s.pct || 0);
+          const L = [gap ? `– Lớp ${hi.c} có tỉ lệ trả lời đúng cao nhất (${pctS(hi.s.pct)}), lớp ${lo.c} thấp nhất (${pctS(lo.s.pct)}); chênh lệch ${gap}%.` : `– Các lớp có tỉ lệ trả lời đúng ngang nhau (${pctS(hi.s.pct)}); xem bảng theo mảng kiến thức để thấy khác biệt.`];
+          const gs = skills.map((k) => { const v = S.map((g) => ({ c: g.c, p: pctOf(g.rs.filter((x) => skOf(x) === k)) })).filter((x) => x.p != null).sort((a, b) => b.p - a.p); return { k, v, d: v.length >= 2 ? v[0].p - v.at(-1).p : 0 }; }).filter((x) => x.d >= 20).sort((a, b) => b.d - a.d).slice(0, 4);
+          if (gs.length) L.push("– Mảng kiến thức chênh lệch rõ giữa các lớp: " + gs.map((x) => `${x.k} (lớp ${x.v[0].c} ${x.v[0].p}%, lớp ${x.v.at(-1).c} ${x.v.at(-1).p}%)`).join("; ") + ". Nên ôn lại mảng này cho lớp thấp hơn.");
+          if (hasPP) { const gg = S.filter((g) => g.s.gain != null).sort((a, b) => b.s.gain - a.s.gain); if (gg.length >= 2) L.push(`– Lớp tiến bộ nhiều nhất từ Pre-test đến Post-test: ${gg[0].c} (+${fmtScore(gg[0].s.gain)} điểm); ít nhất: ${gg.at(-1).c} (${gg.at(-1).s.gain > 0 ? "+" : ""}${fmtScore(gg.at(-1).s.gain)} điểm).`); }
+          const weak = S.filter((g) => g.s.lv["Chưa hiểu"]).map((g) => `lớp ${g.c} có ${g.s.lv["Chưa hiểu"]} sinh viên`); if (weak.length) L.push("– Sinh viên Chưa hiểu (dưới 50% đúng): " + weak.join(", ") + ".");
+          return L.join("\n");
+        },
+      });
+    }
+    if (SV.length >= 2) {
+      const S = SV.map((st) => ({ st, c: String(st.class || "").trim() || "(chưa có lớp)", rs: R.filter((x) => x.st.id === st.id) })).map((g) => ({ ...g, s: ctStat(g.rs) })).sort((a, b) => b.s.pct - a.s.pct || String(a.st.name).localeCompare(String(b.st.name)));
+      const mean = all.pct, many = CL.length >= 2, one = CL.length === 1;
+      const cm = {}; CL.forEach((c) => (cm[c] = pctOf(R.filter((x) => clsOf(x) === c))));
+      const rkAll = (g) => 1 + S.filter((o) => o.s.pct > g.s.pct).length, rkIn = (g) => 1 + S.filter((o) => o.c === g.c && o.s.pct > g.s.pct).length;
+      const d = (v, ref) => (v - ref > 0 ? "+" : v - ref < 0 ? "−" : "") + Math.abs(v - ref) + "%";
+      const nm = (g) => g.st.name + " (" + g.st.id + ")";
+      const pp = (g) => sc1(g.s.preA) + " → " + sc1(g.s.postA) + (g.s.gain != null ? " (" + (g.s.gain > 0 ? "+" : "") + fmtScore(g.s.gain) + ")" : "");
+      const weakOf = (g) => { const w = skills.map((k) => [k, pctOf(g.rs.filter((x) => skOf(x) === k))]).filter((x) => x[1] != null).sort((a, b) => a[1] - b[1])[0]; return w && w[1] < 80 ? w[0] + " (" + w[1] + "%)" : "—"; };
+      const sub = one ? ` trong lớp ${CL[0]}` : many ? " trong từng lớp và giữa các lớp" : "";
+      out.push({
+        id: "Sv", title: `So sánh giữa các sinh viên${sub} (${SV.length} sinh viên)`, on: CMP_ON("sv"),
+        tLabel: one ? "Bảng so sánh sinh viên trong lớp" : "Bảng so sánh giữa các sinh viên", tDesc: many ? "Xếp hạng chung, xếp hạng trong lớp, mỗi lớp một bảng, theo mảng kiến thức" : "Xếp hạng, so với trung bình lớp, theo mảng kiến thức",
+        cLabel: "Biểu đồ so sánh giữa các sinh viên", cDesc: many ? "Mỗi lớp một biểu đồ so với trung bình lớp, Pre/Post" : "Từng sinh viên so với trung bình, Pre/Post, mảng kiến thức",
+        tables: () => {
+          let n = 0;
+          let h = cmpTable(`Bảng ${++n}. ${many ? "Xếp hạng chung sinh viên các lớp" : "Xếp hạng sinh viên" + sub}`,
+            [many ? "Hạng chung" : "Hạng", "Họ và tên (MSSV)", ...(many ? ["Lớp", "Hạng trong lớp"] : []), "Tỉ lệ đúng", many ? "So với TB lớp" : one ? "So với TB lớp" : "So với TB nhóm", ...(many ? ["So với TB chung"] : []), ...(hasPP ? ["Pre-test → Post-test cao nhất"] : []), ...(hasQ ? ["Kiểm tra nhanh đạt"] : []), "Mức độ hiểu"],
+            S.map((g) => [rkAll(g), nm(g), ...(many ? [g.c, rkIn(g)] : []), pctS(g.s.pct), d(g.s.pct, many || one ? cm[g.c] : mean), ...(many ? [d(g.s.pct, mean)] : []), ...(hasPP ? [pp(g)] : []), ...(hasQ ? [g.s.qk ? g.s.qkPass + "/" + g.s.qk : "—"] : []), lvOf(g.s.pct)]),
+            { heat: true, heatFrom: 2, note: `${many ? CL.map((c) => `TB lớp ${c}: ${cm[c]}%`).join("; ") + `; TB chung: ${mean}%.` : `Trung bình ${one ? "lớp" : "nhóm"}: ${mean}% đúng.`} “So với TB” là số điểm phần trăm cao hơn (+) hoặc thấp hơn (−) mức trung bình. ` + HEATNOTE });
+          if (many) {
+            h += cmpTable(`Bảng ${++n}. Tóm tắt so sánh sinh viên trong từng lớp`, ["Lớp", "Số SV", "TB lớp", "Cao nhất", "Thấp nhất", "Khoảng cách", "Dưới TB lớp", "Chưa hiểu"],
+              CL.map((c) => { const g = S.filter((o) => o.c === c); return [c, g.length, cm[c] + "%", g[0].st.name + " (" + g[0].s.pct + "%)", g.at(-1).st.name + " (" + g.at(-1).s.pct + "%)", g[0].s.pct - g.at(-1).s.pct + "%", g.filter((o) => o.s.pct < cm[c]).length, g.filter((o) => o.s.pct < 50).length]; }));
+            const base = ++n;
+            CL.forEach((c, ci) => { const g = S.filter((o) => o.c === c); h += cmpTable(`Bảng ${base}.${ci + 1}. Xếp hạng sinh viên lớp ${c} (${g.length} sinh viên, TB lớp ${cm[c]}%)`, ["Hạng trong lớp", "Họ và tên (MSSV)", "Tỉ lệ đúng", "So với TB lớp", ...(hasPP ? ["Pre-test → Post-test cao nhất"] : []), "Mức độ hiểu", "Mảng yếu nhất"], g.map((o) => [rkIn(o), nm(o), pctS(o.s.pct), d(o.s.pct, cm[c]), ...(hasPP ? [pp(o)] : []), lvOf(o.s.pct), weakOf(o)]), { heat: true, heatFrom: 2 }); });
+          }
+          if (skills.length) {
+            const rowsF = S.map((g) => [g.st.name, ...(many ? [g.c] : [])]), rowsV = S.map((g) => skills.map((k) => pctS(pctOf(g.rs.filter((x) => skOf(x) === k)))));
+            h += cmpChunk(`Bảng ${++n}. Tỉ lệ đúng theo mảng kiến thức của từng sinh viên`, ["Họ và tên", ...(many ? ["Lớp"] : [])], skills, rowsF, rowsV, many ? 5 : 6, { heat: true, heatFrom: many ? 2 : 1, note: HEATNOTE });
+          }
+          return h;
+        },
+        charts: (D, T) => {
+          const pick = (g) => (g.length <= 25 ? g : [...g.slice(0, 12), ...g.slice(-12)]);
+          const vsRef = (g, refN, ref, t) => { const G = pick(g); return D.gbar(G.map((o) => shortName(o.st.name)), [{ n: "Sinh viên", c: "#4f46e5", v: G.map((o) => o.s.pct) }, { n: refN, c: "#b8b5cf", v: G.map(() => ref) }], T(t + (g.length > 25 ? " (12 cao nhất, 12 thấp nhất)" : "")), "% đúng", 100); };
+          const c = [vsRef(S, many ? "TB chung" : one ? "TB lớp" : "TB nhóm", mean, `Tỉ lệ đúng của từng sinh viên${many ? " các lớp" : sub} so với trung bình`)];
+          if (many) CL.forEach((cl) => { const g = S.filter((o) => o.c === cl); if (g.length >= 2) c.push(vsRef(g, "TB lớp " + cl, cm[cl], `Tỉ lệ đúng của sinh viên lớp ${cl} so với trung bình lớp`)); });
+          if (hasPP) { const G = pick(S); c.push(D.gbar(G.map((o) => shortName(o.st.name)), [{ n: "Pre-test", c: "#e0962b", v: G.map((o) => o.s.preA) }, { n: "Post-test cao nhất", c: "#6a3fd0", v: G.map((o) => o.s.postA) }], T("So sánh điểm Pre-test và Post-test cao nhất của từng sinh viên"), "điểm (thang 10)", 10)); }
+          if (many) c.push(D.gbar(CL.map((cl) => "Lớp " + cl), [["Cao nhất", "#2e9e5b"], ["TB lớp", "#6a3fd0"], ["Thấp nhất", "#d4483b"]].map(([k, col]) => ({ n: k, c: col, v: CL.map((cl) => { const g = S.filter((o) => o.c === cl); return k === "Cao nhất" ? g[0].s.pct : k === "Thấp nhất" ? g.at(-1).s.pct : cm[cl]; }) })), T("Khoảng cách giữa sinh viên cao nhất và thấp nhất ở từng lớp"), "% đúng", 100));
+          if (S.length <= 6 && skills.length >= 2 && skills.length <= 10) c.push(D.gbar(skills, S.map((g) => ({ n: shortName(g.st.name), v: skills.map((k) => pctOf(g.rs.filter((x) => skOf(x) === k))) })), T("So sánh tỉ lệ đúng theo mảng kiến thức giữa các sinh viên"), "% đúng", 100));
+          return c;
+        },
+        remark: () => {
+          const L = [];
+          (many ? CL : [null]).forEach((cl) => {
+            const g = S.filter((o) => cl == null || o.c === cl); if (g.length < 2) return;
+            const ref = cl == null ? mean : cm[cl], below = g.filter((o) => o.s.pct < ref), no = g.filter((o) => o.s.pct < 50);
+            L.push(`– ${cl == null ? (one ? "Lớp " + CL[0] : "Nhóm sinh viên") : "Lớp " + cl} (TB ${ref}%): cao nhất ${g.slice(0, 2).map((o) => `${o.st.name} (${o.s.pct}%)`).join(", ")}; thấp nhất ${g.at(-1).st.name} (${g.at(-1).s.pct}%). ${below.length}/${g.length} sinh viên dưới trung bình${below.length ? ": " + below.slice(0, 10).map((o) => o.st.name).join(", ") + (below.length > 10 ? "…" : "") : ""}.${no.length ? ` Cần hỗ trợ riêng (dưới 50%): ${no.map((o) => o.st.name).join(", ")}.` : ""}`);
+          });
+          if (many) { const tops = CL.map((cl) => S.find((o) => o.c === cl)).sort((a, b) => b.s.pct - a.s.pct); L.push(`– So sánh sinh viên giữa các lớp: dẫn đầu chung là ${S[0].st.name} (lớp ${S[0].c}, ${S[0].s.pct}%); sinh viên cao nhất mỗi lớp: ${tops.map((o) => `${o.c}: ${o.st.name} (${o.s.pct}%)`).join("; ")}.`); }
+          if (hasPP) { const up = S.filter((g) => g.s.gain != null).sort((a, b) => b.s.gain - a.s.gain); if (up.length) L.push(`– Tiến bộ nhiều nhất từ Pre-test đến Post-test: ${up[0].st.name} (${up[0].s.gain > 0 ? "+" : ""}${fmtScore(up[0].s.gain)} điểm).`); }
+          return L.join("\n");
+        },
+      });
+    }
+    return out;
+  }
+  const CMP_ON = (k) => { const v = CTF_UI.cmp[k]; return v == null ? true : v; };
+  function ctExport(kind) {
+    if (!KP.preview) return;
+    const R = ctResponses();
+    if (!R.length) return toast("Chưa có câu trả lời nào theo bộ lọc này.");
+    const note = ctNote(), compare = ctCompare(R);
+    if (kind === "q") {
+      const G = new Map();
+      R.forEach((x) => {
+        const key = x.lid + "|" + x.k + "|" + norm(x.q.stem).replace(/\s+/g, " ").trim();
+        let e = G.get(key);
+        if (!e) { e = { lid: x.lid, k: x.k, q: x.q, n: 0, ok: 0, sv: new Set(), pick: {} }; G.set(key, e); }
+        const ok = x.c === x.q.answer; e.n++; if (ok) e.ok++; e.sv.add(x.st.id);
+        if (!ok) { const t = x.c == null || x.c < 0 ? "Bỏ trống" : String((x.q.opts || [])[x.c] || ""); e.pick[t] = (e.pick[t] || 0) + 1; }
+      });
+      const list = [...G.values()].sort((a, b) => a.lid.localeCompare(b.lid) || a.ok / a.n - b.ok / b.n);
+      const rows = [["Bài", "Loại bài", "Câu hỏi", "Mảng kiến thức", "Số sinh viên", "Lượt trả lời", "Số lượt đúng", "Tỉ lệ đúng", "Mức độ hiểu", "Đáp án đúng", "Phương án sai hay chọn"]];
+      list.forEach((e) => { const p = Math.round((e.ok / e.n) * 100); const w = Object.entries(e.pick).sort((a, b) => b[1] - a[1])[0]; rows.push([e.lid, kLab(e.k), e.q.stem, e.q.skill || "", e.sv.size, e.n, e.ok, p + "%", lvOf(p), String((e.q.opts || [])[e.q.answer] || ""), w ? w[0] + " (" + w[1] + " lượt)" : ""]); });
+      const bad = list.filter((e) => e.ok / e.n < 0.5);
+      return KP.preview({ rows, name: "bao-cao-theo-cau-hoi.xlsx", title: "Mức độ hiểu của sinh viên theo từng câu hỏi", kind: "BÁO CÁO", sub: "Tình hình làm bài kiểm tra và mức độ hiểu theo từng câu hỏi", note, compare, back: "Theo dõi kiểm tra",
+        intro: `Báo cáo tổng hợp ${list.length} câu hỏi trong các bài kiểm tra (${note}), từ ${R.length} lượt trả lời của ${new Set(R.map((x) => x.st.id)).size} sinh viên. Mức độ hiểu tính theo tỉ lệ trả lời đúng: Hiểu tốt từ 80%, Hiểu một phần 50–79%, Chưa hiểu dưới 50%.`,
+        summary: [["Số câu hỏi", list.length], ["Lượt trả lời", R.length], ["Câu Hiểu tốt", list.filter((e) => e.ok / e.n >= 0.8).length], ["Câu Hiểu một phần", list.filter((e) => e.ok / e.n >= 0.5 && e.ok / e.n < 0.8).length], ["Câu Chưa hiểu", bad.length]],
+        remark: bad.length ? "– Nên giảng lại hoặc ôn tập tập trung các câu Chưa hiểu: " + bad.slice(0, 8).map((e) => "“" + String(e.q.stem).slice(0, 70) + "”").join("; ") + (bad.length > 8 ? "…" : "") + "." : "– Không có câu nào dưới 50% đúng." });
+    }
+    if (kind === "sv") {
+      const G = new Map();
+      R.forEach((x) => {
+        const key = x.st.id + "|" + x.lid;
+        let e = G.get(key);
+        if (!e) { e = { st: x.st, lid: x.lid, n: 0, ok: 0, sk: {} }; G.set(key, e); }
+        const ok = x.c === x.q.answer; e.n++; if (ok) e.ok++;
+        const k = x.q.skill || (x.a.topic || ""); if (k) { const s2 = (e.sk[k] ||= { n: 0, ok: 0 }); s2.n++; if (ok) s2.ok++; }
+      });
+      const rows = [["MSSV", "Họ và tên", "Lớp", "Bài", "Pre-test", "Post-test cao nhất", "Số lần Post-test", "Kiểm tra nhanh đạt", "Bài 10 câu (điểm TB)", "Câu đã trả lời", "Tỉ lệ đúng", "Mức độ hiểu", "Mảng kiến thức cần ôn"]];
+      [...G.values()].sort((a, b) => String(a.st.class || "").localeCompare(String(b.st.class || "")) || String(a.st.name).localeCompare(String(b.st.name))).forEach((e) => {
+        const m = mastery(attemptsOf(e.st.id), e.lid), ct = chatTestsOf(e.st.id).filter((r) => r.lesson === e.lid);
+        const qk = ct.filter((r) => r.kind === "quick"), c10 = ct.filter((r) => r.kind !== "quick");
+        const p = Math.round((e.ok / e.n) * 100);
+        const weak = Object.entries(e.sk).filter(([, v]) => v.ok / v.n < 0.5).map(([k]) => k);
+        rows.push([e.st.id, e.st.name, e.st.class || "", e.lid, m && m.pre ? fmtScore(m.pre.score) : "—", m && m.best != null ? fmtScore(m.best) : "—", m ? m.posts.length : 0, qk.length ? qk.filter((r) => r.pass).length + "/" + qk.length : "—", c10.length ? fmtScore(Math.round((c10.reduce((t, r) => t + Number(r.score || 0), 0) / c10.length) * 10) / 10) : "—", e.n, p + "%", lvOf(p), weak.join(", ")]);
+      });
+      const body = rows.slice(1), low = body.filter((r) => r[11] === "Chưa hiểu");
+      return KP.preview({ rows, name: "bao-cao-theo-sinh-vien.xlsx", title: "Kết quả kiểm tra và mức độ hiểu theo sinh viên", kind: "BÁO CÁO", sub: "Tình hình làm bài kiểm tra và mức độ hiểu của sinh viên theo từng bài", note, compare, back: "Theo dõi kiểm tra",
+        intro: `Báo cáo kết quả kiểm tra của ${new Set(body.map((r) => r[0])).size} sinh viên (${note}). Mỗi dòng là một sinh viên ở một bài, gồm điểm Pre-test, Post-test, kiểm tra nhanh, bài 10 câu trong hỏi đáp và tỉ lệ trả lời đúng trên tất cả câu hỏi đã làm.`,
+        summary: [["Số sinh viên", new Set(body.map((r) => r[0])).size], ["Số dòng (sinh viên × bài)", body.length], ["Hiểu tốt", body.filter((r) => r[11] === "Hiểu tốt").length], ["Hiểu một phần", body.filter((r) => r[11] === "Hiểu một phần").length], ["Chưa hiểu", low.length]],
+        remark: low.length ? "– Cần nhắc và hỗ trợ: " + low.slice(0, 12).map((r) => r[1] + " (" + r[3] + ")").join(", ") + (low.length > 12 ? "…" : "") + "." : "– Không có sinh viên nào dưới 50% đúng." });
+    }
+    const rows = [["MSSV", "Họ và tên", "Lớp", "Bài", "Loại bài", "Thời điểm", "Câu", "Câu hỏi", "Mảng kiến thức", "Sinh viên chọn", "Đáp án đúng", "Kết quả"]];
+    R.sort((a, b) => String(a.st.class || "").localeCompare(String(b.st.class || "")) || String(a.st.name).localeCompare(String(b.st.name)) || Date.parse(a.a.date) - Date.parse(b.a.date) || a.i - b.i)
+      .forEach((x) => rows.push([x.st.id, x.st.name, x.st.class || "", x.lid, x.lab, fmtDT(new Date(x.a.date).getTime()), x.i + 1, x.q.stem, x.q.skill || "", x.c == null || x.c < 0 ? "Bỏ trống" : L4[x.c] + ". " + ((x.q.opts || [])[x.c] || ""), L4[x.q.answer] + ". " + ((x.q.opts || [])[x.q.answer] || ""), x.c === x.q.answer ? "Đúng" : "Sai"]));
+    KP.preview({ rows, name: "chi-tiet-tung-cau-tung-sinh-vien.xlsx", title: "Chi tiết từng câu trả lời của sinh viên", kind: "BÁO CÁO", sub: "Chi tiết bài làm kiểm tra của sinh viên", note, compare, back: "Theo dõi kiểm tra", summary: [["Lượt trả lời", R.length], ["Số sinh viên", new Set(R.map((x) => x.st.id)).size], ["Tỉ lệ đúng", Math.round((R.filter((x) => x.c === x.q.answer).length / R.length) * 100) + "%"]] });
+  }
+  // vẽ lại nhưng giữ vị trí cuộn và ô đang mở
+  function ctfRender(focusQ) {
+    const pop = document.querySelector(".kp-ms[open] .kp-ms-list"), sc = pop ? pop.scrollTop : 0;
+    const y = window.scrollY; render(); window.scrollTo(0, y);
+    const np = document.querySelector(".kp-ms[open] .kp-ms-list"); if (np) np.scrollTop = sc;
+    if (focusQ) { const n = document.querySelector(`[data-msq="${focusQ}"]`); if (n) { n.focus(); n.setSelectionRange(n.value.length, n.value.length); } }
+  }
+  function ctfPrune() {
+    if (CTF.cls.length) { const ok = new Set(mStudents().filter((st) => CTF.cls.includes(String(st.class || ""))).map((st) => String(st.id))); CTF.sv = CTF.sv.filter((x) => ok.has(x)); }
+  }
+  function ctfSet(k, v, on) { const a = CTF[k], i = a.indexOf(v); if (on && i < 0) { a.push(v); if (k === "cls" || k === "lesson") a.sort(); } if (!on && i >= 0) a.splice(i, 1); if (k === "cls") ctfPrune(); }
+  KP.ctfMs = (a, k, v) => {
+    if (a === "ms-rm") { ctfSet(k, v, false); return ctfRender(); }
+    const boxes = [...document.querySelectorAll(`.kp-ms[data-ms="${k}"] .kp-ms-it:not([hidden]) input`)];
+    boxes.forEach((b) => ctfSet(k, b.value, a === "ms-all"));
+    CTF_UI.open = k; ctfRender();
+  };
+  document.addEventListener("change", (ev) => { const t = ev.target; if (!t.dataset || !t.dataset.ctcmp) return; CTF_UI.cmp[t.dataset.ctcmp] = t.checked; });
+  document.addEventListener("change", (ev) => {
+    const t = ev.target; if (!t.dataset || !t.dataset.ctfm) return;
+    const k = t.dataset.ctfm; ctfSet(k, t.value, t.checked); CTF_UI.open = k; ctfRender();
+  });
+  document.addEventListener("input", (ev) => {
+    const t = ev.target; if (!t.dataset || !t.dataset.msq) return;
+    const k = t.dataset.msq, nq = norm(t.value).trim(); CTF_UI.q[k] = t.value;
+    t.closest(".kp-ms").querySelectorAll(".kp-ms-it").forEach((l) => { l.hidden = !!nq && !norm(l.dataset.t || "").includes(nq); });
+  });
+  document.addEventListener("toggle", (ev) => {
+    const d = ev.target; if (!d.classList || !d.classList.contains("kp-ms")) return;
+    if (d.open) { CTF_UI.open = d.dataset.ms; document.querySelectorAll(".kp-ms[open]").forEach((x) => { if (x !== d) x.open = false; }); const q = d.querySelector(".kp-ms-q"); if (q) q.focus(); }
+    else if (CTF_UI.open === d.dataset.ms) CTF_UI.open = "";
+  }, true);
+  document.addEventListener("click", (ev) => { if (!CTF_UI.open || ev.target.closest(".kp-ms")) return; document.querySelectorAll(".kp-ms[open]").forEach((x) => { x.open = false; }); CTF_UI.open = ""; });
+  document.addEventListener("keydown", (ev) => { if (ev.key === "Escape" && CTF_UI.open) { document.querySelectorAll(".kp-ms[open]").forEach((x) => { x.open = false; }); CTF_UI.open = ""; } });
+  KP.ctFilter = CTF;
+  function ctRows(quick) {
+    const set = ctLessons();
+    const rows = [];
+    ctStudents().forEach((st) => chatTestsOf(st.id).forEach((r) => { if (set.has(r.lesson) && (r.kind === "quick") === quick) rows.push({ st, r }); }));
+    rows.sort((x, y) => Date.parse(y.r.date) - Date.parse(x.r.date));
+    return rows;
+  }
+  const ctSum = (cells) => `<div class="kp-ct-sum">${cells.map(([k, v]) => `<div><small>${k}</small><b>${v}</b></div>`).join("")}</div>`;
+  const ctBtn = (st, r) => `<button type="button" class="btn secondary kp-ct-btn" data-kp="ct-detail" data-sid="${esc(st.id)}" data-ctid="${r.id}">Xem từng câu</button>`;
+  // Bảng điểm kiểm tra nhanh 5 câu + thống kê câu hỏi kiểm tra nhanh
+  function quickCard() {
+    const rows = ctRows(true);
+    const head = `<section class="card kp-ct-card kp-qk-card"><div class="card-title"><div><h2>Kiểm tra nhanh 5 câu</h2><p class="subtitle">Sau mỗi 5 câu hỏi đáp, sinh viên có thể chọn kiểm tra nhanh 5 câu về phần vừa học. Đúng từ 4/5 câu là Đạt và được gợi ý học phần tiếp theo; chưa đạt thì học lại rồi kiểm tra lại. Bấm vào một dòng để xem từng câu.</p></div></div>`;
+    if (!rows.length) return head + `<p class="kp-muted">Chưa có sinh viên nào làm kiểm tra nhanh ở các bài đang chọn.</p></section>`;
+    // lần thứ mấy của sinh viên với cùng bài + chủ đề, đạt ở lần nào
+    const tries = new Map();
+    [...rows].reverse().forEach(({ st, r }) => { const k = st.id + "|" + r.lesson + "|" + norm(r.topic || ""); const n = (tries.get(k) || 0) + 1; tries.set(k, n); r._try = n; });
+    const passN = rows.filter((x) => x.r.pass).length;
+    const svPass = new Set(rows.filter((x) => x.r.pass).map((x) => x.st.id + "|" + x.r.lesson + "|" + norm(x.r.topic || ""))).size;
+    const svAll = new Set(rows.map((x) => x.st.id + "|" + x.r.lesson + "|" + norm(x.r.topic || ""))).size;
+    const tbl = `<div class="table-wrap kp-st-table"><table class="kp-ct-tb kp-qk-tb"><thead><tr><th>Sinh viên</th><th>Lớp</th><th>Bài</th><th>Chủ đề</th><th>Lần</th><th>Thời điểm</th><th>Đúng</th><th>Kết quả</th><th></th></tr></thead><tbody>${rows.slice(0, 300).map(({ st, r }) => `<tr class="kp-ct-row" data-kp="ct-detail" data-sid="${esc(st.id)}" data-ctid="${r.id}" title="Bấm để xem từng câu"><td><b>${esc(st.name)}</b><br><small>${esc(st.id)}</small></td><td>${esc(st.class || "")}</td><td>${esc(r.lesson)}</td><td>${esc(r.topic || "—")}</td><td>Lần ${r._try}</td><td>${fmtDT(new Date(r.date).getTime())}</td><td><b>${r.correct}/${r.total}</b></td><td>${ctRes(r)}</td><td>${ctBtn(st, r)}</td></tr>`).join("")}</tbody></table></div>`;
+    // thống kê theo câu hỏi
+    const Q = new Map();
+    rows.forEach(({ st, r }) => (r.items || []).forEach((q, i) => {
+      const k = r.lesson + "|" + norm(q.stem).replace(/\s+/g, " ").trim();
+      let e = Q.get(k);
+      if (!e) { e = { lesson: r.lesson, stem: q.stem, opts: q.opts, answer: q.answer, explain: q.explain, skill: q.skill || r.topic || "", n: 0, wrong: 0, pick: {}, who: [] }; Q.set(k, e); }
+      const c = r.answers ? r.answers[i] : null, ok = c === q.answer;
+      e.n++; if (!ok) e.wrong++;
+      const optTxt = c == null || c < 0 ? "Bỏ trống" : String((q.opts || [])[c] || "");
+      e.pick[optTxt] = (e.pick[optTxt] || 0) + 1;
+      e.who.push({ name: st.name, id: st.id, cls: st.class || "", pick: optTxt, ok, date: r.date });
+    }));
+    CTQ = [...Q.values()].sort((x, y) => y.wrong / y.n - x.wrong / x.n || y.n - x.n);
+    const right = (e) => String((e.opts || [])[e.answer] || "");
+    const topWrong = (e) => { const w = Object.entries(e.pick).filter(([t]) => norm(t) !== norm(right(e))).sort((x, y) => y[1] - x[1])[0]; return w ? `${esc(w[0])} <small>(${w[1]} lượt)</small>` : "—"; };
+    const rate = (e) => Math.round((e.wrong / e.n) * 100);
+    const qtbl = `<div class="table-wrap kp-st-table"><table class="kp-ct-tb kp-qk-q"><thead><tr><th>Câu hỏi</th><th>Bài</th><th>Mảng kiến thức</th><th>Lượt trả lời</th><th>Tỉ lệ sai</th><th>Đáp án đúng</th><th>Hay chọn sai</th></tr></thead><tbody>${CTQ.slice(0, 300).map((e, i) => `<tr class="kp-ct-row" data-kp="ctq-detail" data-qk="${i}" title="Bấm để xem sinh viên nào chọn gì"><td>${esc(e.stem)}</td><td>${esc(e.lesson)}</td><td>${esc(e.skill || "—")}</td><td>${e.n}</td><td><span class="kp-ct-b ${rate(e) >= 50 ? "no" : rate(e) >= 25 ? "mid" : "ok"}">${rate(e)}%</span> <small>${e.wrong}/${e.n}</small></td><td>${esc(right(e))}</td><td>${e.wrong ? topWrong(e) : "—"}</td></tr>`).join("")}</tbody></table></div>`;
+    const hard = CTQ.filter((e) => e.n >= 2 && rate(e) >= 50).length;
+    return `${head}${ctSum([["Lượt kiểm tra nhanh", rows.length], ["Lượt đạt", `${passN}/${rows.length} (${Math.round((passN / rows.length) * 100)}%)`], ["Sinh viên đã qua phần", `${svPass}/${svAll}`], ["Câu sai từ 50% trở lên", hard]])}
+<div class="kp-qk-tabs" role="tablist"><button type="button" class="on" data-qk-tab="score">📊 Bảng điểm kiểm tra nhanh</button><button type="button" data-qk-tab="q">❓ Câu hỏi kiểm tra nhanh (${CTQ.length})</button></div><div class="kp-qk-pane" data-qk-pane="score">${tbl}</div><div class="kp-qk-pane" data-qk-pane="q" hidden><p class="kp-muted">Mỗi câu hỏi đã xuất hiện trong các lượt kiểm tra nhanh, xếp theo tỉ lệ sai cao nhất. Bấm một câu để xem sinh viên nào chọn phương án nào.</p>${qtbl}</div></section>`;
+  }
+  // Thống kê câu hỏi Pre-test / Post-test: câu nào sai nhiều, Pre so với Post
+  let PPQ = [];
+  function ppQCard() {
+    const set = ctLessons();
+    const Q = new Map();
+    let nAtt = 0, noItems = 0;
+    ctStudents().forEach((st) => attemptsOf(st.id).forEach((a) => {
+      const lid = a.lesson || "GP-01";
+      if (!set.has(lid)) return;
+      nAtt++;
+      const it = attItems(a, lid);
+      if (!it) { noItems++; return; }
+      const kind = a.kind === "pre" ? "pre" : "post";
+      if (!kindOk(kind)) return;
+      it.forEach((q, i) => {
+        const k = lid + "|" + norm(q.stem).replace(/\s+/g, " ").trim();
+        let e = Q.get(k);
+        if (!e) { e = { lesson: lid, stem: q.stem, opts: q.opts, answer: q.answer, explain: q.explain, skill: "", n: 0, wrong: 0, pre: { n: 0, w: 0 }, post: { n: 0, w: 0 }, pick: {}, who: [] }; Q.set(k, e); }
+        const c = (a.answers || [])[i], ok = c === q.answer;
+        e.n++; if (!ok) e.wrong++;
+        e[kind].n++; if (!ok) e[kind].w++;
+        const optTxt = c == null || c < 0 ? "Bỏ trống" : String((q.opts || [])[c] || "");
+        e.pick[optTxt] = (e.pick[optTxt] || 0) + 1;
+        e.who.push({ name: st.name, id: st.id, cls: st.class || "", pick: optTxt, ok, date: a.date, kind: kind === "pre" ? "Pre-test" : "Post-test" });
+      });
+    }));
+    PPQ = [...Q.values()].sort((x, y) => y.wrong / y.n - x.wrong / x.n || y.n - x.n);
+    const pc = (o) => (o.n ? Math.round((o.w / o.n) * 100) : null);
+    const badge = (v, o) => (v == null ? `<span class="kp-na">—</span>` : `<span class="kp-ct-b ${v >= 50 ? "no" : v >= 25 ? "mid" : "ok"}">${v}%</span> <small>${o.w}/${o.n}</small>`);
+    const right = (e) => String((e.opts || [])[e.answer] || "");
+    const topWrong = (e) => { const w = Object.entries(e.pick).filter(([t]) => norm(t) !== norm(right(e))).sort((x, y) => y[1] - x[1])[0]; return w ? `${esc(w[0])} <small>(${w[1]} lượt)</small>` : "—"; };
+    const trend = (e) => { const a = pc(e.pre), b = pc(e.post); if (a == null || b == null) return "—"; const d = b - a; return d < 0 ? `<span class="kp-delta up">↓ ${-d}%</span>` : d > 0 ? `<span class="kp-delta down">↑ ${d}%</span>` : "="; };
+    const head = `<section class="card kp-ct-card kp-ppq-card"><div class="card-title"><div><h2>Câu hỏi Pre-test / Post-test</h2><p class="subtitle">Mỗi câu hỏi đã ra trong Pre-test và Post-test, xếp theo tỉ lệ sai cao nhất. So sánh tỉ lệ sai ở Pre-test và Post-test để thấy câu nào sinh viên đã tiến bộ sau khi học (↓ là giảm sai). Bấm một câu để xem sinh viên nào chọn phương án nào.</p></div></div>`;
+    if (!PPQ.length) return head + `<p class="kp-muted">${nAtt ? "Các lượt Pre-test / Post-test hiện có được làm trước khi Kiến lưu nội dung câu hỏi, nên chưa thống kê được theo câu. Các lượt làm từ bản này trở đi sẽ hiện ở đây." : "Chưa có lượt Pre-test / Post-test nào ở các bài đang chọn."}</p></section>`;
+    const hard = PPQ.filter((e) => e.n >= 2 && e.wrong / e.n >= 0.5).length;
+    const better = PPQ.filter((e) => e.pre.n && e.post.n && pc(e.post) < pc(e.pre)).length;
+    const rows = PPQ.slice(0, 400).map((e, i) => `<tr class="kp-ct-row" data-kp="ppq-detail" data-qk="${i}" title="Bấm để xem sinh viên nào chọn gì"><td>${esc(e.stem)}</td><td>${esc(e.lesson)}</td><td>${e.n}</td><td>${badge(pc(e.pre), e.pre)}</td><td>${badge(pc(e.post), e.post)}</td><td>${trend(e)}</td><td>${esc(right(e))}</td><td>${e.wrong ? topWrong(e) : "—"}</td></tr>`).join("");
+    return `${head}${ctSum([["Câu hỏi đã ra", PPQ.length], ["Lượt làm bài", nAtt], ["Câu sai từ 50% trở lên", hard], ["Câu giảm sai sau khi học", better]])}${noItems ? `<p class="kp-muted">${noItems} lượt làm trước khi Kiến lưu nội dung câu hỏi chưa được tính vào bảng này.</p>` : ""}<div class="table-wrap kp-st-table"><table class="kp-ct-tb kp-qk-q kp-ppq-tb"><thead><tr><th>Câu hỏi</th><th>Bài</th><th>Lượt trả lời</th><th>Sai ở Pre-test</th><th>Sai ở Post-test</th><th>Thay đổi</th><th>Đáp án đúng</th><th>Hay chọn sai</th></tr></thead><tbody>${rows}</tbody></table></div></section>`;
+  }
+  function qStatDetail(i, src) {
+    const pp = src === "pp";
+    const e = (pp ? PPQ : CTQ)[Number(i)];
+    if (!e) return;
+    const right = String((e.opts || [])[e.answer] || "");
+    const opts = (e.opts || []).map((o, k) => { const n = e.pick[String(o)] || 0; return `<li class="${k === e.answer ? "ok" : ""}"><b>${L4[k]}.</b> ${esc(o)} ${k === e.answer ? "✓" : ""}<span class="kp-qk-bar"><i style="width:${e.n ? Math.round((n / e.n) * 100) : 0}%"></i></span><small>${n} lượt</small></li>`; }).join("") + (e.pick["Bỏ trống"] ? `<li><b>—</b> Bỏ trống<small>${e.pick["Bỏ trống"]} lượt</small></li>` : "");
+    modal(`<div class="kp-md"><h2>${pp ? "Câu hỏi Pre-test / Post-test" : "Câu hỏi kiểm tra nhanh"}</h2><p class="modal-text" style="margin:0 0 8px">${esc(e.lesson)}${e.skill ? " · " + esc(e.skill) : ""} · ${e.n} lượt trả lời · sai ${e.wrong} (${Math.round((e.wrong / e.n) * 100)}%)${pp ? ` · Pre-test sai ${e.pre.w}/${e.pre.n} · Post-test sai ${e.post.w}/${e.post.n}` : ""}</p><p class="kp-qk-stem"><b>${esc(e.stem)}</b></p><ul class="kp-qk-opts">${opts}</ul>${e.explain ? `<p class="kp-muted">💡 ${esc(e.explain)}</p>` : ""}<h3 class="kp-mm-h">Sinh viên đã trả lời</h3><div class="table-wrap kp-st-table"><table><thead><tr><th>Sinh viên</th><th>Lớp</th>${pp ? "<th>Bài kiểm tra</th>" : ""}<th>Đã chọn</th><th>Kết quả</th><th>Thời điểm</th></tr></thead><tbody>${e.who.map((w) => `<tr><td>${esc(w.name)}<br><small>${esc(w.id)}</small></td><td>${esc(w.cls)}</td>${pp ? `<td>${esc(w.kind)}</td>` : ""}<td>${esc(w.pick)}</td><td class="kp-rp-v ${w.ok ? "ok" : "no"}">${w.ok ? "Đúng" : "Sai"}</td><td>${fmtDT(new Date(w.date).getTime())}</td></tr>`).join("")}</tbody></table></div><p class="kp-muted">Đáp án đúng: <b>${esc(right)}</b></p></div>`);
+  }
+  document.addEventListener("click", (ev) => {
+    const t = ev.target.closest && ev.target.closest("[data-qk-tab]");
+    if (!t) return;
+    const card = t.closest(".kp-qk-card");
+    card.querySelectorAll("[data-qk-tab]").forEach((x) => x.classList.toggle("on", x === t));
+    card.querySelectorAll("[data-qk-pane]").forEach((x) => (x.hidden = x.dataset.qkPane !== t.dataset.qkTab));
+  });
+  // Bài kiểm tra 10 câu và ôn câu sai trong hỏi đáp
+  function chatTestsCard() {
+    const rows = ctRows(false);
+    const avg = rows.length ? fmtScore(Math.round((rows.reduce((x, y) => x + Number(y.r.score || 0), 0) / rows.length) * 10) / 10) : "—";
+    const body = rows.length
+      ? `${ctSum([["Lượt kiểm tra", rows.length], ["Sinh viên tham gia", new Set(rows.map((x) => x.st.id)).size], ["Điểm trung bình", avg], ["Đạt từ 8/10", `${rows.filter((x) => x.r.score >= 8).length}/${rows.length}`]])}<div class="table-wrap kp-st-table"><table class="kp-ct-tb"><thead><tr><th>Sinh viên</th><th>Lớp</th><th>Bài</th><th>Hình thức</th><th>Chủ đề</th><th>Thời điểm</th><th>Điểm</th><th>Kết quả</th><th></th></tr></thead><tbody>${rows.slice(0, 300).map(({ st, r }) => `<tr class="kp-ct-row" data-kp="ct-detail" data-sid="${esc(st.id)}" data-ctid="${r.id}" title="Bấm để xem từng câu"><td><b>${esc(st.name)}</b><br><small>${esc(st.id)}</small></td><td>${esc(st.class || "")}</td><td>${esc(r.lesson)}</td><td>${esc(ctKind(r))}</td><td>${esc(r.topic || "—")}</td><td>${fmtDT(new Date(r.date).getTime())}</td><td><span class="kp-chip ${chipCls(r.score)}">${fmtScore(r.score)}</span><br><small>${r.correct}/${r.total} câu</small></td><td>${ctRes(r)}</td><td>${ctBtn(st, r)}</td></tr>`).join("")}</tbody></table></div>`
+      : `<p class="kp-muted">Chưa có sinh viên nào làm bài kiểm tra 10 câu trong hỏi đáp ở các bài đang chọn.</p>`;
+    return `<section class="card kp-ct-card"><div class="card-title"><div><h2>Bài kiểm tra 10 câu trong hỏi đáp với Kiến</h2><p class="subtitle">Bài kiểm tra 10 câu và lượt ôn câu sai mà sinh viên tự làm khi học cùng Kiến. Không tính vào điểm Pre-test / Post-test. Bấm vào một dòng để xem từng câu: câu hỏi, sinh viên chọn gì, đúng hay sai, đáp án đúng.</p></div></div>${body}</section>`;
+  }
+  KP.chatTestsOf = chatTestsOf;
+  function masteryDetail(sid, lessonId, aid) {
     const st = (typeof localStudents !== "undefined" ? localStudents : []).find((x) => x.id === sid);
     const name = st ? st.name : student.name;
     const m = mastery(attemptsOf(sid), lessonId);
     const l = lessons.find((x) => x.id === lessonId);
-    if (!m) return modal(`<h2>${esc(lessonId)}</h2><p class="modal-text">Chưa có lượt kiểm tra nào.</p>`);
+    if (!m) return modal(`<h2>${esc(lessonId)}</h2><p class="modal-text">Chưa có lượt Pre-test / Post-test nào.</p>`);
     const wrongCount = {};
     m.posts.forEach((a) => (a.wrongIds || []).forEach((q) => (wrongCount[q] = (wrongCount[q] || 0) + 1)));
     const repeated = Object.values(wrongCount).filter((n) => n >= 2).length;
     const first = m.posts[0];
-    modal(`<div class="kp-md"><h2>${esc(l ? l.name : lessonId)}</h2><p class="modal-text" style="margin:0 0 10px">${esc(name)} · ${esc(sid)} · ${esc(lessonId)}</p><div class="kp-md-sum"><div><small>Pre-test</small><b>${m.pre ? fmtScore(m.pre.score) : "—"}</b></div><div><small>Lượt đầu</small><b>${first ? fmtScore(first.score) : "—"}</b></div><div><small>Cao nhất</small><b>${m.best !== null ? fmtScore(m.best) : "—"}</b></div><div><small>Số lượt</small><b>${m.posts.length}</b></div><div><small>Trạng thái</small>${statusBadge(m)}</div></div>${masteryChart(m)}${
+    modal(`<div class="kp-md"><div class="kp-gvrp-top"><div><h2>${esc(l ? l.name : lessonId)}</h2><p class="modal-text" style="margin:0 0 10px">${esc(name)} · ${esc(sid)} · ${esc(lessonId)}</p></div><button type="button" class="btn primary" data-kp="gv-stu-export" data-sid="${esc(sid)}" data-mlesson="${esc(lessonId)}">⬇️ Xuất báo cáo từng câu</button></div><div class="kp-md-sum"><div><small>Pre-test</small><b>${m.pre ? fmtScore(m.pre.score) : "—"}</b></div><div><small>Lượt đầu</small><b>${first ? fmtScore(first.score) : "—"}</b></div><div><small>Cao nhất</small><b>${m.best !== null ? fmtScore(m.best) : "—"}</b></div><div><small>Số lượt</small><b>${m.posts.length}</b></div><div><small>Trạng thái</small>${statusBadge(m)}</div></div>${masteryChart(m)}${
       repeated ? `<p class="kp-md-note">${repeated} câu bị sai từ 2 lượt trở lên. Ở lượt sau, các câu này được hỏi lại theo cách khác.</p>` : ""
     }<div class="table-wrap kp-st-table"><table><thead><tr><th>Lượt</th><th>Thời điểm</th><th>Điểm</th><th>Đúng</th><th>Thời gian làm</th><th>So với lượt trước</th></tr></thead><tbody>${m.list
       .map((a, i) => {
         const prev = i ? m.list[i - 1] : null;
         const d = prev ? Math.round((a.score - prev.score) * 10) / 10 : null;
-        return `<tr><td>${a === m.pre ? "Pre-test" : "Lượt " + (m.posts.indexOf(a) + 1)}</td><td>${fmtDT(new Date(a.date).getTime())}</td><td><span class="kp-chip ${a === m.pre ? "pre" : chipCls(a.score)}">${fmtScore(a.score)}</span></td><td>${a.correct ?? "—"}/${a.total ?? 10}</td><td>${a.duration ?? "—"} giây</td><td>${d === null ? "—" : `<span class="kp-delta ${d >= 0 ? "up" : "down"}">${d >= 0 ? "+" : ""}${fmtScore(d)}</span>`}</td></tr>`;
+        const open = aid != null ? String(a.id) === String(aid) : i === m.list.length - 1;
+        return `<tr class="kp-ad-head"><td>${a === m.pre ? "Pre-test" : "Lượt " + (m.posts.indexOf(a) + 1)}</td><td>${fmtDT(new Date(a.date).getTime())}</td><td><span class="kp-chip ${a === m.pre ? "pre" : chipCls(a.score)}">${fmtScore(a.score)}</span></td><td>${a.correct ?? "—"}/${a.total ?? 10}</td><td>${a.duration ?? "—"} giây</td><td>${d === null ? "—" : `<span class="kp-delta ${d >= 0 ? "up" : "down"}">${d >= 0 ? "+" : ""}${fmtScore(d)}</span>`}</td></tr><tr class="kp-ad-row"><td colspan="6"><details ${open ? "open" : ""}><summary>📋 Xem từng câu của ${a === m.pre ? "Pre-test" : "lượt " + (m.posts.indexOf(a) + 1)}: câu hỏi, sinh viên chọn, đáp án đúng</summary><div class="kp-ad-acts"><button type="button" class="btn secondary" data-kp="gv-rep" data-sid="${esc(sid)}" data-aid="${a.id}">📄 Xem kết quả đầy đủ (đánh giá năng lực, kiến thức cần học lại)</button></div>${attDetailHTML(a, lessonId)}</details></td></tr>`;
       })
-      .join("")}</tbody></table></div></div>`);
+      .join("")}</tbody></table></div>${(() => { const ct = chatTestsOf(sid).filter((r) => r.lesson === lessonId).reverse().sort((x, y) => (x.kind === "quick" ? 0 : 1) - (y.kind === "quick" ? 0 : 1)); return ct.length ? `<h3 class="kp-mm-h">Kiểm tra nhanh và kiểm tra trong hỏi đáp với Kiến (${ct.length} lượt)</h3><div class="table-wrap kp-st-table"><table><thead><tr><th>Hình thức</th><th>Chủ đề</th><th>Thời điểm</th><th>Điểm</th><th>Kết quả</th></tr></thead><tbody>${ct.map((r) => `<tr class="kp-ad-head"><td>${esc(ctKind(r))}</td><td>${esc(r.topic || "—")}</td><td>${fmtDT(new Date(r.date).getTime())}</td><td><span class="kp-chip ${chipCls(r.score)}">${fmtScore(r.score)}</span> <small>${r.correct}/${r.total}</small></td><td>${ctRes(r)}</td></tr><tr class="kp-ad-row"><td colspan="5"><details><summary>📋 Xem từng câu</summary><div class="kp-ad-acts"><button type="button" class="btn secondary" data-kp="gv-rep" data-sid="${esc(sid)}" data-ctid="${r.id}">📄 Xem kết quả đầy đủ</button></div>${attDetailHTML(r, lessonId)}</details></td></tr>`).join("")}</tbody></table></div>` : ""; })()}</div>`);
   }
   // ---- Mức thuần thục: lọc theo mức, tích chọn sinh viên để so sánh / xuất báo cáo
   // mức lọc theo từng bài: thuần thục từ pre-test / ở post-test, ôn luyện lại lần 1, 2, 3…, mới pre-test, chưa làm
@@ -6949,7 +7782,7 @@ render();
   }
   function ppCells(m, n, sid, lid, dim = "") {
     const d = dim ? " kp-dim" : "";
-    const chip = (a, cls, t) => `<button type="button" class="kp-chip ${cls}" data-kp="mastery-detail" data-sid="${esc(sid)}" data-mlesson="${lid}" title="${t}: ${fmtScore(a.score)}/10 · ${fmtDT(new Date(a.date).getTime())}. Bấm để xem chi tiết.">${fmtScore(a.score)}</button>`;
+    const chip = (a, cls, t) => `<button type="button" class="kp-chip ${cls}" data-kp="mastery-detail" data-sid="${esc(sid)}" data-mlesson="${lid}" data-aid="${a.id ?? ""}" title="${t}: ${fmtScore(a.score)}/10 · ${fmtDT(new Date(a.date).getTime())}. Bấm để xem chi tiết.">${fmtScore(a.score)}</button>`;
     const bi = m && m.posts.length ? m.posts.findIndex((a) => Number(a.score) === m.best) : -1;
     return `<td class="kp-pc-pre kp-gstart${d}">${m && m.pre ? chip(m.pre, "pre", "Pre-test") : '<span class="kp-na">—</span>'}</td>${Array.from({ length: n }, (_, j) => {
       const a = m && m.posts[j];
@@ -8914,7 +9747,7 @@ render();
   const prevFacultyPage = typeof facultyPage === "function" ? facultyPage : null;
   if (prevFacultyPage)
     facultyPage = function () {
-      if (state.admin === "mastery") return `${facultyPageHeading("Theo dõi kiểm tra", "Điểm qua từng lượt kiểm tra của sinh viên ở mỗi bài, đến khi thuần thục.")}${activeUser?.role === "admin" ? "" : scopeNote(scopeLessons(false), false)}${masteryPanel()}${facultyFootnote()}`;
+      if (state.admin === "mastery") return `${facultyPageHeading("Theo dõi kiểm tra", "Điểm qua từng lượt kiểm tra của sinh viên ở mỗi bài, đến khi thuần thục.")}${activeUser?.role === "admin" ? "" : scopeNote(scopeLessons(false), false)}${masteryPanel()}<div class="spacer"></div>${ctFilterBar()}${kindOk("pre") || kindOk("post") ? `<div class="spacer"></div>${ppQCard()}` : ""}${kindOk("quick") ? `<div class="spacer"></div>${quickCard()}` : ""}${kindOk("chat") ? `<div class="spacer"></div>${chatTestsCard()}` : ""}${facultyFootnote()}`;
       if (state.admin === "survey") return surveyFacultyPage();
       if (state.admin === "stats") return statsPage();
       if (state.admin === "students" && !serverToken) return studentsPage();
@@ -8997,7 +9830,16 @@ render();
       document.querySelector(".kp-doc-page")?.scrollIntoView({ block: "start" });
       return;
     }
-    if (a === "mastery-detail") return masteryDetail(t.dataset.sid, t.dataset.mlesson);
+    if (a === "mastery-detail") return masteryDetail(t.dataset.sid, t.dataset.mlesson, t.dataset.aid || null);
+    if (a === "ct-detail") return chatTestDetail(t.dataset.sid, t.dataset.ctid);
+    if (a === "ctq-detail") return qStatDetail(t.dataset.qk);
+    if (a === "ctf-clear") { Object.assign(CTF, { cls: [], sv: [], lesson: [], kind: [] }); CTF_UI.open = ""; CTF_UI.q = {}; CTF_UI.cmp = {}; return render(); }
+    if (a === "ms-all" || a === "ms-none" || a === "ms-rm") return KP.ctfMs(a, t.dataset.ms, t.dataset.v);
+    if (a === "ctx-q" || a === "ctx-sv" || a === "ctx-all") return ctExport(a.slice(4));
+    if (a === "gv-rep") return gvReport(t.dataset.sid, t.dataset.aid || null, t.dataset.ctid || null);
+    if (a === "gv-rep-export") return gvReportExport(t.dataset.sid, t.dataset.aid || null, t.dataset.ctid || null);
+    if (a === "gv-stu-export") return gvStudentExport(t.dataset.sid, t.dataset.mlesson);
+    if (a === "ppq-detail") return qStatDetail(t.dataset.qk, "pp");
     if (a === "study-range") return studyMore(t.dataset.range);
     if (a === "start-quiz") return startQuiz();
     if (a === "quiz-next") return kpNext();
@@ -9323,6 +10165,79 @@ document.addEventListener("click", (e) => {
   d.scrollIntoView({ behavior: "smooth", block: "center" });
   d.classList.remove("kp-flash"); void d.offsetWidth; d.classList.add("kp-flash");
 });
+
+// ---- Khung chat Kiến kiểu Zalo / Messenger: vừa khít màn hình, chỉ cuộn phần tin nhắn, ô nhập luôn ở dưới
+(function () {
+  const stickyBottom = () => Math.max(0, ...[...document.querySelectorAll(".kp-tabs, .kp-lessonbar")].filter((e) => e.offsetParent && getComputedStyle(e).position === "sticky").map((e) => (parseFloat(getComputedStyle(e).top) || 0) + e.offsetHeight));
+  const vh = () => (window.visualViewport ? window.visualViewport.height : window.innerHeight);
+  const nearEnd = (m) => m.scrollHeight - m.scrollTop - m.clientHeight < 140;
+  function fit(sh, first) {
+    const top = stickyBottom(), h = Math.max(360, Math.round(vh() - top - 14));
+    sh.style.height = h + "px";
+    const m = sh.querySelector("#messages");
+    if (first) {
+      const y = sh.getBoundingClientRect().top + window.scrollY - top - 6;
+      if (Math.abs(window.scrollY - y) > 4) window.scrollTo({ top: Math.max(0, y) });
+      if (m) m.scrollTop = m.scrollHeight;
+    }
+  }
+  function setup(sh) {
+    sh.dataset.kpFit = "1";
+    fit(sh, true);
+    const m = sh.querySelector("#messages"); if (!m) return;
+    const btn = document.createElement("button");
+    btn.type = "button"; btn.className = "kp-chat-down"; btn.hidden = true; btn.setAttribute("aria-label", "Xuống tin nhắn mới nhất");
+    btn.innerHTML = "↓ <span>Tin mới nhất</span>";
+    btn.onclick = () => { m.scrollTo({ top: m.scrollHeight, behavior: "smooth" }); };
+    sh.appendChild(btn);
+    let stick = true;
+    const upd = () => { btn.hidden = nearEnd(m); btn.style.bottom = ((sh.querySelector(".chat-compose")?.offsetHeight || 70) + 12) + "px"; };
+    m.addEventListener("scroll", () => { stick = nearEnd(m); upd(); }, { passive: true });
+    // tin mới: nếu đang ở cuối thì tự kéo xuống, nếu đang đọc tin cũ thì hiện nút "Tin mới nhất"
+    new MutationObserver(() => { if (stick) m.scrollTop = m.scrollHeight; upd(); if (!stick) btn.classList.add("kp-new"); }).observe(m, { childList: true, subtree: true, characterData: true });
+    m.addEventListener("scroll", () => { if (nearEnd(m)) btn.classList.remove("kp-new"); }, { passive: true });
+    upd();
+  }
+  let t = 0;
+  const scan = () => { clearTimeout(t); t = setTimeout(() => { const sh = document.querySelector("body.kp-student .chat-shell"); if (sh && !sh.dataset.kpFit) setup(sh); }, 60); };
+  new MutationObserver(scan).observe(document.documentElement, { childList: true, subtree: true });
+  const refit = () => { const sh = document.querySelector("body.kp-student .chat-shell[data-kp-fit]"); if (sh) { const m = sh.querySelector("#messages"), end = m && nearEnd(m); fit(sh, false); if (end) m.scrollTop = m.scrollHeight; } };
+  window.addEventListener("resize", refit);
+  if (window.visualViewport) window.visualViewport.addEventListener("resize", refit);
+})();
+
+// ---- Chấm tròn cập nhật nhỏ nổi phía trên: hiện khi đang nhận / đang chờ áp dụng nội dung mới, tự mất khi xong
+(function () {
+  const KP = window.KP || (window.KP = {});
+  let el = null, doneT = 0, shownAt = 0;
+  const mk = () => {
+    if (el) return el;
+    el = document.createElement("button");
+    el.type = "button"; el.id = "kp-upd"; el.className = "kp-upd"; el.hidden = true;
+    el.innerHTML = '<span class="kp-upd-dot" aria-hidden="true"></span><span class="kp-upd-t"></span>';
+    el.onclick = () => { if (el.dataset.st === "wait" && KP.syncForce) KP.syncForce(); };
+    document.body.appendChild(el);
+    return el;
+  };
+  function set(st, txt) {
+    const e = mk();
+    if (!st) { e.hidden = true; e.dataset.st = ""; return; }
+    if (e.hidden) shownAt = Date.now();
+    e.hidden = false; e.dataset.st = st;
+    e.querySelector(".kp-upd-t").textContent = txt;
+    e.title = txt; e.setAttribute("aria-label", txt);
+  }
+  KP.updDone = () => { clearTimeout(doneT); set("done", "Đã cập nhật"); doneT = setTimeout(() => { if (el && el.dataset.st === "done") set(""); }, 1400); };
+  setInterval(() => {
+    if (typeof activeUser === "undefined" || !activeUser) { set(""); return; }
+    const wait = KP.syncWaiting && KP.syncWaiting();
+    const pend = KP.syncPending && KP.syncPending() > 0;
+    const net = KP.cloud && KP.cloud.busy && KP.cloud.busy();
+    if (wait) return set("wait", "Có nội dung mới · bấm để cập nhật");
+    if (pend || net) return set("run", "Đang cập nhật…");
+    if (el && el.dataset.st === "run" && Date.now() - shownAt > 250) KP.updDone();
+  }, 300);
+})();
 
 </script>
 <script>
@@ -10644,12 +11559,20 @@ document.addEventListener("click", (e) => {
   // ---------- biểu đồ SVG
   const PAL = ["#6a3fd0", "#2f7fd3", "#e0962b", "#2fa36b", "#d6457a", "#8a6be0", "#17a2b8", "#b8860b"];
   const svgWrap = (w, h, inner, title) => `<figure class="rp-fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" font-family="Times New Roman, serif">${inner}</svg><figcaption>${esc(title)}</figcaption></figure>`;
+  // nhãn trục hoành: dài quá thì xuống dòng (tối đa 2 dòng, theo bề rộng mỗi cột)
+  function axLab(cx, y, s, slot, fs) {
+    const per = Math.max(5, Math.floor(slot / ((fs || 11) * 0.52))), words = String(s).trim().split(/\s+/), L = [""];
+    words.forEach((w) => { const cur = L[L.length - 1]; if (!cur) L[L.length - 1] = w; else if ((cur + " " + w).length <= per) L[L.length - 1] = cur + " " + w; else L.push(w); });
+    let out = L.slice(0, 2); if (L.length > 2) out[1] = (out[1] + " " + L.slice(2).join(" ")).slice(0, per - 1) + "…";
+    out = out.map((x) => (x.length > per ? x.slice(0, per - 1) + "…" : x));
+    return `<text x="${cx}" y="${y}" font-size="${fs || 11}" text-anchor="middle" fill="#333">${out.map((x, i) => `<tspan x="${cx}" dy="${i ? 12 : 0}">${esc(x)}</tspan>`).join("")}</text>`;
+  }
   function barSvg(labels, vals, title, unit) {
     const W = 620, H = 260, L = 46, B = 54, T = 14, n = Math.max(1, labels.length), max = Math.max(1, ...vals), bw = Math.min(46, ((W - L - 10) / n) * 0.62);
     const y = (v) => H - B - ((H - B - T) * v) / max;
     let g = "";
     for (let i = 0; i <= 4; i++) { const v = (max * i) / 4, yy = y(v); g += `<line x1="${L}" x2="${W - 6}" y1="${yy}" y2="${yy}" stroke="#e6e1ee"/><text x="${L - 6}" y="${yy + 4}" font-size="11" text-anchor="end" fill="#666">${num(v)}</text>`; }
-    labels.forEach((l, i) => { const cx = L + ((W - L - 10) / n) * (i + 0.5); g += `<rect x="${cx - bw / 2}" y="${y(vals[i])}" width="${bw}" height="${H - B - y(vals[i])}" fill="${PAL[0]}" rx="3"/><text x="${cx}" y="${y(vals[i]) - 4}" font-size="11" text-anchor="middle" fill="#333">${num(vals[i])}</text><text x="${cx}" y="${H - B + 16}" font-size="11" text-anchor="middle" fill="#333">${esc(String(l).slice(0, 16))}</text>`; });
+    labels.forEach((l, i) => { const cx = L + ((W - L - 10) / n) * (i + 0.5); g += `<rect x="${cx - bw / 2}" y="${y(vals[i])}" width="${bw}" height="${H - B - y(vals[i])}" fill="${PAL[0]}" rx="3"/><text x="${cx}" y="${y(vals[i]) - 4}" font-size="11" text-anchor="middle" fill="#333">${num(vals[i])}</text>${axLab(cx, H - B + 15, l, (W - L - 10) / n, n > 12 ? 10 : 11)}`; });
     g += `<line x1="${L}" x2="${W - 6}" y1="${H - B}" y2="${H - B}" stroke="#999"/><text x="${L}" y="${H - 8}" font-size="11" fill="#666">Đơn vị: ${esc(unit)}</text>`;
     return svgWrap(W, H, g, title);
   }
@@ -10680,7 +11603,7 @@ document.addEventListener("click", (e) => {
     labels.forEach((l, i) => {
       const cx = L + slot * (i + 0.5), x0 = cx - (bw * k) / 2;
       series.forEach((s, j) => { const v = s.v[i]; if (v == null) return; g += `<rect x="${x0 + j * bw}" y="${y(v)}" width="${bw - 1}" height="${Math.max(0, y0 - y(v))}" fill="${s.c || PAL[j % PAL.length]}" rx="2"/>${bw >= 14 ? `<text x="${x0 + j * bw + bw / 2}" y="${y(v) - 3}" font-size="9.5" text-anchor="middle" fill="#333">${num(v)}</text>` : ""}`; });
-      g += `<text x="${cx}" y="${y0 + 15}" font-size="10.5" text-anchor="middle" fill="#333">${esc(String(l).slice(0, 18))}</text>`;
+      g += axLab(cx, y0 + 15, l, slot, n > 12 ? 10 : 10.5);
     });
     g += `<line x1="${L}" x2="${W - 6}" y1="${y0}" y2="${y0}" stroke="#999"/>`;
     series.forEach((s, j) => { const r = Math.floor(j / perRow), c = j % perRow, yy = H - 14 - (legRows - 1 - r) * 18; g += `<rect x="${L + c * legW}" y="${yy - 9}" width="11" height="11" rx="2" fill="${s.c || PAL[j % PAL.length]}"/><text x="${L + 15 + c * legW}" y="${yy}" font-size="11" fill="#333">${esc(String(s.n).slice(0, 22))}</text>`; });
@@ -10820,7 +11743,7 @@ document.addEventListener("click", (e) => {
   .rp-head{width:100%;border-collapse:collapse;margin-bottom:10px}.rp-head td{vertical-align:top;text-align:center;font-size:12.5pt;width:50%;padding:0}.rp-line{width:90px;border-top:1px solid #000;margin:3px auto 6px}.rp-u{border-bottom:1px solid #000;padding-bottom:1px}.rp-no{font-size:12.5pt}.rp-date{margin-top:8px}
   .rp-title{text-align:center;font-size:15pt;margin:16px 0 2px}.rp-sub{text-align:center;font-size:13.5pt;margin:0 0 10px;font-weight:bold}.rp-period{text-align:center;font-style:italic;margin:0 0 14px}
   h3{font-size:13pt;margin:14px 0 6px}p{margin:0 0 6px;text-align:justify;text-indent:0}
-  .rp-tbl{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:11.5pt}.rp-tbl th,.rp-tbl td{border:1px solid #000;padding:3px 6px}.rp-tbl th{background:#eee;text-align:center}.rp-tbl td.n{text-align:right}.rp-sum td{font-weight:bold}
+  .rp-tbl{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:11.5pt}.rp-tbl th,.rp-tbl td{border:1px solid #000;padding:3px 6px;overflow-wrap:anywhere;word-break:normal;white-space:normal}.rp-tbl.rp-wide{font-size:10pt}.rp-tbl.rp-wide th,.rp-tbl.rp-wide td{padding:2px 4px}.rp-tbl tr{page-break-inside:avoid}.rp-cap{font-weight:bold;margin:10px 0 4px;page-break-after:avoid}.rp-tbl th{background:#eee;text-align:center}.rp-tbl td.n{text-align:right}.rp-sum td{font-weight:bold}
   .rp-fig{margin:8px 0 14px;text-align:center;page-break-inside:avoid}.rp-fig svg{max-width:100%;height:auto}.rp-fig figcaption{font-style:italic;font-size:11.5pt;margin-top:2px}
   .rp-sign{width:100%;border-collapse:collapse;margin-top:18px;page-break-inside:avoid}.rp-sign td{vertical-align:top;width:50%;font-size:12pt}.rp-sign td:last-child{text-align:center}
   tr{page-break-inside:avoid}`;
@@ -11270,7 +12193,8 @@ document.addEventListener("click", (e) => {
     if (state.lesson || activeUser?.role !== "student") return prevLessonsPage();
     state.search = "";
     const n = (s) => lessons.filter((l) => l.s === s).length;
-    return `<div class="kp-lhead"><h1>Bài học</h1><p>Chọn một bài để học. Mỗi bài có <b>Bài giảng</b>, <b>Hỏi đáp trợ giảng</b> và <b>Kiểm tra</b>.</p></div>${journeyHTML()}<div class="kp-seg" role="tablist"><button role="tab" data-subject="GP" class="${state.subject === "GP" ? "active" : ""}" aria-selected="${state.subject === "GP"}">🦴 <span class="kp-pre">Phần </span>Giải Phẫu Học (${n("GP")} bài)</button><button role="tab" data-subject="SL" class="${state.subject === "SL" ? "active" : ""}" aria-selected="${state.subject === "SL"}">🫀 <span class="kp-pre">Phần </span>Sinh Lý Học (${n("SL")} bài)</button></div><div class="kp-lgrid" id="lesson-grid">${compactCards()}</div>${footer()}`;
+    const lstat = (() => { if (!KP.lessonState) return ""; const c = { done: 0, weak: 0, doing: 0, new: 0, none: 0 }; let tot = 0; try { lessons.forEach((l) => { const r = KP.lessonState(l.id); c[r.st]++; }); } catch (e) { return ""; } tot = lessons.length - c.none; const T = (t, v, s2, ic) => `<div class="kp-tk" data-ic="${ic}" data-go="sel:.kp-seg"><small>${t}</small><b>${v}</b><span>${s2}</span></div>`; return `<div class="kp-tks kv-tks kp-ls-tks">${T("Đã hoàn thành", c.done, tot ? `trên ${tot} bài có bài giảng` : "giảng viên chưa đăng bài giảng", "check:green")}${T("Chưa học tốt", c.weak, "post-test dưới 8/10", "target:amber")}${T("Đang học", c.doing, "chưa làm post-test", "clock:blue")}${T("Chưa học", c.new, c.none ? `${c.none} bài chưa có bài giảng` : "bài sẵn sàng để học", "book:violet")}</div>`; })();
+    return `<div class="kp-lhead"><h1>Bài học</h1><p>Chọn một bài để học. Mỗi bài có <b>Bài giảng</b>, <b>Hỏi đáp trợ giảng</b> và <b>Kiểm tra</b>.</p></div>${lstat}${journeyHTML()}<div class="kp-seg" role="tablist"><button role="tab" data-subject="GP" class="${state.subject === "GP" ? "active" : ""}" aria-selected="${state.subject === "GP"}">🦴 <span class="kp-pre">Phần </span>Giải Phẫu Học (${n("GP")} bài)</button><button role="tab" data-subject="SL" class="${state.subject === "SL" ? "active" : ""}" aria-selected="${state.subject === "SL"}">🫀 <span class="kp-pre">Phần </span>Sinh Lý Học (${n("SL")} bài)</button></div><div class="kp-lgrid" id="lesson-grid">${compactCards()}</div>${footer()}`;
   };
 
   // Tiêu đề khung: dải màu đều; phần giải thích (subtitle) đưa ra ngoài dải
@@ -12424,7 +13348,7 @@ document.addEventListener("click", (e) => { if (!e.target.closest?.("[data-kp-ai
     let r1 = (stt ? `<th rowspan="2">STT</th>` : ""), r2 = "";
     h.forEach((x, j) => { const a = at.get(j); if (!a) r1 += `<th rowspan="2">${cell(x)}</th>`; else { if (a.first) r1 += `<th colspan="${a.G.cols.length}" style="${BL}background:#e4ddf3">${cell(a.G.id)}${lesName(a.G.id) ? `<br><span style="font-weight:normal;font-size:10pt">${cell(lesName(a.G.id))}</span>` : ""}</th>`; r2 += `<th style="${sty(j)}">${j === a.G.pre ? "Pre-test" : "Post-test " + (a.G.posts.indexOf(j) + 1)}</th>`; } });
     const td = (v, j) => { const a = at.get(j); return `<td${a ? ` style="${sty(j)}"` : isNum(v) ? ' class="n"' : ""}>${cell(v)}</td>`; };
-    return `<table class="rp-tbl rp-pp"><thead><tr>${r1}</tr><tr>${r2}</tr></thead><tbody>${b.map((r, i) => `<tr>${stt ? `<td class="c">${i + 1}</td>` : ""}${h.map((_, j) => td(r[j], j)).join("")}</tr>`).join("")}${sum ? `<tr class="rp-sum">${sum.map((x, j) => `<td${j && isNum(x) ? ' class="n"' : ""}>${cell(x)}</td>`).join("")}</tr>` : ""}</tbody></table><p style="font-size:10pt;font-style:italic;margin:2px 0 10px">Ghi chú: cột nền cam là điểm Pre-test, cột nền tím là điểm các lần Post-test; “—” là chưa làm; đạt yêu cầu từ 8/10.</p>`;
+    return `<table class="rp-tbl rp-pp${h.length > 8 ? " rp-wide" : ""}"><thead><tr>${r1}</tr><tr>${r2}</tr></thead><tbody>${b.map((r, i) => `<tr>${stt ? `<td class="c">${i + 1}</td>` : ""}${h.map((_, j) => td(r[j], j)).join("")}</tr>`).join("")}${sum ? `<tr class="rp-sum">${sum.map((x, j) => `<td${j && isNum(x) ? ' class="n"' : ""}>${cell(x)}</td>`).join("")}</tr>` : ""}</tbody></table><p style="font-size:10pt;font-style:italic;margin:2px 0 10px">Ghi chú: cột nền cam là điểm Pre-test, cột nền tím là điểm các lần Post-test; “—” là chưa làm; đạt yêu cầu từ 8/10.</p>`;
   }
   // ---- biểu đồ chung cho mọi báo cáo: đếm theo nhóm, so sánh theo lớp, xếp hạng, diễn biến
   function genCharts(h, b, G, F, D) {
@@ -12450,6 +13374,79 @@ document.addEventListener("click", (e) => { if (!e.target.closest?.("[data-kp-ai
     if (F.has("line")) { const L = lineData(h, b); if (L && (L.t !== "So sánh các mục" || !F.has("bar"))) out.push(D.line(L.labels, L.series, T(L.t), L.unit || "số liệu")); }
     return out;
   }
+  // ---- So sánh tự động cho mọi báo cáo có cột Lớp / Họ và tên (MSSV) và cột số liệu
+  const pctv = (v) => { const t = String(v ?? "").trim(); const m = t.match(/^(-?\d+(?:[.,]\d+)?)\s*%$/); return m ? parseFloat(m[1].replace(",", ".")) : isNum(t) ? numv(t) : null; };
+  const emptyv = (v) => /^(|—|-|–|chưa làm|chưa có)$/i.test(String(v ?? "").trim());
+  const fmt1 = (x) => (x == null ? "—" : f1(x));
+  const sgn = (d, u) => (d == null ? "—" : (d > 0 ? "+" : d < 0 ? "−" : "") + f1(Math.abs(d)) + (u || ""));
+  const shortN = (n) => String(n || "").trim().split(/\s+/).slice(-2).join(" ");
+  function cmpTbl(cap, head, rows, note) {
+    const td = (v, j) => `<td${j && /^[-+−]?[\d,.]+%?$|^—$|→/.test(String(v)) ? ' class="c"' : ""}>${cell(v)}</td>`;
+    return `<p class="rp-cap">${cell(cap)}</p><table class="rp-tbl${head.length > 7 ? " rp-wide" : ""}"><thead><tr>${head.map((x) => `<th>${cell(x)}</th>`).join("")}</tr></thead><tbody>${rows.map((r) => `<tr${r._sum ? ' class="rp-sum"' : ""}>${r.map(td).join("")}</tr>`).join("")}</tbody></table>${note ? `<p style="font-size:10pt;font-style:italic;margin:2px 0 8px">${cell(note)}</p>` : ""}`;
+  }
+  KP.rpCmpTbl = cmpTbl;
+  function autoCompare(h, b) {
+    const G = groups(h, b), out = [];
+    const nmj = h.findIndex((x) => /^(ho (va )?ten|ho ten)$/.test(nz(x))), idj = h.findIndex((x) => /^(mssv|ma sv|ma so sinh vien)$/.test(nz(x)));
+    const clj = G.cls;
+    const skip = new Set([nmj, idj, clj]);
+    const mets = h.map((_, j) => j).filter((j) => !skip.has(j) && !/^(stt|#|nam|khoa|lan|so lan|thoi diem|ngay|gio)/.test(nz(h[j])) && b.some((r) => !emptyv(r[j])) && b.every((r) => emptyv(r[j]) || pctv(r[j]) != null));
+    if (!mets.length || !b.length) return out;
+    const pref = (j) => (/(diem|ti le|%|dung|cao nhat|trung binh|ket qua)/.test(nz(h[j])) ? 0 : /(so|luot|phut|thoi gian)/.test(nz(h[j])) ? 1 : 2);
+    const M = [...mets].sort((a, c) => pref(a) - pref(c)).slice(0, 4), m0 = M[0];
+    const unit = (j) => (b.some((r) => /%$/.test(String(r[j] ?? "").trim())) ? "%" : "");
+    const avgOf = (rs, j) => { const v = rs.map((r) => (emptyv(r[j]) ? null : pctv(r[j]))).filter((x) => x != null); return v.length ? Math.round((v.reduce((t, x) => t + x, 0) / v.length) * 10) / 10 : null; };
+    const clsOf = (r) => String(r[clj] ?? "").trim() || "(chưa có lớp)";
+    const CL = clj >= 0 ? [...new Set(b.map(clsOf))].sort() : [];
+    const key = (r) => (idj >= 0 ? String(r[idj] ?? "").trim() : String(r[nmj] ?? "").trim());
+    const hasSv = (nmj >= 0 || idj >= 0) && new Set(b.map(key)).size >= 2;
+    const perCls = clj >= 0 && CL.length === b.length;
+    const hm = (j) => String(h[j]) + (unit(j) ? "" : " (TB)");
+    if (CL.length >= 2 && !perCls) {
+      const S = CL.map((c) => { const rs = b.filter((r) => clsOf(r) === c); return { c, rs, n: hasSv ? new Set(rs.map(key)).size : rs.length, v: M.map((j) => avgOf(rs, j)) }; });
+      const all = M.map((j) => avgOf(b, j));
+      const rk = (g) => 1 + S.filter((o) => (o.v[0] ?? -1e9) > (g.v[0] ?? -1e9)).length;
+      out.push({ id: "Cls", title: `So sánh giữa các lớp (${CL.length} lớp)`, on: true, tLabel: "Bảng so sánh giữa các lớp", tDesc: "Trung bình từng chỉ số, chênh lệch so với trung bình chung, xếp hạng", cLabel: "Biểu đồ so sánh giữa các lớp", cDesc: "Mỗi chỉ số một biểu đồ cột theo lớp",
+        tables: () => cmpTbl("Bảng 1. So sánh các chỉ số giữa các lớp", ["Lớp", hasSv ? "Số sinh viên" : "Số dòng", ...M.map(hm), "So với TB chung (" + String(h[m0]) + ")", "Xếp hạng"], [...S.map((g) => [g.c, g.n, ...g.v.map((x, i) => fmt1(x) + (x != null ? unit(M[i]) : "")), sgn(g.v[0] != null && all[0] != null ? g.v[0] - all[0] : null, unit(m0)), rk(g)]), Object.assign(["Toàn bộ", hasSv ? new Set(b.map(key)).size : b.length, ...all.map((x, i) => fmt1(x) + (x != null ? unit(M[i]) : "")), "", ""], { _sum: 1 })], `Xếp hạng theo ${String(h[m0]).toLowerCase()}; giá trị là trung bình của các dòng trong từng lớp.`),
+        charts: (D, T) => M.slice(0, 3).map((j, i) => D.bar(S.map((g) => "Lớp " + g.c), S.map((g) => g.v[i] || 0), T(`So sánh ${String(h[j]).toLowerCase()} giữa các lớp`), unit(j) || String(h[j]).toLowerCase())),
+        remark: () => { const r = [...S].filter((g) => g.v[0] != null).sort((a, c) => c.v[0] - a.v[0]); if (r.length < 2) return ""; const d = r[0].v[0] - r.at(-1).v[0]; return d ? `– ${String(h[m0])}: lớp ${r[0].c} cao nhất (${f1(r[0].v[0])}${unit(m0)}), lớp ${r.at(-1).c} thấp nhất (${f1(r.at(-1).v[0])}${unit(m0)}); chênh lệch ${f1(d)}${unit(m0)}.` : `– ${String(h[m0])} của các lớp ngang nhau (${f1(r[0].v[0])}${unit(m0)}).`; } });
+    }
+    if (hasSv) {
+      const P = new Map(); b.forEach((r) => { const k = key(r); if (!P.has(k)) P.set(k, { k, name: nmj >= 0 ? String(r[nmj] ?? "") : k, id: idj >= 0 ? String(r[idj] ?? "") : "", c: clj >= 0 ? clsOf(r) : "", rs: [] }); P.get(k).rs.push(r); });
+      const S = [...P.values()].map((g) => ({ ...g, v: M.map((j) => avgOf(g.rs, j)) })).sort((a, c) => (c.v[0] ?? -1e9) - (a.v[0] ?? -1e9) || a.name.localeCompare(c.name));
+      const many = CL.length >= 2, cm = {}; CL.forEach((c) => (cm[c] = avgOf(b.filter((r) => clsOf(r) === c), m0)));
+      const allM = avgOf(b, m0), u0 = unit(m0);
+      const rkAll = (g) => 1 + S.filter((o) => (o.v[0] ?? -1e9) > (g.v[0] ?? -1e9)).length;
+      const rkIn = (g) => 1 + S.filter((o) => o.c === g.c && (o.v[0] ?? -1e9) > (g.v[0] ?? -1e9)).length;
+      const nm = (g) => g.name + (g.id && g.id !== g.name ? " (" + g.id + ")" : "");
+      const val = (g, i) => fmt1(g.v[i]) + (g.v[i] != null ? unit(M[i]) : "");
+      const sub = CL.length === 1 ? ` trong lớp ${CL[0]}` : many ? ` trong và giữa các lớp` : "";
+      out.push({ id: "Sv", title: `So sánh giữa các sinh viên${sub} (${S.length} sinh viên)`, on: true, tLabel: CL.length === 1 ? "Bảng so sánh sinh viên trong lớp" : "Bảng so sánh giữa các sinh viên", tDesc: many ? "Xếp hạng chung, xếp hạng trong lớp, từng lớp một bảng" : "Xếp hạng, so với trung bình lớp", cLabel: "Biểu đồ so sánh giữa các sinh viên", cDesc: many ? "Mỗi lớp một biểu đồ, so với trung bình lớp" : "Từng sinh viên so với trung bình",
+        tables: () => {
+          let x = cmpTbl(many ? "Bảng 1. Xếp hạng chung sinh viên các lớp" : "Bảng 1. Xếp hạng sinh viên" + sub, [many ? "Hạng chung" : "Hạng", "Họ và tên", ...(many ? ["Lớp", "Hạng trong lớp"] : []), ...M.map(hm), many ? "So với TB lớp" : "So với TB" + (CL.length === 1 ? " lớp" : " chung"), ...(many ? ["So với TB chung"] : [])],
+            S.map((g) => [rkAll(g), nm(g), ...(many ? [g.c, rkIn(g)] : []), ...M.map((_, i) => val(g, i)), sgn(g.v[0] != null ? g.v[0] - (many ? cm[g.c] : allM) : null, u0), ...(many ? [sgn(g.v[0] != null ? g.v[0] - allM : null, u0)] : [])]),
+            `Xếp hạng theo ${String(h[m0]).toLowerCase()} (trung bình nếu sinh viên có nhiều dòng). ${many ? "Hạng trong lớp chỉ so với bạn cùng lớp." : ""}`);
+          if (many) {
+            x += cmpTbl("Bảng 2. Tóm tắt so sánh sinh viên trong từng lớp", ["Lớp", "Số SV", "TB lớp", "Cao nhất", "Thấp nhất", "Khoảng cách", "Dưới TB lớp"], CL.map((c) => { const g = S.filter((o) => o.c === c && o.v[0] != null); if (!g.length) return [c, 0, "—", "—", "—", "—", "—"]; return [c, S.filter((o) => o.c === c).length, fmt1(cm[c]) + u0, g[0].name + " (" + f1(g[0].v[0]) + u0 + ")", g.at(-1).name + " (" + f1(g.at(-1).v[0]) + u0 + ")", f1(g[0].v[0] - g.at(-1).v[0]) + u0, g.filter((o) => o.v[0] < cm[c]).length]; }));
+            CL.forEach((c, ci) => { const g = S.filter((o) => o.c === c); x += cmpTbl(`Bảng 3.${ci + 1}. Xếp hạng sinh viên lớp ${c} (${g.length} sinh viên, TB ${fmt1(cm[c])}${u0})`, ["Hạng trong lớp", "Họ và tên", ...M.map(hm), "So với TB lớp"], g.map((o) => [rkIn(o), nm(o), ...M.map((_, i) => val(o, i)), sgn(o.v[0] != null ? o.v[0] - cm[c] : null, u0)])); });
+          }
+          return x;
+        },
+        charts: (D, T) => {
+          const one = (g, ref, t) => { const G = g.length <= 25 ? g : [...g.slice(0, 12), ...g.slice(-12)]; return D.gbar(G.map((o) => shortN(o.name)), [{ n: "Sinh viên", c: "#4f46e5", v: G.map((o) => o.v[0]) }, { n: ref[0], c: "#b8b5cf", v: G.map(() => ref[1]) }], T(t + (g.length > 25 ? " (12 cao nhất, 12 thấp nhất)" : "")), u0 || String(h[m0]).toLowerCase()); };
+          const c = [one(S, [many ? "TB chung" : CL.length === 1 ? "TB lớp" : "TB chung", allM], `${String(h[m0])} của từng sinh viên${sub}`)];
+          if (many) CL.forEach((cl) => { const g = S.filter((o) => o.c === cl); if (g.length >= 2) c.push(one(g, ["TB lớp " + cl, cm[cl]], `${String(h[m0])} của sinh viên lớp ${cl} so với trung bình lớp`)); });
+          if (M.length >= 2 && S.length <= 25) c.push(D.gbar(S.map((o) => shortN(o.name)), M.slice(0, 3).map((j, i) => ({ n: String(h[j]), v: S.map((o) => o.v[i]) })), T("So sánh các chỉ số giữa các sinh viên"), "số liệu"));
+          return c;
+        },
+        remark: () => {
+          const L = [];
+          (many ? CL : [null]).forEach((cl) => { const g = S.filter((o) => (cl == null || o.c === cl) && o.v[0] != null); if (g.length < 2) return; const ref = cl == null ? allM : cm[cl]; const below = g.filter((o) => o.v[0] < ref); L.push(`– ${cl == null ? (CL.length === 1 ? "Lớp " + CL[0] : "Nhóm") : "Lớp " + cl}: cao nhất ${g[0].name} (${f1(g[0].v[0])}${u0}), thấp nhất ${g.at(-1).name} (${f1(g.at(-1).v[0])}${u0}); ${below.length}/${g.length} sinh viên dưới trung bình (${f1(ref)}${u0})${below.length ? ": " + below.slice(0, 10).map((o) => o.name).join(", ") + (below.length > 10 ? "…" : "") : ""}.`); });
+          return L.join("\n");
+        } });
+    }
+    return out;
+  }
   const countBy = (body, j) => { const m = new Map(); body.forEach((r) => { const k = String(r[j] ?? "").trim() || "(trống)"; m.set(k, (m.get(k) || 0) + 1); }); return [...m.entries()].sort((a, b) => String(a[0]).localeCompare(String(b[0]), "vi", { numeric: true })); };
 
   // ---------- mở trang
@@ -12461,6 +13458,7 @@ document.addEventListener("click", (e) => { if (!e.target.closest?.("[data-kp-ai
     const PF = KP.reportProfile ? KP.reportProfile(title, rows[0], rows.slice(1), o.note) : { kind: "BÁO CÁO", sub: title, intro: "", summary: [], remark: "" };
     const R = KP.rpUI || {};
     const G = groups(rows[0], rows.slice(1));
+    if (!o.compare) { try { o = { ...o, compare: autoCompare(rows[0], rows.slice(1)) }; } catch (e) { console.warn(e); } }
     const nCls = G.cls >= 0 ? new Set(rows.slice(1).map((r) => r[G.cls]).filter(Boolean)).size : 0;
     const scope = (o.note || "").replace(/<[^>]+>/g, "").trim();
     Object.assign(RP, {
@@ -12468,7 +13466,7 @@ document.addEventListener("click", (e) => { if (!e.target.closest?.("[data-kp-ai
       rows, orig: rows.map((r) => [...r]), html: "", tried: false,
       st: { kind: o.kind || PF.kind, sub: o.sub || PF.sub, intro: o.intro ?? PF.intro, remark: o.remark ?? PF.remark, summary: o.summary || PF.summary || [], period: o.period || scope, scope,
         parent: R.parent || "Trường Đại học Y Dược TP. Hồ Chí Minh", unit: R.unit || "Bộ môn Giải phẫu – Sinh lý", maker: R.maker || activeUser?.name || "", no: R.no || "", recv: R.recv ?? "- Ban Chủ nhiệm Khoa;\n- Lưu: VT, BM." },
-      fmt: new Set(["formal", "text", "table", ...((o.summary || PF.summary || []).length ? ["sumT"] : []), ...(nCls > 1 ? ["cls"] : []), ...(/^(stt|#)$/i.test(String(rows[0][0]).trim()) ? [] : ["stt"]), ...(ppInfo(rows[0]) ? ["bar", "line", "pie"] : (() => { const g = groups(rows[0], rows.slice(1)); return [...(g.cls >= 0 || g.cat >= 0 || g.nums.length ? ["bar"] : []), ...(g.cls >= 0 || g.cat >= 0 ? ["pie"] : []), ...(lineData(rows[0], rows.slice(1)) ? ["line"] : [])]; })())]),
+      fmt: new Set(["formal", "text", "table", ...((o.summary || PF.summary || []).length ? ["sumT"] : []), ...(nCls > 1 ? ["cls"] : []), ...(o.compare || []).filter((g) => g.on).flatMap((g) => ["cmp" + g.id + "T", "cmp" + g.id + "C"]), ...(/^(stt|#)$/i.test(String(rows[0][0]).trim()) ? [] : ["stt"]), ...(ppInfo(rows[0]) ? ["bar", "line", "pie"] : (() => { const g = groups(rows[0], rows.slice(1)); return [...(g.cls >= 0 || g.cat >= 0 || g.nums.length ? ["bar"] : []), ...(g.cls >= 0 || g.cat >= 0 ? ["pie"] : []), ...(lineData(rows[0], rows.slice(1)) ? ["line"] : [])]; })())]),
     });
     render();
     window.scrollTo(0, 0);
@@ -12500,13 +13498,15 @@ document.addEventListener("click", (e) => { if (!e.target.closest?.("[data-kp-ai
     const lab = (r, i) => String(lj >= 0 ? r[lj] : i + 1).replace(/^(Ngày|Tuần từ|Tháng|Giờ) /, "").slice(0, 14);
     return { labels: rows.map(lab), series: nums.map((j) => ({ n: h[j], v: rows.map((r) => numv(r[j])) })), unit: "", t: gj >= 0 ? "Diễn biến theo thời gian" : "So sánh các mục" };
   }
-  const FMT_GROUPS = [["Văn bản", ["formal", "text"]], ["Bảng số liệu", ["sumT", "cls", "table", "stt", "sum"]], ["Biểu đồ", ["bar", "line", "pie"]]];
+  const FMT_GROUPS = [["Văn bản", ["formal", "text"]], ["Bảng số liệu", ["sumT", "cls", "table", "stt", "sum"]], ["Biểu đồ", ["bar", "line", "pie"]], ["So sánh", ["cmpClsT", "cmpClsC", "cmpSvT", "cmpSvC"]]];
+  const cmpFmts = () => ((RP.o && RP.o.compare) || []).flatMap((g) => [["cmp" + g.id + "T", g.tLabel, g.tDesc], ["cmp" + g.id + "C", g.cLabel, g.cDesc]]);
   function fmtList() {
     const [head, ...body] = RP.rows, G = groups(head, body);
     const L = [["formal", "Thể thức hành chính", "Quốc hiệu, số văn bản, chữ ký"], ["text", "Tổng quan và nhận xét", "Đoạn văn mở đầu và đề xuất"]];
     if (RP.st.summary.length) L.push(["sumT", "Bảng chỉ số chính"]);
     if (G.cls >= 0) L.push(["cls", "Tổng hợp theo lớp"]);
     L.push(["table", "Bảng chi tiết"], ["stt", "Cột STT"], ["sum", "Dòng Cộng"]);
+    L.push(...cmpFmts());
     if (ppInfo(head)) { L.push(["bar", "Biểu đồ cột", "Điểm TB từng lần, số SV mỗi lần, phân bố mức, từng sinh viên"], ["line", "Biểu đồ đường", "Điểm trung bình qua Pre-test và các lần Post-test"], ["pie", "Biểu đồ tròn", "Tỉ lệ sinh viên theo mức ở từng bài"]); return L; }
     if (G.cls >= 0 || G.cat >= 0 || G.nums.length) L.push(["bar", "Biểu đồ cột", "Số lượng theo nhóm, so sánh giữa các lớp, xếp hạng"]);
     if (lineData(head, body)) L.push(["line", "Biểu đồ đường", "Xu hướng theo thời gian"]);
@@ -12558,8 +13558,8 @@ document.addEventListener("click", (e) => { if (!e.target.closest?.("[data-kp-ai
     const [h, ...b] = collect();
     const G = groups(h, b);
     const numCol = h.map((_, j) => b.length && b.every((r) => !String(r[j] ?? "").trim() || isNum(r[j])) && !/^(stt|#|mssv)$/i.test(String(h[j]).trim()));
-    let n = 0; const H = (x) => `<h3>${["I", "II", "III", "IV", "V", "VI", "VII"][n++]}. ${x}</h3>`;
-    const T = (head, rows, sumRow) => `<table class="rp-tbl"><thead><tr>${head.map((x) => `<th>${cell(x)}</th>`).join("")}</tr></thead><tbody>${rows.map((r) => `<tr>${r.map((v, j) => `<td${j && isNum(v) ? ' class="n"' : ""}>${cell(v)}</td>`).join("")}</tr>`).join("")}${sumRow ? `<tr class="rp-sum">${sumRow.map((v, j) => `<td${j && isNum(v) ? ' class="n"' : ""}>${cell(v)}</td>`).join("")}</tr>` : ""}</tbody></table>`;
+    let n = 0; const H = (x) => `<h3>${["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"][n++]}. ${x}</h3>`;
+    const T = (head, rows, sumRow) => `<table class="rp-tbl${head.length > 8 ? " rp-wide" : ""}"><thead><tr>${head.map((x) => `<th>${cell(x)}</th>`).join("")}</tr></thead><tbody>${rows.map((r) => `<tr>${r.map((v, j) => `<td${j && isNum(v) ? ' class="n"' : ""}>${cell(v)}</td>`).join("")}</tr>`).join("")}${sumRow ? `<tr class="rp-sum">${sumRow.map((v, j) => `<td${j && isNum(v) ? ' class="n"' : ""}>${cell(v)}</td>`).join("")}</tr>` : ""}</tbody></table>`;
     let out = F.has("formal") ? D.head(st) : `<p style="text-align:right;font-style:italic">Xuất ngày ${stamp()}</p>`;
     out += `<h1 class="rp-title">${esc(st.kind)}</h1><h2 class="rp-sub">${esc(st.sub)}</h2>${st.period ? `<p class="rp-period">${esc(st.period)}</p>` : ""}`;
     // I. Tổng quan
@@ -12581,6 +13581,15 @@ document.addEventListener("click", (e) => { if (!e.target.closest?.("[data-kp-ai
     const charts = ppc || [];
     if (!ppc) genCharts(h, b, G, F, D).forEach((c) => charts.push(c));
     if (charts.length) out += H("Biểu đồ") + charts.join("");
+    // So sánh giữa các lớp / sinh viên
+    let kc = charts.length;
+    ((RP.o && RP.o.compare) || []).forEach((g) => {
+      const tOn = F.has("cmp" + g.id + "T"), cOn = F.has("cmp" + g.id + "C");
+      if (!tOn && !cOn) return;
+      let x = "";
+      try { if (tOn) x += g.tables(); if (cOn) x += g.charts(D, (t) => `Biểu đồ ${++kc}. ${t}`).join(""); const rm = g.remark ? g.remark() : ""; if (rm) x += `<p><b><i>Nhận xét so sánh:</i></b></p>` + rm.split(/\n+/).map((y) => `<p>${esc(y)}</p>`).join(""); } catch (e) { console.warn(e); }
+      out += H(g.title) + x;
+    });
     // IV. Chi tiết
     const tamSkip = TR && !h.some((x) => /^mssv/i.test(String(x).trim()));
     if (F.has("table") && !tamSkip) {
@@ -12589,7 +13598,7 @@ document.addEventListener("click", (e) => { if (!e.target.closest?.("[data-kp-ai
       const sum = F.has("sum") ? th.map((_, k) => { if (k === 0) return "Cộng"; const j = k - (stt ? 1 : 0); return j >= 0 && numCol[j] ? f1(b.reduce((t, r) => t + numv(r[j]), 0)) : ""; }) : null;
       const ppt = ppTable(h, b, stt, sum);
       const dH = TR ? "Danh sách sinh viên" : "Số liệu chi tiết";
-      if (ppt) out += (n ? H(dH) : "") + ppt; else out += (n ? H(dH) : "") + `<table class="rp-tbl"><thead><tr>${th.map((x) => `<th>${cell(x)}</th>`).join("")}</tr></thead><tbody>${b.map((r, i) => `<tr>${stt ? `<td class="c">${i + 1}</td>` : ""}${h.map((_, j) => `<td${numCol[j] ? ' class="n"' : ""}>${cell(r[j])}</td>`).join("")}</tr>`).join("")}${sum ? `<tr class="rp-sum">${sum.map((x, j) => `<td${j && isNum(x) ? ' class="n"' : ""}>${cell(x)}</td>`).join("")}</tr>` : ""}</tbody></table>`;
+      if (ppt) out += (n ? H(dH) : "") + ppt; else out += (n ? H(dH) : "") + `<table class="rp-tbl${th.length > 8 ? " rp-wide" : ""}"><thead><tr>${th.map((x) => `<th>${cell(x)}</th>`).join("")}</tr></thead><tbody>${b.map((r, i) => `<tr>${stt ? `<td class="c">${i + 1}</td>` : ""}${h.map((_, j) => `<td${numCol[j] ? ' class="n"' : ""}>${cell(r[j])}</td>`).join("")}</tr>`).join("")}${sum ? `<tr class="rp-sum">${sum.map((x, j) => `<td${j && isNum(x) ? ' class="n"' : ""}>${cell(x)}</td>`).join("")}</tr>` : ""}</tbody></table>`;
     }
     // V. Nhận xét
     const rm = F.has("text") ? st.remark.trim() : "";
@@ -13259,7 +14268,7 @@ document.addEventListener("click", (e) => { if (!e.target.closest?.("[data-kp-ai
     const sel = (id, opts, cur, lab) => `<label>${lab}<select data-kp-pfu="${id}">${opts.map(([k, t]) => `<option value="${esc(k)}" ${cur === k ? "selected" : ""}>${esc(t)}</option>`).join("")}</select></label>`;
     const filters = `<div class="kp-pw-filter"><label class="kp-pw-search">${icon("search")}<input data-kp-pfu="q" value="${esc(PU.q)}" placeholder="Tìm mã, họ tên, lớp…" aria-label="Tìm kiếm"></label>${adm ? sel("who", [["all", "Tất cả"], ["sv", "Sinh viên"], ["gv", "Giảng viên"]], PU.who, "Đối tượng") : ""}${kind === "gv" ? "" : sel("cls", [["ALL", "Tất cả lớp"], ...classes.map((c) => [c, c])], PU.cls, "Lớp")}${sel("st", [["all", "Tất cả"], ["new", "Chưa xem"], ["seen", "Đã xem"]], PU.st, "Trạng thái")}</div>`;
     const body = rows.map((x) => { const gv = kindOf(x) === "gv"; return `<tr class="${isNew(x) ? "kp-pf-new" : ""}"><td>${when(x.at)}</td><td><span class="kp-pf-kind ${gv ? "gv" : "sv"}">${gv ? "Giảng viên" : "Sinh viên"}</span></td><td><button type="button" class="kp-linkbtn" data-kp-pf-open="${esc(x.sid)}" data-kind="${gv ? "gv" : "sv"}">${esc(gv ? String(x.sid).toUpperCase() : x.sid)}</button></td><td><b>${esc(x.name || "")}</b></td><td>${esc(gv ? "—" : x.cls || "")}</td><td class="kp-pf-chgs">${chgHTML(x)}</td><td>${esc(whoBy(x))}</td><td>${isNew(x) ? '<span class="kp-pf-st new">Mới</span>' : '<span class="kp-pf-st">Đã xem</span>'}</td></tr>`; }).join("") || `<tr><td colspan="8" class="kp-muted">${all.length ? "Không có thay đổi phù hợp bộ lọc." : "Chưa có thay đổi hồ sơ nào."}</td></tr>`;
-    return `<section class="card"><div class="card-title"><h2>Theo dõi thay đổi hồ sơ${kind === "gv" ? " giảng viên" : kind === "sv" ? " sinh viên" : ""}</h2><span class="tiny-tag">${all.length} lần thay đổi</span></div><div class="kp-tks">${kpi("Chưa xem", nNew, "thay đổi mới", nNew ? "warn" : "")}${kpi("Trong 7 ngày", week, "lần thay đổi")}${kind === "gv" ? kpi("Giảng viên có thay đổi", new Set(all.map((x) => String(x.sid).toLowerCase())).size, "người") : kpi("Hồ sơ sinh viên", nSv, "lần thay đổi")}${kind === "gv" ? "" : adm ? kpi("Hồ sơ giảng viên", nGv, "lần thay đổi") : kpi("Lớp có thay đổi", classes.length, "lớp")}</div></section><section class="card" id="kp-pf-log"><div class="card-title"><h2>Nhật ký thay đổi</h2>${nNew ? `<button type="button" class="btn secondary" data-kp-pf="seen">Đánh dấu đã xem tất cả</button>` : ""}</div>${filters}<div class="table-wrap"><table class="kp-pf-table" data-exp-title="Nhật ký thay đổi hồ sơ"><thead><tr><th>Thời gian</th><th>Đối tượng</th><th>Mã</th><th>Họ và tên</th><th>Lớp</th><th>Nội dung thay đổi</th><th>Người sửa</th><th>Trạng thái</th></tr></thead><tbody>${body}</tbody></table></div><p class="kp-muted" style="margin:10px 0 0;font-size:12.5px">${kind === "gv" ? "Ghi lại mỗi lần giảng viên tự sửa hồ sơ." : kind === "sv" && isAdmU() ? "Ghi lại mỗi lần sinh viên tự sửa hồ sơ, và mỗi lần GV/Admin sửa thông tin sinh viên trong danh sách lớp." : adm ? "Ghi lại mỗi lần sinh viên hoặc giảng viên tự sửa hồ sơ, và mỗi lần GV/Admin sửa thông tin sinh viên trong danh sách lớp." : "Ghi lại mỗi lần sinh viên trong các lớp bạn phụ trách tự sửa hồ sơ, hoặc được sửa trong danh sách lớp."} Bấm vào mã để xem hồ sơ đầy đủ.</p></section>`;
+    return `<section class="card"><div class="card-title"><h2>Theo dõi thay đổi hồ sơ${kind === "gv" ? " giảng viên" : kind === "sv" ? " sinh viên" : ""}</h2><span class="tiny-tag">${all.length} lần thay đổi</span></div><div class="kp-tks">${kpi("Chưa xem", nNew, "thay đổi mới", nNew ? "warn" : "")}${kpi("Trong 7 ngày", week, "lần thay đổi")}${kind === "gv" ? kpi("Giảng viên có thay đổi", new Set(all.map((x) => String(x.sid).toLowerCase())).size, "người") : kpi("Hồ sơ sinh viên", nSv, "lần thay đổi")}${kind === "gv" ? kpi("Tổng số thay đổi", all.length, all.length ? "gần nhất " + when(Math.max(...all.map((x) => x.at))) : "chưa có thay đổi") : adm ? kpi("Hồ sơ giảng viên", nGv, "lần thay đổi") : kpi("Lớp có thay đổi", classes.length, "lớp")}</div></section><section class="card" id="kp-pf-log"><div class="card-title"><h2>Nhật ký thay đổi</h2>${nNew ? `<button type="button" class="btn secondary" data-kp-pf="seen">Đánh dấu đã xem tất cả</button>` : ""}</div>${filters}<div class="table-wrap"><table class="kp-pf-table" data-exp-title="Nhật ký thay đổi hồ sơ"><thead><tr><th>Thời gian</th><th>Đối tượng</th><th>Mã</th><th>Họ và tên</th><th>Lớp</th><th>Nội dung thay đổi</th><th>Người sửa</th><th>Trạng thái</th></tr></thead><tbody>${body}</tbody></table></div><p class="kp-muted" style="margin:10px 0 0;font-size:12.5px">${kind === "gv" ? "Ghi lại mỗi lần giảng viên tự sửa hồ sơ." : kind === "sv" && isAdmU() ? "Ghi lại mỗi lần sinh viên tự sửa hồ sơ, và mỗi lần GV/Admin sửa thông tin sinh viên trong danh sách lớp." : adm ? "Ghi lại mỗi lần sinh viên hoặc giảng viên tự sửa hồ sơ, và mỗi lần GV/Admin sửa thông tin sinh viên trong danh sách lớp." : "Ghi lại mỗi lần sinh viên trong các lớp bạn phụ trách tự sửa hồ sơ, hoặc được sửa trong danh sách lớp."} Bấm vào mã để xem hồ sơ đầy đủ.</p></section>`;
   }
   KP.profPanel = panel;
   KP.profFilter = (f) => Object.assign(PU, { who: "all", cls: "ALL", st: "all", q: "" }, f || {});
@@ -13404,7 +14413,7 @@ document.addEventListener("click", (e) => { if (!e.target.closest?.("[data-kp-ai
       : `<div class="kp-qh-empty"><b>${sel === "ALL" ? "Bạn chưa hỏi Kiến câu nào." : "Bạn chưa hỏi Kiến câu nào trong bài này."}</b><p>Bấm nút chat tròn ở góc phải hoặc nút bên dưới để hỏi. Mọi câu hỏi và câu trả lời sẽ được lưu ở đây để bạn xem lại.</p><button type="button" class="btn" data-kp-nav="chat">Mở hỏi đáp</button></div>`;
     return `<section class="card kp-qh"><div class="card-title"><h2>Lịch sử hỏi đáp với Kiến</h2><button type="button" class="kp-qh-new" data-kp-nav="chat">${I('<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>')}Hỏi Kiến</button></div>
       <div class="kp-qh-bar"><div class="kp-seg kp-qh-seg">${seg}</div><label class="kp-qh-sel">Bài<select data-kp-hles>${opts.map(([v, t]) => `<option value="${esc(v)}" ${v === sel ? "selected" : ""}>${esc(t)}</option>`).join("")}</select></label></div>
-      <div class="kp-qh-sum"><span><b>${list.length}</b> câu hỏi</span><span><b>${nDays}</b> ngày có hỏi</span><span>${list[0] ? "Gần nhất: " + hm(list[0].ts) + " " + dShort(list[0].ts) : "Chưa có"}</span></div>${body}</section>`;
+      <div class="kp-tks kv-tks kp-qh-tks">${[["Câu hỏi đã hỏi", list.length, sel === "ALL" ? "ở tất cả bài" : "trong bài này", "chat:violet"], ["Ngày có hỏi", nDays, list[0] ? "gần nhất " + dShort(list[0].ts) : "chưa có", "calendar:blue"], ["Trong 7 ngày qua", list.filter((c) => Date.now() - c.ts < 7 * 864e5).length, "câu hỏi", "clock:teal"], ["Bài đã hỏi Kiến", lessonIds.length, `trên ${typeof lessons !== "undefined" ? lessons.length : 0} bài`, "book:green"]].map(([t, v, s2, ic]) => `<div class="kp-tk" data-ic="${ic}" data-go="sel:.kp-qh-g, .kp-qh-empty"><small>${t}</small><b>${v}</b><span>${esc(s2)}</span></div>`).join("")}</div>${body}</section>`;
   }
   // đổi tab trên thanh bài học: "Hỏi đáp trợ giảng" → "Lịch sử hỏi đáp", "Kiểm tra 10 câu" → "Kiểm tra"
   function fixBar() {
@@ -13677,6 +14686,16 @@ document.addEventListener("click", (e) => { if (!e.target.closest?.("[data-kp-ai
   const tk = (lab, v, sub, ic, go) => `<div class="kp-tk ${/^[\d.,%\s/]+$/.test(String(v)) ? "" : "kp-tk-txt"}" data-ic="${ic}" ${go ? `data-go="${go}"` : ""}><small>${lab}</small><b>${v}</b><span>${sub}</span></div>`;
   const num = (re, root) => { const m = re.exec((root || document.getElementById("page-content")).textContent.replace(/\s+/g, " ")); return m ? +m[1] : 0; };
   const colCount = (hRe, vRe) => { const tb = [...document.querySelectorAll("#page-content table")].find((t) => [...t.querySelectorAll("thead th")].some((h) => hRe.test(nz(h.textContent)))); if (!tb) return null; const i = [...tb.querySelectorAll("thead th")].findIndex((h) => hRe.test(nz(h.textContent))); const rows = [...tb.querySelectorAll("tbody tr")].filter((r) => r.children.length > i); return { all: rows.length, hit: rows.filter((r) => vRe.test(nz(r.children[i].textContent))).length }; };
+  // việc đang chờ duyệt trong phạm vi bài phụ trách (Admin: tất cả)
+  function waitTk() {
+    const adm = activeUser?.role === "admin";
+    let mine = []; try { mine = adm ? lessons.map((l) => l.id) : typeof staffLessons === "function" ? staffLessons() : []; } catch (e) {}
+    const set = new Set(mine);
+    let d = 0, q = 0;
+    try { d = (KP.docsAll ? KP.docsAll() : []).filter((x) => !x.deleted && x.status === "pending" && (adm || (x.lessons || [x.lesson]).some((l) => set.has(l)) || x.by === activeUser?.id)).length; } catch (e) {}
+    try { q = (KP.bank ? KP.bank() : []).filter((x) => x.status === "pending" && set.has(x.lesson)).length; } catch (e) {}
+    return tk("Đang chờ duyệt", d + q, `${d} tài liệu · ${q} câu hỏi`, "hour:amber");
+  }
   function statsFor() {
     const S = typeof localStudents !== "undefined" ? localStudents : [], G = typeof localTeachers !== "undefined" ? localTeachers : [];
     const ad = state.admin, st = window.KP?.stuUI?.tab, at = window.KP?.aUI?.tab, sett = typeof staffUI !== "undefined" ? staffUI.accountTab : "";
@@ -13692,22 +14711,22 @@ document.addEventListener("click", (e) => { if (!e.target.closest?.("[data-kp-ai
     if (ad === "accounts" && at === "pw") return [["🔑 Tổng quan tài khoản sinh viên", tk("Lớp", new Set(S.map((s) => s.class)).size, "lớp đang quản lý", "flag:blue", "re:^lop") + tk("Tài khoản sinh viên", S.length, "tài khoản", "users:violet") + tk("Đã đăng nhập", S.filter((s) => s.lastLogin || s.lastSeen).length, `trên ${S.length} sinh viên`, "online:green") + tk("Chờ đổi mật khẩu", S.filter((s) => s.mustChangePassword).length, "sinh viên", "key:amber"), "re:danh sach tai khoan sv"]];
     if (ad === "accounts" && at === "gvacc") return [["🔐 Tổng quan tài khoản giảng viên", tk("Giảng viên", G.length, "tài khoản", "teach:teal") + tk("Đã đăng nhập", G.filter((t) => t.lastLogin || t.lastSeen).length, `trên ${G.length} giảng viên`, "online:green") + tk("Chờ đổi mật khẩu", G.filter((t) => t.mustChangePassword).length, "giảng viên", "key:amber") + tk("Đã khoá", G.filter((t) => t.locked).length, "tài khoản", "lock:rose"), "re:danh sach tai khoan gv"]];
     if (ad === "accounts" && at === "asg") { const as = new Set(G.flatMap((t) => t.assigned || [])); return [["🗂️ Tổng quan phân công", tk("Bài có giảng viên", lessons.filter((l) => as.has(l.id)).length, `trên ${NL} bài`, "check:green") + tk("Bài chưa phân công", lessons.filter((l) => !as.has(l.id)).length, "bài cần giao", "clip:amber") + tk("Giảng viên", G.length, "người", "teach:teal") + tk("Bài trung bình / GV", G.length ? (G.reduce((n, t) => n + (t.assigned || []).length, 0) / G.length).toFixed(1) : 0, "bài", "book:violet"), "re:phan cong bai"]]; }
-    if (ad === "home") { const me = activeUser?.role === "admin" ? lessons.length : (G.find((t) => t.id === activeUser?.id)?.assigned || []).length; return [["👤 Tổng quan hồ sơ", tk("Bài phụ trách", me, `trên ${NL} bài`, "book:violet") + tk("Vai trò", activeUser?.role === "admin" ? "Quản trị viên" : "Giảng viên", "quyền trong hệ thống", "teach:teal") + tk("Tài liệu đã tải", (KP.docsAll ? KP.docsAll().filter((d) => !d.deleted && d.by === activeUser?.id).length : 0), "file và video", "doc:blue"), "re:quyen quan tri|bai phu trach"]]; }
+    if (ad === "home") { const me = activeUser?.role === "admin" ? lessons.length : (G.find((t) => t.id === activeUser?.id)?.assigned || []).length; return [["👤 Tổng quan hồ sơ", tk("Bài phụ trách", me, `trên ${NL} bài`, "book:violet") + tk("Vai trò", activeUser?.role === "admin" ? "Quản trị viên" : "Giảng viên", "quyền trong hệ thống", "teach:teal") + tk("Tài liệu đã tải", (KP.docsAll ? KP.docsAll().filter((d) => !d.deleted && d.by === activeUser?.id).length : 0), "file và video", "doc:blue") + waitTk(), "re:quyen quan tri|bai phu trach"]]; }
     if (ad === "settings") {
       const pc = document.getElementById("page-content"), selT = (i) => { const s = pc.querySelectorAll("select")[i]; return s ? s.options[s.selectedIndex]?.text || "—" : "—"; };
       if (sett === "config") { const prov = selT(0), on = !/chua co khoa/.test(nz(prov)); return [["🤖 Tổng quan AI & học tập", tk("Kết nối AI", on ? "Đang bật" : "Chưa có khóa", on ? prov.split("·")[0] : "Kiến chỉ hiện đoạn tài liệu", "spark:violet") + tk("Model", (pc.querySelector("input")?.value || "—").slice(0, 22), "đang dùng", "robot:blue") + tk("Bài học", NL, "Giải phẫu và Sinh lý", "book:teal") + tk("Tài liệu đã duyệt", (typeof managedSources !== "undefined" ? managedSources.filter((s) => !s.deleted && s.approved).length : 0), "Kiến tra cứu", "doc:green"), "re:nha cung cap"]]; }
       if (sett === "security") return [["🛡️ Tổng quan bảo mật", tk("Tự đăng xuất", selT(0), "khi không sử dụng", "clock:blue") + tk("Đổi mật khẩu", selT(1), "chu kỳ bắt buộc", "key:amber") + tk("Tài khoản áp dụng", S.length + G.length, `${S.length} SV · ${G.length} GV`, "users:violet") + tk("Tài khoản bị khoá", [...S, ...G].filter((x) => x.locked).length, "tài khoản", "lock:rose"), "re:cai dat bao mat"]];
       if (sett === "survey") { let q = 0, a = 0, g = 0; try { const f = KP.surveyForm(); q = f.items.length; g = f.groups.length; a = KP.surveyAnswered(); } catch (e) {} return [["🗳️ Tổng quan khảo sát", tk("Trạng thái", (() => { try { return KP.surveyOpen() ? "Đang mở" : "Đã đóng"; } catch (e) { return "—"; } })(), "phiếu ECM", "flag:green") + tk("Số câu hỏi", q, `${g} nhóm thang đo`, "chat:violet") + tk("Sinh viên đã trả lời", a, `trên ${S.length} sinh viên`, "check:teal") + tk("Tỉ lệ phản hồi", S.length ? Math.round((a / S.length) * 100) + "%" : "0%", "sinh viên", "chart:blue"), "re:phieu khao sat"]]; }
-      if (sett === "brand") { const on = !!(window.KP && KP.cloud && KP.cloud.ready()); return [["🎨 Tổng quan máy chủ & nhận diện", tk("Máy chủ chung", on ? "Đang hoạt động" : "Chưa bật", on ? "tự đồng bộ giữa các máy" : "đang lưu trên trình duyệt này", "online:" + (on ? "green" : "amber")) + tk("Cập nhật giữa các máy", on ? "15–30 giây" : "—", on ? "GV/Admin 15s · SV 30s" : "bật máy chủ để dùng nhiều máy", "doc:teal") + tk("Tài khoản dùng chung", S.length + G.length, "SV và GV", "users:violet"), "re:google sheets"]]; }
+      if (sett === "brand") { const on = !!(window.KP && KP.cloud && KP.cloud.ready()); return [["🎨 Tổng quan máy chủ & nhận diện", tk("Máy chủ chung", on ? "Đang hoạt động" : "Chưa bật", on ? "tự đồng bộ giữa các máy" : "đang lưu trên trình duyệt này", "online:" + (on ? "green" : "amber")) + tk("Cập nhật giữa các máy", on ? "8–15 giây" : "—", on ? "GV/Admin 8 giây · SV 15 giây" : "bật máy chủ để dùng nhiều máy", "doc:teal") + tk("Tài khoản dùng chung", S.length + G.length, "SV và GV", "users:violet") + tk("Dữ liệu trên máy này", (() => { let n = 0; try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); n += k.length + (localStorage.getItem(k) || "").length; } } catch (e) {} return n > 1048576 ? (n / 1048576).toFixed(1).replace(".", ",") + " MB" : Math.round(n / 1024) + " KB"; })(), on ? "bản sao lưu tạm, máy chủ giữ bản chính" : "cần sao lưu thường xuyên", "doc:blue"), "re:google sheets"]]; }
       if (sett === "sample") { const c = colCount(/tinh huong/, /./); return [["🧪 Tổng quan dữ liệu mẫu", tk("Tình huống mẫu", c ? c.all : 0, "kiểu sinh viên", "clip:violet") + tk("Sinh viên mẫu", (c ? c.all : 0) * 3, "3 sinh viên mỗi tình huống", "users:blue") + tk("Trạng thái", /da nap/.test(nz(pc.textContent)) && !/chua nap/.test(nz(pc.textContent)) ? "Đã nạp" : "Chưa nạp", "trên trình duyệt này", "flag:amber") + tk("Video mẫu", (KP.docsAll ? KP.docsAll().filter((d) => d.sample && d.media === "video").length : 0), "video bài giảng", "video:rose"), "re:du lieu mau de"]]; }
-      if (sett === "profile") { const me = activeUser?.role === "admin" ? lessons.length : (G.find((t) => t.id === activeUser?.id)?.assigned || []).length; return [["👤 Tổng quan hồ sơ", tk("Bài phụ trách", me, `trên ${NL} bài`, "book:violet") + tk("Vai trò", activeUser?.role === "admin" ? "Quản trị viên" : "Giảng viên", "quyền trong hệ thống", "teach:teal") + tk("Tài liệu đã tải", (KP.docsAll ? KP.docsAll().filter((d) => !d.deleted && d.by === activeUser?.id).length : 0), "file và video", "doc:blue"), "re:quyen quan tri|bai phu trach"]]; }
+      if (sett === "profile") { const me = activeUser?.role === "admin" ? lessons.length : (G.find((t) => t.id === activeUser?.id)?.assigned || []).length; return [["👤 Tổng quan hồ sơ", tk("Bài phụ trách", me, `trên ${NL} bài`, "book:violet") + tk("Vai trò", activeUser?.role === "admin" ? "Quản trị viên" : "Giảng viên", "quyền trong hệ thống", "teach:teal") + tk("Tài liệu đã tải", (KP.docsAll ? KP.docsAll().filter((d) => !d.deleted && d.by === activeUser?.id).length : 0), "file và video", "doc:blue") + waitTk(), "re:quyen quan tri|bai phu trach"]]; }
     }
     return null;
   }
   function injectStats() {
     const pc = document.getElementById("page-content"); if (!pc || pc.querySelector(".kp-autostat")) return;
     if (state.page !== "admin" || (typeof isStaff === "function" && !isStaff())) return;
-    if (pc.querySelector(".kp-tks, .faculty-kpi, .kpi, .kp-mk-i")) return;
+    if (pc.querySelector(".kp-tks, .faculty-kpi, .kpi, .kp-mk-i, .rpg-page")) return;
     const r = statsFor(); if (!r) return;
     const first = pc.querySelector("section.card, .card"); if (!first) return;
     const box = r.map(([h, body, go]) => `<section class="card kp-tabstat kp-autostat"><div class="card-title"><h2>${h}</h2></div><div class="kp-tks kv-tks">${go ? body.replace(/<div class="kp-tk ([^"]*)" data-ic="([^"]*)" >/g, `<div class="kp-tk $1" data-ic="$2" data-go="${go}">`) : body}</div></section>`).join("");
@@ -17049,7 +18068,7 @@ ${h.length ? `<h3 class="ph-h">Ảnh trước đây</h3><div class="ph-hist">${h
   };
 
   // trang khác vừa lưu: nạp lại dữ liệu và vẽ lại trang đang xem
-  const QUIET = /^kien-(sessions|lessontime|study|shared-out|ans-cache|mykey|demo-study|avatar)/;
+  const QUIET = /^kien-(sessions|lessontime|study|shared-out|ans-cache|mykey|demo-study|avatar|cloud)/;
   const pend = new Set();
   let timer = 0;
   function reloadKey(k) {
@@ -17083,7 +18102,7 @@ ${h.length ? `<h3 class="ph-h">Ảnh trước đây</h3><div class="ph-hist">${h
     try { render(); scrollTo(0, y); } catch (e) { console.warn(e); }
     const q = quietRender; quietRender = false;
     if (!q && keys.some((k) => STORES[k] || EXTRA[k])) {
-      try { toast("🔄 Đã cập nhật nội dung mới."); } catch (e) {}
+      try { KP.updDone && KP.updDone(); } catch (e) {}
     }
   }
   addEventListener("storage", (e) => {
@@ -17101,6 +18120,10 @@ ${h.length ? `<h3 class="ph-h">Ảnh trước đây</h3><div class="ph-hist">${h
     clearTimeout(timer);
     timer = setTimeout(apply, 50);
   };
+  // chấm tròn cập nhật: còn nội dung mới chưa áp dụng (đang chờ bạn rảnh tay)?
+  KP.syncPending = () => pend.size;
+  KP.syncWaiting = () => pend.size > 0 && busy();
+  KP.syncForce = () => { clearTimeout(timer); try { if (typeof quiz !== "undefined" && quiz && !quiz.done) { toast("Kiến sẽ cập nhật ngay khi bạn làm xong bài kiểm tra."); return; } } catch (e) {} const m = document.getElementById("modal"); if (m && m.open) m.close(); const a = document.activeElement; if (a && a.blur) a.blur(); apply(); };
   KP.syncNow = () => { Object.keys(STORES).forEach((k) => pend.add(k)); apply(); };
 })();
 
@@ -17409,13 +18432,13 @@ ${h.length ? `<h3 class="ph-h">Ảnh trước đây</h3><div class="ph-hist">${h
     lastPull = Date.now();
     tick = setInterval(() => {
       if (!tok) return;
-      if (mine()) SI.call(LS, WHO, JSON.stringify({ id: me.id, t: Date.now() }));
+      if (mine() && Date.now() - (KP._whoT || 0) > 5000) { KP._whoT = Date.now(); SI.call(LS, WHO, JSON.stringify({ id: me.id, t: Date.now() })); }
       if (document.hidden) return;
-      const every = isStaffMe() ? 15000 : 30000;
+      const every = isStaffMe() ? 8000 : 15000;
       if (Date.now() - lastPull > every) pull();
-    }, 5000);
+    }, 2000);
   }
-  const wake = () => { if (tok && !document.hidden && Date.now() - lastPull > 5000) pull(); };
+  const wake = () => { if (tok && !document.hidden && Date.now() - lastPull > 3000) pull(); };
   addEventListener("focus", wake);
   document.addEventListener("visibilitychange", wake);
   addEventListener("pagehide", () => { if (tok && dirty.size) flush({ keepalive: true }); });
@@ -17447,6 +18470,7 @@ ${h.length ? `<h3 class="ph-h">Ảnh trước đây</h3><div class="ph-hist">${h
     clearInterval(tick);
     wipe();
     RI.call(LS, WHO);
+    try { if (window.__kienNS) window.__kienNS.set(""); } catch (x) {}
     if (reload) setTimeout(() => location.reload(), 250);
   }
 
@@ -17469,6 +18493,8 @@ ${h.length ? `<h3 class="ph-h">Ảnh trước đây</h3><div class="ph-hist">${h
       if (btn) btn.disabled = false;
       return;
     }
+    // tab này dùng bản dữ liệu riêng của tài khoản vừa đăng nhập: tab khác đăng nhập tài khoản khác không bị đè
+    try { if (window.__kienNS) window.__kienNS.set(r.user.id); } catch (x) {}
     SI.call(LS, WHO, JSON.stringify({ id: r.user.id, t: Date.now() }));
     tok = r.token; me = r.user; since = Number(r.ver) || 0;
     wipe();
@@ -17526,6 +18552,7 @@ ${h.length ? `<h3 class="ph-h">Ảnh trước đây</h3><div class="ph-hist">${h
       return r.text || "";
     },
     _state: () => ({ tok: !!tok, me, since, dirty: [...dirty], lastOk }),
+    busy: () => !!tok && (pulling || pushing || dirty.size > 0 || inflight.size > 0),
   };
 
   // ---- tệp bài giảng: lưu lên Google Drive qua máy chủ, máy khác tải về khi cần
