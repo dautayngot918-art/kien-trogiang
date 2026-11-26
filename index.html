@@ -4099,6 +4099,13 @@ html body .kp-asg-col .faculty-assigned-grid{grid-template-columns:1fr!important
 html body .kl-chips{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
 html body .kl-chip{justify-content:flex-start;min-width:0}html body .kl-chip button:first-of-type{margin-left:auto}
 html body .kl-chip b{flex:0 0 auto}
+/* Kết quả kiểm tra: ô thống kê kiêm bộ lọc theo mức, bỏ hàng "Lọc theo mức" trùng lặp */
+html body .kp-mcard.kp-mf-tiles .kp-mf{display:none!important}
+html body .kp-mf-tk{cursor:pointer;transition:box-shadow .15s,border-color .15s,transform .15s}
+html body .kp-mf-tk:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(70,64,200,.12)}
+html body .kp-mf-tk.on{border-color:#4f46e5!important;box-shadow:0 0 0 2px #4f46e5 inset,0 4px 14px rgba(70,64,200,.15);background:#f5f4ff}
+html body .kp-mf-tk.on>span{color:#4f46e5;font-weight:600}
+html body .kp-mf-note{margin:0 0 10px;font-size:13px;color:var(--cmute)}
 
 </style>
 </head><body><div id="app"></div><div id="toast" role="status"></div><dialog id="modal"><div id="modal-body"></div><button class="modal-close icon-button" aria-label="Đóng">✕</button></dialog>
@@ -14932,7 +14939,25 @@ document.addEventListener("click", (e) => { if (!e.target.closest?.("[data-kp-ai
     const r = statsFor(); if (!r) return;
     // Kết quả kiểm tra: gộp ô tổng quan vào ngay khung bảng thuần thục (một khung, ô chọn bài ở góc phải)
     const mc = state.admin === "mastery" && pc.querySelector(".kp-mcard > .card-title");
-    if (mc) { mc.insertAdjacentHTML("afterend", `<div class="kp-tks kv-tks kp-autostat kp-mtks">${r[0][1]}</div>`); return; }
+    if (mc) {
+      // 4 ô thống kê kiêm luôn bộ lọc theo mức (hàng "Lọc theo mức" cũ ẩn đi, vẫn giữ để xử lý lọc)
+      const mf = [...pc.querySelectorAll(".kp-mcard .kp-mf .kp-mf-b")];
+      const IC = { dpre: "star:green", dpost: "award:violet", pre: "target:amber", none: "userx:rose" };
+      let body = r[0][1];
+      if (mf.length) {
+        body = mf.map((b) => {
+          const k = b.dataset.kpMf, on = b.classList.contains("on"), n = b.querySelector("b")?.textContent || "0";
+          const lab = b.childNodes[0]?.textContent.trim() || k;
+          return `<div class="kp-tk kp-mf-tk${on ? " on" : ""}" data-ic="${IC[k] || "clock:blue"}" data-mf-go="${k}" role="button" tabindex="0" aria-pressed="${on}" title="${on ? "Bấm để bỏ lọc mức này" : "Bấm để lọc bảng theo mức này"}"><small>${lab}</small><b>${n}</b><span>${on ? "✓ đang lọc · bấm để bỏ" : "sinh viên · bấm để lọc"}</span></div>`;
+        }).join("");
+        const anyOn = mf.some((b) => b.classList.contains("on"));
+        body += "";
+        mc.insertAdjacentHTML("afterend", `<div class="kp-tks kv-tks kp-autostat kp-mtks">${body}</div><p class="kp-mf-note">Bấm vào ô để lọc bảng theo mức, chọn được nhiều ô cùng lúc.${anyOn ? ' <button type="button" class="kp-linkbtn" data-mf-go="__all">Bỏ lọc</button>' : ""}</p>`);
+        pc.querySelector(".kp-mcard")?.classList.add("kp-mf-tiles");
+        return;
+      }
+      mc.insertAdjacentHTML("afterend", `<div class="kp-tks kv-tks kp-autostat kp-mtks">${body}</div>`); return;
+    }
     const first = pc.querySelector("section.card, .card"); if (!first) return;
     const box = r.map(([h, body, go]) => `<section class="card kp-tabstat kp-autostat"><div class="card-title"><h2>${h}</h2></div><div class="kp-tks kv-tks">${go ? body.replace(/<div class="kp-tk ([^"]*)" data-ic="([^"]*)" >/g, `<div class="kp-tk $1" data-ic="$2" data-go="${go}">`) : body}</div></section>`).join("");
     let n = first; while (n.parentElement && n.parentElement !== pc && !n.parentElement.querySelector(":scope > .kp-sec-tabs")) n = n.parentElement;
@@ -14944,6 +14969,10 @@ document.addEventListener("click", (e) => { if (!e.target.closest?.("[data-kp-ai
       el.dataset.kpGo = "1"; el.setAttribute("role", "button"); el.tabIndex = 0; el.title = "Bấm để xem chi tiết"; el.classList.add("kp-card-go");
     });
   }
+  // ô thống kê ở Kết quả kiểm tra: bấm để lọc theo mức
+  const mfGo = (el) => { const k = el.dataset.mfGo, b = document.querySelector(`#page-content .kp-mf [data-kp-mf="${k}"]`); if (b) b.click(); };
+  document.addEventListener("click", (e) => { const el = e.target.closest?.("#page-content [data-mf-go]"); if (!el) return; e.preventDefault(); e.stopPropagation(); mfGo(el); }, true);
+  document.addEventListener("keydown", (e) => { if ((e.key === "Enter" || e.key === " ") && e.target.matches?.("#page-content [data-mf-go]")) { e.preventDefault(); mfGo(e.target); } });
   document.addEventListener("click", (e) => { const el = e.target.closest?.("#page-content [data-kp-go]"); if (!el) return; e.preventDefault(); try { target(el)(); } catch (x) { console.warn(x); } });
   document.addEventListener("keydown", (e) => { if ((e.key === "Enter" || e.key === " ") && e.target.matches?.("#page-content [data-kp-go]")) { e.preventDefault(); target(e.target)(); } });
   // ---- mũi tên quay lại sau khi bấm ô thống kê và trang tự nhảy xuống
