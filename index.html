@@ -4048,6 +4048,57 @@ body.kp-student .chat-shell #messages .bubble pre{white-space:pre-wrap}
 @keyframes kpUpdSpin{to{transform:rotate(360deg)}}
 @keyframes kpUpdPulse{0%,100%{transform:scale(.8);opacity:.75}50%{transform:scale(1.1);opacity:1}}
 @media (prefers-reduced-motion:reduce){.kp-upd .kp-upd-dot{animation:none}}
+/* Ký phiếu đồng thuận trên màn hình */
+.kp-sign{margin-top:6px}
+.kp-sign-hint{margin:0 0 8px;color:#5b5f86;font-size:13.5px}
+.kp-sign-pad{position:relative;border:2px dashed #a9a5ef;border-radius:14px;background:#fff;overflow:hidden}
+.kp-sign-pad canvas{display:block;width:100%;aspect-ratio:30/11;height:auto;touch-action:none;cursor:crosshair;-webkit-user-select:none;user-select:none}
+.kp-sign-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#b3b0d8;font-size:18px;pointer-events:none;transition:opacity .2s}
+.kp-sign-pad.has .kp-sign-ph{opacity:0}
+.kp-sign-pad::after{content:"";position:absolute;left:8%;right:8%;bottom:22%;border-bottom:1px solid #d9d7f3;pointer-events:none}
+.kp-sign-clear{position:absolute;top:8px;right:8px;border:1px solid #d9d7f3;background:#fff;border-radius:999px;padding:4px 10px;font-size:12.5px;color:#4b46b8;cursor:pointer}
+.kp-sign-name{margin-top:12px}
+.kp-sign-name input{text-align:center;font-weight:600}
+.kp-csigned{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;background:#eefaf3;border:1px solid #bfe8cf;color:#1d6b3f;border-radius:12px;padding:9px 13px;margin:0 0 14px;font-size:14px}
+.kp-cview{display:block;margin-top:4px;font-size:12.5px}
+.kp-csheet-wrap{max-height:68vh;overflow:auto;border:1px solid #e3e2f3;border-radius:12px;background:#fff}
+.kp-csheet-act{justify-content:center;gap:10px;margin-top:14px}
+.kp-ce-up{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin:4px 0 14px;font-size:13.5px}
+.kp-mtks{margin:4px 0 14px}
+html body #page-content .kp-autostat .kp-tk.kp-tk-txt>b{font-size:17px!important;line-height:1.3;margin:10px 0 6px}
+/* Danh sách bài học: 2 cột Giải phẫu | Sinh lý, kéo ngang khi màn hình hẹp */
+html body .kl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid #e6e5f6;border-radius:12px}
+html body .kl-table{width:100%;min-width:640px;border-collapse:collapse;table-layout:fixed}
+html body .kl-table th{text-align:left;padding:10px 12px;font-size:14.5px;background:#f3f2fd;color:#3b37a6;border-bottom:1px solid #e6e5f6}
+html body .kl-table th.kl-SL{color:#b4235a;background:#fdf2f6;border-left:1px solid #e6e5f6}
+html body .kl-table th small{font-weight:500;color:var(--cmute);font-size:12.5px;margin-left:4px}
+html body .kl-table td{padding:6px 10px;border-bottom:1px solid #efeef9;vertical-align:middle}
+html body .kl-table td+td{border-left:1px solid #e6e5f6}
+html body .kl-table tbody tr:hover td{background:#faf9ff}
+html body .kl-cell{display:flex;align-items:center;gap:10px;font-size:14px}
+html body .kl-cell>b{flex:0 0 auto;font-size:12.5px;padding:3px 8px;border-radius:7px;background:#ecebff;color:#3b37a6}
+html body .kl-table td+td .kl-cell>b{background:#fde7ef;color:#b4235a}
+html body .kl-cell>span:not(.kl-act){flex:1 1 auto;min-width:0}
+html body .kl-act{flex:0 0 auto;display:flex;gap:2px;opacity:.55}
+html body .kl-table tr:hover .kl-act{opacity:1}
+html body .kl-act button{border:0;background:transparent;cursor:pointer;color:#6b6a85;padding:3px 7px;border-radius:6px}
+html body .kl-act button:hover{background:#ecebff}
+html body .kl-act button.danger{color:#d0442b}
+html body .kl-addrow td{background:#fbfbfe;padding:10px}
+html body .kl-addrow .kl-add input{flex:1 1 160px}
+html body .kl-restore{padding:6px 12px!important;font-size:13px!important}
+html body .kl-wrap{cursor:grab}html body .kl-wrap.kl-drag{cursor:grabbing;user-select:none}
+/* Trang chủ: Quyền quản trị bộ môn / Bài được phân công xếp 2 cột GP | SL */
+html body .kp-asg-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;align-items:start}
+html body .kp-asg-col h4{margin:0 0 8px;font-size:14px;color:#3b37a6;letter-spacing:.2px}
+html body .kp-asg-SL h4{color:#b4235a}
+html body .kp-asg-col h4 small{font-weight:500;color:var(--cmute);font-size:12.5px;margin-left:4px}
+html body .kp-asg-col .faculty-assigned-grid{grid-template-columns:1fr!important;gap:8px}
+@media(max-width:700px){html body .kp-asg-cols{grid-template-columns:1fr}}
+/* Danh sách bài học: thẻ bài lấp đều hàng, không chừa khoảng trống */
+html body .kl-chips{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+html body .kl-chip{justify-content:flex-start;min-width:0}html body .kl-chip button:first-of-type{margin-left:auto}
+html body .kl-chip b{flex:0 0 auto}
 
 </style>
 </head><body><div id="app"></div><div id="toast" role="status"></div><dialog id="modal"><div id="modal-body"></div><button class="modal-close icon-button" aria-label="Đóng">✕</button></dialog>
@@ -4699,7 +4750,7 @@ function facultyReports(){if(isAdmin())return `${facultyPageHeading('Báo cáo &
 function facultyStudentView(){const list=facultyStudents();return `${facultyPageHeading('Theo dõi sinh viên','Giảng viên xem hoạt động liên quan tới bài được phân công; thao tác tài khoản do Admin quản lý.')}<section class="card"><div class="card-title"><h2>Danh sách theo dõi</h2><span class="tiny-tag purple">Chỉ xem</span></div><div class="table-wrap"><table><thead><tr><th>MSSV / ID</th><th>Họ và tên</th><th>Lớp</th><th>Phạm vi theo dõi</th></tr></thead><tbody>${list.map(s=>`<tr><td>${esc(s.id)}</td><td>${esc(s.name)}</td><td>${esc(s.class)}</td><td>${facultyAssigned().join(', ')}</td></tr>`).join('')||'<tr><td colspan="4">Chưa ghi nhận sinh viên học các bài được giao.</td></tr>'}</tbody></table></div></section>${facultyFootnote()}`}
 function facultyResourcePage(){const list=visibleLectures();return `${facultyPageHeading('Kho tài nguyên',isAdmin()?'Quản lý nguồn học liệu, duyệt bài giảng và kiểm soát nội dung.':'Thêm bài giảng vào đúng bài được Admin giao; kho tài nguyên chỉ cho phép xem.',`<button class="btn" data-add-faculty-lecture ${!facultyAssigned().length?'disabled':''}>${icon('upload')} Thêm bài giảng</button>`)}<div class="filter-tabs faculty-resource-tabs"><button data-resource-tab="lectures" class="${staffUI.resourceTab==='lectures'?'active':''}">Bài giảng (${list.length})</button><button data-resource-tab="sources" class="${staffUI.resourceTab==='sources'?'active':''}">${isAdmin()?'Nguồn tri thức bộ môn':'Nguồn tham khảo được giao'}</button></div>${staffUI.resourceTab==='sources'?(isAdmin()?adminSources():`<section class="card"><h2>Nguồn học liệu trong phạm vi phân công</h2><p class="modal-text">Bạn có quyền xem. Admin quản lý thêm, sửa, duyệt và xóa tài liệu nguồn.</p>${facultyResources().map(s=>`<div class="lesson-mini"><div><h3>${esc(s.title)}</h3><p class="attachment-note">${esc(scopeLabel(s))}</p><button class="text-button" data-faculty-view-source="${esc(s.id)}">Xem nội dung</button></div></div>`).join('')||'<div class="empty-state">Chưa có tài liệu được duyệt trong các bài bạn phụ trách.</div>'}</section>`):`<section class="card"><div class="card-title"><h2>${isAdmin()?'Bài giảng trong bộ môn':'Bài giảng thuộc các bài được giao'}</h2><span class="tiny-tag purple">${facultyAssigned().length} bài phụ trách</span></div><div class="row" style="margin-bottom:20px">${facultyAssigned().map(id=>`<span class="scope-badge">${id}</span>`).join('')}</div><div class="table-wrap"><table><thead><tr><th>Bài giảng</th><th>Bài học</th><th>Người thêm</th><th>Trạng thái</th><th>Thao tác</th></tr></thead><tbody>${list.map(l=>`<tr><td><b>${esc(l.title)}</b><small>${esc(l.fileName||'Nội dung văn bản')}</small></td><td>${esc(l.lesson)}</td><td>${esc(l.owner)}</td><td><span class="tiny-tag ${l.approved?'':'purple'}">${l.approved?'Đã duyệt':'Chờ Admin duyệt'}</span></td><td><div class="row"><button class="text-button" data-view-lecture="${esc(l.id)}">Xem</button>${isAdmin()?`<button class="text-button" data-approve-lecture="${esc(l.id)}">${l.approved?'Ngừng dùng':'Duyệt'}</button><button class="text-button danger-text" data-delete-lecture="${esc(l.id)}">Xóa</button>`:''}</div></td></tr>`).join('')||'<tr><td colspan="5">Chưa có bài giảng. Thêm bài giảng vào bài được phân công để bắt đầu.</td></tr>'}</tbody></table></div><div class="source-note" style="margin-top:20px">${isAdmin()?'Bài giảng giáo viên thêm cần được Admin kiểm tra và duyệt trước khi sinh viên xem.':'Bạn được thêm bài giảng vào các bài đã phân công. Không có quyền xóa bài giảng, thay đổi nguồn chung hoặc tự đổi phân công.'}</div></section>`}${facultyFootnote()}`}
 function facultyAccountPage(){return `${facultyPageHeading('Hồ sơ & tài khoản',isAdmin()?'Thông tin quản trị viên, đội ngũ giảng viên và cấu hình hệ thống.':'Thông tin tài khoản và các bài học được phân công.')} ${isAdmin()?`<div class="filter-tabs faculty-resource-tabs">${[['profile','Thông tin Admin'],['teachers','Tài khoản giảng viên'],['config','Cấu hình hệ thống']].map(([id,t])=>`<button data-account-tab="${id}" class="${staffUI.accountTab===id?'active':''}">${t}</button>`).join('')}</div>`:''}${isAdmin()&&staffUI.accountTab==='teachers'?teacherAccountPanel():isAdmin()&&staffUI.accountTab==='config'?adminSettings():facultyProfilePanel()}${facultyFootnote()}`}
-function facultyProfilePanel(){const assigned=facultyAssigned(),teacher=!isAdmin()?(serverToken?staffSnapshot?.profile:localTeachers.find(t=>t.id===activeUser.id)):null;return `<div class="faculty-profile-layout"><section class="card faculty-profile-card"><div class="faculty-profile-avatar">${esc((w=>w.length>1?w[0][0]+w[w.length-1][0]:(w[0]||'GV').slice(0,2))(facultyName().replace(/^(giảng viên|quản trị viên)\s*/i,'').trim().split(/\s+/).filter(Boolean).length>1?facultyName().trim().split(/\s+/):facultyName().trim().split(/\s+/)).toLocaleUpperCase('vi'))}</div><h2>${esc(facultyName())}</h2><span class="faculty-role-badge">${isAdmin()?'Quản trị viên · Admin':'Giảng viên'}</span><p>Bộ môn Giải phẫu – Sinh lý<br>Đại học Y Dược TP. Hồ Chí Minh</p><dl><dt>Tài khoản</dt><dd>${esc(activeUser.id)}</dd><dt>Email</dt><dd>${esc((isAdmin()?adminProfile.email:teacher?.email)||'Chưa cập nhật')}</dd><dt>Quyền nội dung</dt><dd>${isAdmin()?'Quản lý, duyệt và xóa tài nguyên':'Xem nguồn; thêm bài giảng theo phân công'}</dd></dl><button class="btn secondary full" data-edit-faculty-profile>Cập nhật hồ sơ</button>${!isAdmin()?'<button class="text-button" data-own-staff-password style="margin-top:20px">Đổi mật khẩu</button>':''}</section><section class="card"><div class="card-title"><h2>${isAdmin()?'Quyền quản trị bộ môn':'Bài học được phân công'}</h2><span class="tiny-tag purple">${assigned.length} / ${lessons.length} bài</span></div><div class="faculty-assigned-grid">${lessons.filter(l=>assigned.includes(l.id)).map(l=>`<div><span class="lesson-icon">${icon(l.s==='GP'?'bone':'dna')}</span><span><b>${l.id}</b><small>${l.name}</small></span></div>`).join('')||'<p class="muted">Admin chưa phân công bài học. Hãy liên hệ quản trị viên để được giao bài.</p>'}</div><div class="source-note" style="margin-top:24px">${isAdmin()?'Bạn có thể tạo tài khoản giáo viên, phân công bài, đặt lại mật khẩu và quản lý toàn bộ tài nguyên.':'Phân công được lưu theo tài khoản. Chỉ Admin có thể thay đổi danh sách bài được giao.'}</div></section></div>`}
+function facultyProfilePanel(){const assigned=facultyAssigned(),teacher=!isAdmin()?(serverToken?staffSnapshot?.profile:localTeachers.find(t=>t.id===activeUser.id)):null;return `<div class="faculty-profile-layout"><section class="card faculty-profile-card"><div class="faculty-profile-avatar">${esc((w=>w.length>1?w[0][0]+w[w.length-1][0]:(w[0]||'GV').slice(0,2))(facultyName().replace(/^(giảng viên|quản trị viên)\s*/i,'').trim().split(/\s+/).filter(Boolean).length>1?facultyName().trim().split(/\s+/):facultyName().trim().split(/\s+/)).toLocaleUpperCase('vi'))}</div><h2>${esc(facultyName())}</h2><span class="faculty-role-badge">${isAdmin()?'Quản trị viên · Admin':'Giảng viên'}</span><p>Bộ môn Giải phẫu – Sinh lý<br>Đại học Y Dược TP. Hồ Chí Minh</p><dl><dt>Tài khoản</dt><dd>${esc(activeUser.id)}</dd><dt>Email</dt><dd>${esc((isAdmin()?adminProfile.email:teacher?.email)||'Chưa cập nhật')}</dd><dt>Quyền nội dung</dt><dd>${isAdmin()?'Quản lý, duyệt và xóa tài nguyên':'Xem nguồn; thêm bài giảng theo phân công'}</dd></dl><button class="btn secondary full" data-edit-faculty-profile>Cập nhật hồ sơ</button>${!isAdmin()?'<button class="text-button" data-own-staff-password style="margin-top:20px">Đổi mật khẩu</button>':''}</section><section class="card"><div class="card-title"><h2>${isAdmin()?'Quyền quản trị bộ môn':'Bài học được phân công'}</h2><span class="tiny-tag purple">${assigned.length} / ${lessons.length} bài</span></div>${(()=>{const A=lessons.filter(l=>assigned.includes(l.id));if(!A.length)return '<p class="muted">Admin chưa phân công bài học. Hãy liên hệ quản trị viên để được giao bài.</p>';const it=l=>`<div><span class="lesson-icon">${icon(l.s==='GP'?'bone':'dna')}</span><span><b>${l.id}</b><small>${esc(l.name)}</small></span></div>`;const col=(s,t)=>{const L=A.filter(l=>l.s===s);return L.length?`<div class="kp-asg-col kp-asg-${s}"><h4>${t} <small>${L.length} bài</small></h4><div class="faculty-assigned-grid">${L.map(it).join('')}</div></div>`:''};const other=A.filter(l=>l.s!=='GP'&&l.s!=='SL');return `<div class="kp-asg-cols">${col('GP','🦴 Giải phẫu (GP)')}${col('SL','🫀 Sinh lý (SL)')}</div>${other.length?`<div class="faculty-assigned-grid">${other.map(it).join('')}</div>`:''}`})()}<div class="source-note" style="margin-top:24px">${isAdmin()?'Bạn có thể tạo tài khoản giáo viên, phân công bài, đặt lại mật khẩu và quản lý toàn bộ tài nguyên.':'Phân công được lưu theo tài khoản. Chỉ Admin có thể thay đổi danh sách bài được giao.'}</div></section></div>`}
 function teacherAccountPanel(){return `<section class="card"><div class="card-title"><div><h2>Tài khoản giảng viên</h2><p class="subtitle">Cấp tài khoản, phân công bài và hỗ trợ mật khẩu.</p></div><button class="btn" data-add-teacher>+ Thêm giảng viên</button></div><div class="table-wrap"><table><thead><tr><th>Tài khoản</th><th>Họ và tên</th><th>Email</th><th>Bài được phân công</th><th>Thao tác</th></tr></thead><tbody>${facultyTeachers().map(t=>`<tr><td><b>${esc(t.id)}</b></td><td>${esc(t.name)}</td><td>${esc(t.email||'Chưa cập nhật')}</td><td><div class="faculty-assignment-tags">${(t.assigned||[]).map(id=>`<span>${id}</span>`).join('')||'Chưa phân công'}</div></td><td><div class="source-actions"><button class="text-button" data-assign-teacher="${esc(t.id)}">Phân công bài</button><button class="text-button" data-reset-teacher="${esc(t.id)}">Đặt lại mật khẩu</button></div></td></tr>`).join('')||'<tr><td colspan="5">Chưa có giảng viên. Tạo tài khoản đầu tiên để phân công bài.</td></tr>'}</tbody></table></div><div class="source-note" style="margin-top:20px">Giảng viên không có quyền xóa kho tài nguyên, cấp tài khoản khác hoặc tự đổi phân công. Mật khẩu tạm của tài khoản mới cần được đổi khi đăng nhập lần đầu.</div></section>`}
 function assignmentPicker(assigned=[]){return `<div class="lesson-checkbox-grid">${lessons.map(l=>`<label class="check-row"><input type="checkbox" data-teacher-assignment="${l.id}" ${assigned.includes(l.id)?'checked':''}>${l.id} · ${l.name}</label>`).join('')}</div>`}
 function selectedAssignmentIds(){return Array.from(document.querySelectorAll('[data-teacher-assignment]:checked')).map(c=>c.dataset.teacherAssignment)}
@@ -7796,7 +7847,7 @@ ${(() => { const nC = new Set(R.map((x) => String(x.st.class || "").trim() || "-
     const students = mStudents(), f = mFil(), S = mSel();
     const keepSel = (st) => !aiUI.mOnly || S.has(st.id);
     const pick = msBox("m-les", "Bài", lessons.filter((l) => allowed.includes(l.id)).map((l) => [l.id, `<b>${l.id}</b> · ${esc(l.name)}`]), chosen.length ? chosen : "ALL", "Tổng quan tất cả bài");
-    const head = `<section class="card kp-mcard"><div class="card-title"><div><h2>Mức thuần thục theo bài</h2><p class="subtitle">Mỗi bài, sinh viên có thể học lại và kiểm tra nhiều lượt. Đạt từ ${PASS}/10 được tính là thuần thục.</p></div><div class="kp-mpick">${pick}</div></div>`;
+    const head = `<section class="card kp-mcard"><div class="card-title"><div><h2>🎯 Tổng quan kết quả kiểm tra</h2><p class="subtitle">Mỗi bài, sinh viên có thể học lại và kiểm tra nhiều lượt. Đạt từ ${PASS}/10 được tính là thuần thục.</p></div><div class="kp-mpick">${pick}</div></div>`;
     if (chosen.length >= 2) return head + mMulti(chosen, students, f, S, keepSel) + "</section>";
     if (sel === "ALL") {
       const cols = lessons.filter((l) => allowed.includes(l.id));
@@ -8150,6 +8201,108 @@ ${(() => { const nC = new Set(R.map((x) => String(x.st.class || "").trim() || "-
     return out;
   }
   const consentDone0 = (c) => !!c && c.agree && !consentStale(c);
+  // ---- Ký phiếu đồng thuận trực tiếp trên màn hình (điện thoại, iPad, máy tính cảm ứng hoặc chuột)
+  const SIG_W = 600, SIG_H = 220;
+  const vnDate = (ts) => { const d = new Date(ts || Date.now()); return `ngày ${String(d.getDate()).padStart(2, "0")} tháng ${String(d.getMonth() + 1).padStart(2, "0")} năm ${d.getFullYear()}`; };
+  const sigSvg = (rec) =>
+    rec && rec.sigPath
+      ? `<svg class="kp-sig-img" viewBox="0 0 ${rec.sigW || SIG_W} ${rec.sigH || SIG_H}" role="img" aria-label="Chữ ký của ${esc(rec.fullName || "")}"><path d="${esc(rec.sigPath)}" fill="none" stroke="#1d2a7a" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+      : rec && rec.signature ? `<div class="kp-sig-typed">${esc(rec.signature)}</div>` : "";
+  function consentSheet(rec) {
+    const c = cfg().consent;
+    return `<div class="kp-csheet"><h2>${esc(c.title)}</h2><div class="kp-csheet-intro">${esc(c.intro).split("\n").filter((l) => l.trim()).map((l) => `<p>${l}</p>`).join("")}</div><h3>Xác nhận của người tham gia</h3><ol>${String(c.items || "").split("\n").filter((l) => l.trim()).map((l) => `<li>${esc(l)}</li>`).join("")}</ol><p class="kp-csheet-who">Họ và tên: <b>${esc(rec.fullName || "")}</b> · MSSV: <b>${esc(rec.studentId || "")}</b>${rec.className ? ` · Lớp: <b>${esc(rec.className)}</b>` : ""}</p><p class="kp-csheet-agree">Tôi <b>${rec.agree ? "đồng ý" : "không đồng ý"}</b> tham gia nghiên cứu.</p><div class="kp-csheet-sign"><div class="kp-csheet-col"><p class="kp-csheet-date">&nbsp;</p><b>NGHIÊN CỨU VIÊN</b><small>(Ký và ghi rõ họ tên)</small><div class="kp-csheet-box"></div></div><div class="kp-csheet-col kp-csheet-me"><p class="kp-csheet-date">${esc(c.place || "TP. Hồ Chí Minh")}, ${vnDate(rec.ts)}</p><b>NGƯỜI THAM GIA NGHIÊN CỨU</b><small>(Ký và ghi rõ họ tên)</small><div class="kp-csheet-box">${rec.agree ? sigSvg(rec) : ""}</div><b class="kp-csheet-name">${esc(rec.fullName || "")}</b></div></div>${c.contact ? `<h3>Thông tin liên hệ</h3><p class="kp-csheet-contact">${esc(c.contact).replace(/\n/g, "<br>")}</p>` : ""}</div>`;
+  }
+  const CSHEET_CSS = `.kp-csheet{font-family:"Times New Roman",Times,serif;color:#111;background:#fff;max-width:760px;margin:0 auto;padding:28px 34px;line-height:1.55;font-size:15px}
+.kp-csheet h2{text-align:center;font-size:18px;margin:0 0 14px;text-transform:uppercase;color:#111}
+.kp-csheet h3{font-size:15px;margin:16px 0 6px;color:#111;background:none;border:0;padding:0}
+.kp-csheet p{margin:4px 0;text-align:justify}.kp-csheet ol{margin:4px 0;padding-left:22px}.kp-csheet li{margin:3px 0}
+.kp-csheet-sign{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px;page-break-inside:avoid;break-inside:avoid}
+.kp-csheet-col{text-align:center;display:flex;flex-direction:column;align-items:center}
+.kp-csheet-col small{font-style:italic;font-size:13px}.kp-csheet-date{font-style:italic;text-align:center!important;min-height:1.5em}
+.kp-csheet-box{height:96px;width:100%;display:flex;align-items:center;justify-content:center;margin:6px 0 2px}
+.kp-sig-img{height:92px;width:auto;max-width:100%;display:block;margin:0 auto}
+.kp-sig-typed{font-family:"Brush Script MT","Segoe Script",cursive;font-size:26px;color:#1d2a7a}
+.kp-csheet-name{display:block;text-align:center;font-size:15px}
+.kp-csheet-contact{font-size:13.5px}
+@media (max-width:560px){.kp-csheet{padding:16px 12px;font-size:14px}.kp-csheet-sign{gap:8px}.kp-csheet-box{height:78px}.kp-sig-img{height:74px}}
+@media print{@page{size:A4;margin:16mm 16mm}.kp-csheet{padding:0;max-width:none}}`;
+  try { const st = document.createElement("style"); st.textContent = CSHEET_CSS; document.head.appendChild(st); } catch (e) {}
+  function showConsentSheet(id, after) {
+    const rec = research().consent[id];
+    if (!rec) return toast("Chưa có phiếu đồng thuận.");
+    modal(`<div class="kp-csheet-wrap">${consentSheet(rec)}</div><div class="row kp-csheet-act"><button class="btn" data-kp="consent-print" data-id="${esc(id)}">${icon("download")} In / Lưu PDF</button>${after ? `<button class="btn secondary" data-kp="modal-close">Tiếp tục làm khảo sát</button>` : ""}</div>`);
+    const m = document.getElementById("modal"); m.classList.add("kd-wide");
+    m.addEventListener("close", () => m.classList.remove("kd-wide"), { once: true });
+  }
+  function printConsent(id) {
+    const rec = research().consent[id];
+    if (!rec) return;
+    const w = window.open("", "_blank");
+    if (!w) return toast("Trình duyệt đang chặn cửa sổ in. Bạn cho phép cửa sổ bật lên rồi bấm lại nhé.");
+    w.document.write(`<!doctype html><html lang="vi"><head><meta charset="utf-8"><title>Phiếu đồng thuận - ${esc(rec.fullName || id)} - ${esc(rec.studentId || id)}</title><style>body{margin:0;background:#fff}${CSHEET_CSS}</style></head><body>${consentSheet(rec)}<script>setTimeout(function(){print()},350)<\/script></body></html>`);
+    w.document.close();
+  }
+  KP.consentSheet = (id) => { const rec = research().consent[id]; return rec ? consentSheet(rec) : ""; };
+  KP.showConsentSheet = showConsentSheet;
+  function initSigPad(cv) {
+    const ctx = cv.getContext("2d");
+    let strokes = [], cur = null;
+    const draw = () => {
+      ctx.setTransform(cv.width / SIG_W, 0, 0, cv.height / SIG_H, 0, 0);
+      ctx.clearRect(0, 0, SIG_W, SIG_H);
+      ctx.lineWidth = 3.4; ctx.lineCap = "round"; ctx.lineJoin = "round"; ctx.strokeStyle = "#1d2a7a";
+      strokes.forEach((s) => { ctx.beginPath(); s.forEach(([x, y], i) => (i ? ctx.lineTo(x, y) : ctx.moveTo(x, y))); if (s.length === 1) ctx.lineTo(s[0][0] + 0.5, s[0][1] + 0.5); ctx.stroke(); });
+      cv.parentElement.classList.toggle("has", strokes.length > 0);
+    };
+    const fit = () => { const r = cv.getBoundingClientRect(); if (!r.width) return; const d = Math.min(3, window.devicePixelRatio || 1); cv.width = Math.round(r.width * d); cv.height = Math.round(r.height * d); draw(); };
+    const pt = (e) => { const r = cv.getBoundingClientRect(); return [Math.round(((e.clientX - r.left) / r.width) * SIG_W), Math.round(((e.clientY - r.top) / r.height) * SIG_H)]; };
+    cv.addEventListener("pointerdown", (e) => { e.preventDefault(); try { cv.setPointerCapture(e.pointerId); } catch (x) {} cur = [pt(e)]; strokes.push(cur); draw(); });
+    cv.addEventListener("pointermove", (e) => {
+      if (!cur) return;
+      e.preventDefault();
+      (e.getCoalescedEvents ? e.getCoalescedEvents() : [e]).forEach((ev) => { const p = pt(ev), l = cur[cur.length - 1]; if (Math.abs(p[0] - l[0]) + Math.abs(p[1] - l[1]) >= 2) cur.push(p); });
+      if (!cur.length) cur.push(pt(e));
+      draw();
+    });
+    const end = () => { cur = null; };
+    cv.addEventListener("pointerup", end); cv.addEventListener("pointercancel", end);
+    cv.addEventListener("touchstart", (e) => e.preventDefault(), { passive: false });
+    cv.addEventListener("touchmove", (e) => e.preventDefault(), { passive: false });
+    const onR = () => { if (!cv.isConnected) return removeEventListener("resize", onR); const old = strokes; fit(); strokes = old; draw(); };
+    addEventListener("resize", onR);
+    cv.kpSig = {
+      fit,
+      clear() { strokes = []; draw(); },
+      empty: () => strokes.reduce((a, s) => a + s.length, 0) < 5,
+      path: () => strokes.map((s) => "M" + s.map((p) => p.join(" ")).join("L")).join(""),
+    };
+    fit();
+  }
+  // tách nội dung file phiếu đồng thuận (Word/PDF/TXT) thành tiêu đề, giới thiệu, các cam kết, liên hệ
+  function splitConsent(lines) {
+    let L = lines.map((s) => String(s || "").replace(/\s+/g, " ").trim()).filter(Boolean);
+    let title = "PHIẾU ĐỒNG THUẬN THAM GIA NGHIÊN CỨU";
+    const ti = L.findIndex((l) => /phiếu|đồng thuận|consent/i.test(l) && l.length <= 140);
+    if (ti >= 0 && ti < 6) { title = L[ti]; L = L.slice(ti + 1); }
+    const cut = L.findIndex((l, i) => i > 2 && /^(người tham gia( nghiên cứu)?|nghiên cứu viên|người lấy (phiếu|đồng thuận)|\(?ký(,| và) ghi rõ họ tên\)?|chữ ký)\s*[:.]?$/i.test(l));
+    if (cut > 0) L = L.slice(0, cut);
+    L = L.filter((l) => !/^[^,]{0,40},?\s*ngày\s*[.…_ ]+\s*tháng\s*[.…_ ]+\s*năm/i.test(l));
+    let contact = [];
+    const ci = L.findIndex((l, i) => i > 1 && /(thông tin )?liên hệ/i.test(l) && l.length < 90);
+    if (ci >= 0) { const head = L[ci].split(/[:：]/).slice(1).join(":").trim(); contact = (head ? [head] : []).concat(L.slice(ci + 1)); L = L.slice(0, ci); }
+    const BUL = /^([-–•●▪■□☐❑✓✔*+]|\(?\d{1,2}[.)]|\(?[a-zđ][.)])\s*/i;
+    const isItem = (l) => BUL.test(l) || /^tôi\s/i.test(l);
+    const items = [], intro = [];
+    L.forEach((l) => {
+      if (/^(tôi\s+)?(xin\s+)?(xác nhận|cam kết|cam đoan|lời cam kết)(\s+rằng)?( của người tham gia)?\s*[:：]?$/i.test(l)) return;
+      if (isItem(l) && (items.length || /^tôi\s/i.test(l.replace(BUL, "")) || intro.length > 0)) items.push(l.replace(BUL, "").trim());
+      else if (items.length && !/[:：]$/.test(items[items.length - 1]) && /^[a-zà-ỹđ]/.test(l)) items[items.length - 1] += " " + l;
+      else intro.push(l);
+    });
+    return { title: title.slice(0, 160), intro: intro.join("\n"), items: items.join("\n"), contact: contact.join("\n") };
+  }
+  KP.splitConsent = splitConsent;
+
   function surveyPage() {
     const c = cfg().consent,
       r = research(),
@@ -8177,7 +8330,7 @@ ${(() => { const nC = new Set(R.map((x) => String(x.st.class || "").trim() || "-
         })
         .join("")}</div>`;
     };
-    return `${heading("Khảo sát nghiên cứu", "Hiệu quả của Chatbot AI hỗ trợ học tập môn Giải phẫu Sinh lý · Tham gia hoàn toàn tự nguyện")}<div class="kp-steps"><span class="${consentDone ? "done" : "active"}">1 · Phiếu đồng thuận</span><span class="${tam ? "done" : consentDone && mine.agree ? "active" : ""}">2 · ${KP.surveyCustom && KP.surveyCustom() ? "Phiếu khảo sát" : "Khảo sát ECM"}</span></div>${
+    return `${heading("Khảo sát nghiên cứu", "Hiệu quả của Chatbot AI hỗ trợ học tập môn Giải phẫu Sinh lý · Tham gia hoàn toàn tự nguyện")}<div class="kp-steps"><span class="${consentDone ? "done" : "active"}">1 · Phiếu đồng thuận</span><span class="${tam ? "done" : consentDone && mine.agree ? "active" : ""}">2 · ${KP.surveyCustom && KP.surveyCustom() ? "Phiếu khảo sát" : "Khảo sát ECM"}</span></div>${consentDone && mine.agree ? `<div class="kp-csigned">✍️ Bạn đã ký phiếu đồng thuận lúc ${fmtDT(mine.ts)}.<button type="button" class="kp-linkbtn" data-kp="consent-view" data-id="${esc(activeUser.id)}">Xem phiếu đã ký</button></div>` : ""}${
       !consentDone
         ? `<section class="card kp-consent">${cStale ? `<div class="source-note" style="margin-bottom:12px">📢 Bộ môn vừa cập nhật phiếu đồng thuận. Bạn đọc lại và xác nhận lựa chọn của mình nhé.</div>` : ""}<h2 style="text-align:center">${esc(c.title)}</h2><div class="modal-text">${esc(c.intro)
             .split("\n")
@@ -8190,7 +8343,7 @@ ${(() => { const nC = new Set(R.map((x) => String(x.st.class || "").trim() || "-
             .map((l) => `<li>${esc(l)}</li>`)
             .join(
               "",
-            )}</ol><h3>Thông tin người tham gia</h3><form id="kp-consent-form"><div class="two-col"><label class="form-field">Họ và tên<input id="kp-c-name" required value="${esc(student.name)}"></label><label class="form-field">Mã số sinh viên<input id="kp-c-id" required value="${esc(activeUser.id)}"></label></div><h3>Lựa chọn tham gia</h3><label class="check-row"><input type="radio" name="kp-agree" value="yes" required> Tôi <b>đồng ý</b> tham gia nghiên cứu</label><label class="check-row"><input type="radio" name="kp-agree" value="no"> Tôi <b>không đồng ý</b> tham gia</label><label class="form-field" style="margin-top:16px">Ký tên (gõ lại họ và tên để xác nhận)<input id="kp-c-sign" required placeholder="Nguyễn Văn A"></label><button class="btn full">Gửi phiếu đồng thuận</button></form><h3>Thông tin liên hệ</h3><div class="attachment-note">${esc(c.contact).replace(/\n/g, "<br>")}</div></section>`
+            )}</ol><h3>Thông tin người tham gia</h3><form id="kp-consent-form"><div class="two-col"><label class="form-field">Mã số sinh viên<input id="kp-c-id" required value="${esc(activeUser.id)}"></label><label class="form-field">Lớp<input value="${esc(student.class || "")}" disabled></label></div><h3>Lựa chọn tham gia</h3><label class="check-row"><input type="radio" name="kp-agree" value="yes" required> Tôi <b>đồng ý</b> tham gia nghiên cứu</label><label class="check-row"><input type="radio" name="kp-agree" value="no"> Tôi <b>không đồng ý</b> tham gia</label><div class="kp-sign" id="kp-sign" hidden><h3>Chữ ký của người tham gia</h3><p class="kp-sign-hint">Ký tên vào khung dưới bằng ngón tay, bút cảm ứng hoặc chuột.</p><div class="kp-sign-pad"><canvas id="kp-sig-pad" aria-label="Khung ký tên"></canvas><span class="kp-sign-ph">✍️ Ký tại đây</span><button type="button" class="kp-sign-clear" data-kp="sig-clear">↺ Ký lại</button></div><label class="form-field kp-sign-name">Họ và tên<input id="kp-c-name" placeholder="Nhập họ và tên của bạn" autocomplete="name" maxlength="80"></label></div><button class="btn full" id="kp-c-submit">Gửi phiếu đồng thuận</button></form><h3>Thông tin liên hệ</h3><div class="attachment-note">${esc(c.contact).replace(/\n/g, "<br>")}</div></section>`
         : !mine.agree
           ? `<section class="card"><div class="empty-state">${icon("shield")}<h3>Bạn đã chọn không tham gia nghiên cứu</h3><p>Lựa chọn này không ảnh hưởng đến việc học của bạn. Dữ liệu của bạn sẽ không được dùng cho nghiên cứu.</p><button class="btn secondary" data-kp="consent-reset">Thay đổi lựa chọn</button></div></section>`
           : tam
@@ -8216,16 +8369,32 @@ ${(() => { const nC = new Set(R.map((x) => String(x.st.class || "").trim() || "-
     if (cf)
       cf.onsubmit = (e) => {
         e.preventDefault();
-        const name = $("#kp-c-name").value.trim(),
-          sign = $("#kp-c-sign").value.trim(),
-          agree = cf.querySelector('[name="kp-agree"]:checked')?.value === "yes";
-        if (norm(sign) !== norm(name)) return toast("Chữ ký cần trùng với họ và tên đã nhập.");
+        const agree = cf.querySelector('[name="kp-agree"]:checked')?.value === "yes",
+          pad = $("#kp-sig-pad");
+        let name = $("#kp-c-name").value.replace(/\s+/g, " ").trim();
+        if (agree) {
+          if (!pad || !pad.kpSig || pad.kpSig.empty()) { toast("Bạn ký tên vào khung trước khi xác nhận nhé."); pad && pad.scrollIntoView({ block: "center", behavior: "smooth" }); return; }
+          if (!name) { toast("Bạn nhập họ và tên ngay dưới chữ ký nhé."); $("#kp-c-name").focus(); return; }
+        } else name = name || student.name || "";
         const r = research();
-        r.consent[activeUser.id] = { agree, fullName: name, studentId: $("#kp-c-id").value.trim(), className: student.class || "", signature: sign, ts: Date.now() };
+        r.consent[activeUser.id] = { agree, fullName: name, studentId: $("#kp-c-id").value.trim(), className: student.class || "", signature: agree ? name : "", ...(agree ? { sigPath: pad.kpSig.path(), sigW: SIG_W, sigH: SIG_H } : {}), ts: Date.now() };
         saveResearch(r);
-        toast(agree ? "Đã ghi nhận phiếu đồng thuận. Mời bạn làm khảo sát." : "Đã ghi nhận lựa chọn không tham gia.");
+        toast(agree ? "Đã ghi nhận phiếu đồng thuận có chữ ký của bạn. Mời bạn làm khảo sát." : "Đã ghi nhận lựa chọn không tham gia.");
         renderSurvey();
+        if (agree) showConsentSheet(activeUser.id, true);
       };
+    if (cf) {
+      const pad = $("#kp-sig-pad"), box = $("#kp-sign"), btn = $("#kp-c-submit");
+      if (pad) initSigPad(pad);
+      cf.querySelectorAll('[name="kp-agree"]').forEach((x) =>
+        x.addEventListener("change", () => {
+          const yes = cf.querySelector('[name="kp-agree"]:checked')?.value === "yes";
+          box.hidden = !yes;
+          btn.textContent = yes ? "Xác nhận" : "Gửi lựa chọn";
+          if (yes) { pad.kpSig.fit(); setTimeout(() => box.scrollIntoView({ block: "nearest", behavior: "smooth" }), 30); }
+        }),
+      );
+    }
     const tf = $("#kp-tam-form");
     if (tf)
       tf.onsubmit = (e) => {
@@ -8508,11 +8677,29 @@ ${(() => { const nC = new Set(R.map((x) => String(x.st.class || "").trim() || "-
   function editConsent() {
     const c = cfg().consent;
     modal(
-      `<h2>Sửa phiếu đồng thuận</h2><form id="kp-consent-edit"><label class="form-field">Tiêu đề<input id="kp-ce-title" value="${esc(c.title)}" required></label><label class="form-field">Giới thiệu nghiên cứu<textarea id="kp-ce-intro" rows="4">${esc(c.intro)}</textarea></label><label class="form-field">Các cam kết (mỗi dòng một ý)<textarea id="kp-ce-items" rows="6">${esc(c.items)}</textarea></label><label class="form-field">Thông tin liên hệ<textarea id="kp-ce-contact" rows="4">${esc(c.contact)}</textarea></label><button class="btn full">Lưu phiếu</button></form>`,
+      `<h2>Sửa phiếu đồng thuận</h2><div class="kp-ce-up"><label class="btn secondary">${icon("upload")} Tải phiếu đồng thuận lên<input type="file" id="kp-ce-file" accept=".docx,.pdf,.txt,.md" hidden></label><span class="kp-muted" id="kp-ce-fn">${c.fileName ? `Đang dùng: <b>${esc(c.fileName)}</b> <button type="button" class="kp-linkbtn" data-kp="ce-orig">tải file gốc</button>` : "Word (.docx), PDF hoặc TXT. Kiến đọc file và điền sẵn các ô dưới, bạn xem lại rồi bấm Lưu."}</span></div><form id="kp-consent-edit"><label class="form-field">Tiêu đề<input id="kp-ce-title" value="${esc(c.title)}" required></label><label class="form-field">Giới thiệu nghiên cứu<textarea id="kp-ce-intro" rows="4">${esc(c.intro)}</textarea></label><label class="form-field">Các cam kết (mỗi dòng một ý)<textarea id="kp-ce-items" rows="6">${esc(c.items)}</textarea></label><label class="form-field">Thông tin liên hệ<textarea id="kp-ce-contact" rows="4">${esc(c.contact)}</textarea></label><button class="btn full">Lưu phiếu</button></form>`,
     );
+    const ceFile = {};
+    $("#kp-ce-file").onchange = async (e) => {
+      const f = e.target.files[0]; e.target.value = "";
+      if (!f) return;
+      const fn = $("#kp-ce-fn"); fn.innerHTML = `Kiến đang đọc <b>${esc(f.name)}</b>…`;
+      try {
+        if (!KP.docsParseFile) throw Error("Chưa có bộ đọc tài liệu.");
+        const r = await KP.docsParseFile(f, () => {});
+        const lines = [];
+        r.secs.forEach((s) => { if (s.title && !/^(trang|slide|nội dung|mở đầu)\b/i.test(s.title) && !/^Sheet\d*$/i.test(s.title)) lines.push(s.title); String(s.text || "").split(/\n+/).forEach((l) => lines.push(l)); });
+        const p = splitConsent(lines);
+        if (!p.intro && !p.items) throw Error("Không đọc được nội dung trong file.");
+        $("#kp-ce-title").value = p.title; $("#kp-ce-intro").value = p.intro; $("#kp-ce-items").value = p.items; if (p.contact) $("#kp-ce-contact").value = p.contact;
+        ceFile.id = "consent:" + Date.now().toString(36); ceFile.name = f.name;
+        try { await fileStore("put", ceFile.id, f); } catch (er) {}
+        fn.innerHTML = `Đã đọc <b>${esc(f.name)}</b>. Bạn xem lại các ô dưới rồi bấm <b>Lưu phiếu</b>.`;
+      } catch (er) { fn.textContent = (er && er.message) || "Không đọc được file."; }
+    };
     $("#kp-consent-edit").onsubmit = (e) => {
       e.preventDefault();
-      saveCfg({ consent: { title: $("#kp-ce-title").value.trim(), intro: $("#kp-ce-intro").value.trim(), items: $("#kp-ce-items").value.trim(), contact: $("#kp-ce-contact").value.trim() } });
+      saveCfg({ consent: { title: $("#kp-ce-title").value.trim(), intro: $("#kp-ce-intro").value.trim(), items: $("#kp-ce-items").value.trim(), contact: $("#kp-ce-contact").value.trim(), place: c.place || "", fileName: ceFile.name || c.fileName || "", fileId: ceFile.id || c.fileId || "" } });
       svBump("consent");
       $("#modal").close();
       toast("Đã lưu phiếu đồng thuận và gửi thông báo: sinh viên sẽ được mời đọc lại và xác nhận.");
@@ -8651,7 +8838,7 @@ ${(() => { const nC = new Set(R.map((x) => String(x.st.class || "").trim() || "-
         c.fullName,
         c.className || "",
         c.agree ? "Đồng ý" : "Không đồng ý",
-        c.signature,
+        c.sigPath ? (c.signature || c.fullName) + " (đã ký tay)" : c.signature,
         fmtDT(c.ts),
         ...(useExtra() ? XCOLS_().map(([k, , f]) => { const v = t && t.extra ? t.extra[k] : ""; return v == null || v === "" ? "" : f && f.o ? f.o[Number(v) - 1] || v : v; }) : []),
         ...TAM_ITEMS.map((x) => (t ? t.answers[x[0]] : "")),
@@ -8944,7 +9131,7 @@ ${(() => { const nC = new Set(R.map((x) => String(x.st.class || "").trim() || "-
         .sort((a, b) => a.v.ok - b.v.ok || a.cls.localeCompare(b.cls) || String(a.s.name).localeCompare(b.s.name))
         .map(
           (r) =>
-            `<tr><td>${esc(r.s.id)}</td><td><b>${esc(r.s.name || "")}</b></td><td>${esc(r.cls)}</td><td><span class="kp-sv-pill ${r.v.ok ? "ok" : "no"}"><i></i>${r.v.ok ? "Đã đồng ý" : r.v.key === "decline" ? "Không tham gia" : "Chưa phản hồi"}</span></td><td>${r.v.tam ? "Đã làm" : r.v.ok ? "Chưa làm" : "—"}</td><td>${r.v.ts ? fmtDT(r.v.ts) : "—"}</td></tr>`,
+            `<tr><td>${esc(r.s.id)}</td><td><b>${esc(r.s.name || "")}</b></td><td>${esc(r.cls)}</td><td><span class="kp-sv-pill ${r.v.ok ? "ok" : "no"}"><i></i>${r.v.ok ? "Đã đồng ý" : r.v.key === "decline" ? "Không tham gia" : "Chưa phản hồi"}</span>${r.v.ok ? `<button type="button" class="kp-linkbtn kp-cview" data-kp="consent-view" data-id="${esc(r.s.id)}" title="Xem phiếu đồng thuận có chữ ký của ${esc(r.s.name || r.s.id)}">✍️ Xem phiếu</button>` : ""}</td><td>${r.v.tam ? "Đã làm" : r.v.ok ? "Chưa làm" : "—"}</td><td>${r.v.ts ? fmtDT(r.v.ts) : "—"}</td></tr>`,
         )
         .join("") || '<tr><td colspan="6">Không có sinh viên phù hợp bộ lọc.</td></tr>'
     }</tbody></table></div></section>`;
@@ -9296,7 +9483,7 @@ ${(() => { const nC = new Set(R.map((x) => String(x.st.class || "").trim() || "-
     const whoBar = u.back
       ? `<div class="kp-act-who"><button class="kp-hback" data-kp="act-back" aria-label="Quay lại ${backLbl}" title="Quay lại ${backLbl}"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg></button><div class="kp-act-who-t"><h2>Nhật ký hoạt động${who ? ": " + esc(who.name || who.id) : ""}</h2><small>${who ? `MSSV ${esc(who.id)} · Lớp ${esc(clsOf(who))}` : u.sv ? `Đang tìm “${esc(u.sv)}”` : "Tất cả sinh viên"}</small></div>${u.sv ? `<button class="btn secondary" data-kp="act-clear-sv">Xem tất cả sinh viên</button>` : ""}</div>`
       : "";
-    return `${whoBar}<section class="card kp-act-card"><p class="kp-muted kp-act-intro">Mỗi dòng là một lần học, kiểm tra, hỏi đáp hoặc khảo sát${activeUser?.role === "admin" ? "" : " trong các bài được phân công"}. Lọc bằng các ô phía trên hoặc bấm kính lúp ở từng cột (hai nơi dùng chung lựa chọn). Bấm “Xuất báo cáo” dưới bảng để lập báo cáo đúng phần đang lọc.</p><div class="kp-act-filters"><label class="kp-act-find"><small>Tìm sinh viên</small><span class="kp-act-find-in"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="kp-act-sv" type="search" value="${esc(u.sv || "")}" placeholder="Họ tên hoặc MSSV" autocomplete="off"></span></label>${msBox("act-cls", "Lớp", classes.map((c) => [c, esc(c)]), u.cls, "Tất cả lớp")}${msBox("act-type", "Hoạt động", Object.entries(TYPES).map(([k, [, t]]) => [k, t]), u.type, "Tất cả", (k) => TYPES[k][1])}<label class="kp-act-per"><small>Thời gian</small><select id="kp-act-per">${[["all", "Toàn bộ"], ["today", "Hôm nay"], ["d7", "7 ngày gần đây"], ["day", "Theo ngày"], ["month", "Theo tháng"], ["sem", "Theo học kỳ"], ["range", "Khoảng ngày"]].map(([k, t]) => `<option value="${k}" ${u.per === k ? "selected" : ""}>${t}</option>`).join("")}</select></label>${perInput}</div><div class="kp-act-sum"><span><b>${list.length}</b> hoạt động</span><span><b>${sid}</b> sinh viên</span><span><b>${mins}</b> phút học</span><span><b>${nq}</b> lượt kiểm tra</span><span><b>${nc}</b> câu hỏi</span><span class="kp-act-lbl">${esc(actLabel())}</span></div><div class="kp-actg" role="group" aria-label="Cách xem"><span>Xem theo</span><div class="kp-seg"><button type="button" class="${u.group === "sv" ? "" : "on"}" data-kp-actg="row" aria-pressed="${u.group !== "sv"}">Từng hoạt động (mới nhất trước)</button><button type="button" class="${u.group === "sv" ? "on" : ""}" data-kp-actg="sv" aria-pressed="${u.group === "sv"}">Gộp theo sinh viên (${sid})</button></div></div>${u.group === "sv" ? actBySv(list) : `<div class="table-wrap kp-act-wrap"><table class="kp-act-table"><thead><tr><th>Thời gian</th><th>MSSV</th><th>Họ và tên</th><th>Lớp</th><th>Hoạt động</th><th>Bài học</th><th>Chi tiết</th></tr></thead><tbody>${rows}</tbody></table></div>`}</section>`;
+    return `${whoBar}<section class="card kp-act-card"><p class="kp-muted kp-act-intro">Mỗi dòng là một lần học, kiểm tra, hỏi đáp hoặc khảo sát${activeUser?.role === "admin" ? "" : " trong các bài được phân công"}. Lọc bằng các ô phía trên hoặc bấm kính lúp ở từng cột (hai nơi dùng chung lựa chọn). Bấm “Xuất báo cáo” dưới bảng để lập báo cáo đúng phần đang lọc.</p><div class="kp-act-filters"><label class="kp-act-find"><small>Tìm sinh viên</small><span class="kp-act-find-in"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="kp-act-sv" type="search" value="${esc(u.sv || "")}" placeholder="Họ tên hoặc MSSV" autocomplete="off"></span></label>${msBox("act-cls", "Lớp", classes.map((c) => [c, esc(c)]), u.cls, "Tất cả lớp")}${msBox("act-type", "Hoạt động", Object.entries(TYPES).map(([k, [, t]]) => [k, t]), u.type, "Tất cả", (k) => TYPES[k][1])}<label class="kp-act-per"><small>Thời gian</small><select id="kp-act-per">${[["all", "Toàn bộ"], ["today", "Hôm nay"], ["d7", "7 ngày gần đây"], ["day", "Theo ngày"], ["month", "Theo tháng"], ["sem", "Theo học kỳ"], ["range", "Khoảng ngày"]].map(([k, t]) => `<option value="${k}" ${u.per === k ? "selected" : ""}>${t}</option>`).join("")}</select></label>${perInput}</div><div class="kp-act-sum" hidden><span><b>${list.length}</b> hoạt động</span><span><b>${sid}</b> sinh viên</span><span><b>${mins}</b> phút học</span><span><b>${nq}</b> lượt kiểm tra</span><span><b>${nc}</b> câu hỏi</span><span class="kp-act-lbl">${esc(actLabel())}</span></div><div class="kp-actg" role="group" aria-label="Cách xem"><span>Xem theo</span><div class="kp-seg"><button type="button" class="${u.group === "sv" ? "" : "on"}" data-kp-actg="row" aria-pressed="${u.group !== "sv"}">Từng hoạt động (mới nhất trước)</button><button type="button" class="${u.group === "sv" ? "on" : ""}" data-kp-actg="sv" aria-pressed="${u.group === "sv"}">Gộp theo sinh viên (${sid})</button></div></div>${u.group === "sv" ? actBySv(list) : `<div class="table-wrap kp-act-wrap"><table class="kp-act-table"><thead><tr><th>Thời gian</th><th>MSSV</th><th>Họ và tên</th><th>Lớp</th><th>Hoạt động</th><th>Bài học</th><th>Chi tiết</th></tr></thead><tbody>${rows}</tbody></table></div>`}</section>`;
   }
   // một dòng cho mỗi sinh viên: tổng hợp hoạt động trong phạm vi lọc
   function actBySv(list) {
@@ -9330,6 +9517,9 @@ ${(() => { const nC = new Set(R.map((x) => String(x.st.class || "").trim() || "-
     let m = 0, q = 0, c = 0; const sv = new Set();
     list.forEach((r) => { const d = r.dataset; sv.add(d.s); m += +d.v || 0; if (d.y === "quiz") q++; else if (d.y === "chat") c++; });
     [list.length, sv.size, m, q, c].forEach((v, i) => (bs[i].textContent = v));
+    // khung "Tổng quan nhật ký" đầu trang cũng đổi theo
+    const tb = document.querySelectorAll("#page-content .kp-autostat .kp-tk > b");
+    if (tb.length >= 5) [list.length, sv.size, m, q, c].forEach((v, i) => (tb[i].textContent = v));
   };
   KP.act = { selAll, inSel, selTxt, actFiltered, actLabel, TYPES, dtf: (t) => dtf(t), allActivity, scopeStudents, clsOf, scopeLessons, research, dmy, vnMidnight, isoDay, DAYMS, actUI, semOf, semRange, semName, actRange, facultyFootnote: () => facultyFootnote(), scopeNote };
   function quickLinks() {
@@ -10030,6 +10220,18 @@ ${(() => { const nC = new Set(R.map((x) => String(x.st.class || "").trim() || "-
     }
     if (a === "export-research") return exportResearch();
     if (a === "edit-consent") return editConsent();
+    if (a === "consent-view") return showConsentSheet(t.dataset.id);
+    if (a === "consent-print") return printConsent(t.dataset.id);
+    if (a === "sig-clear") { const p = $("#kp-sig-pad"); return p && p.kpSig && p.kpSig.clear(); }
+    if (a === "modal-close") { const m = document.getElementById("modal"); return m && m.open && m.close(); }
+    if (a === "ce-orig") {
+      const c = cfg().consent; let b = null;
+      try { b = await fileStore("get", c.fileId); } catch (er) {}
+      if (!b) return toast("Không tìm thấy file gốc trên máy này.");
+      const u = URL.createObjectURL(b);
+      const x = document.createElement("a"); x.href = u; x.download = c.fileName || "phieu-dong-thuan"; document.body.appendChild(x); x.click(); x.remove();
+      return;
+    }
   });
   document.addEventListener("change", (e) => {
     const t = e.target;
@@ -12233,6 +12435,7 @@ document.addEventListener("click", (e) => {
     root.querySelectorAll(".card-title, .kp-band, .section-heading").forEach((b) => {
       const h = b.matches("h2,h3") ? b : b.querySelector("h2,h3");
       if (!h || h.querySelector(".kp-hic")) return;
+      if (b.closest(".kp-mcard")) return; // khung "🎯 Tổng quan kết quả kiểm tra" đã có biểu tượng riêng
       const txt = h.textContent || "";
       const hit = /^\s*\d+\./.test(txt) ? [null, "violet", "target"] : TONES.find(([re]) => re.test(txt)) || [null, "violet", "file"];
       b.dataset.tone = hit[1];
@@ -14704,7 +14907,7 @@ document.addEventListener("click", (e) => { if (!e.target.closest?.("[data-kp-ai
       const rem = document.querySelectorAll("#page-content button").length ? [...document.querySelectorAll("#page-content button")].filter((b) => /^nhac hoc$/.test(nz(b.textContent.trim()))).length : 0;
       return [["🔔 Tổng quan việc học", tk("Sinh viên theo dõi", c ? c.all : S.length, "trong danh sách", "users:violet", "re:tinh hinh hoc cua") + tk("Chưa bắt đầu học", c ? c.hit : 0, "sinh viên", "userx:amber", "re:tinh hinh hoc cua") + tk("Có bài thuần thục", m ? m.hit : 0, "sinh viên", "award:green", "re:tinh hinh hoc cua") + tk("Cần nhắc nhở", rem, "sinh viên", "bell:rose", "re:nhac nho")]];
     }
-    if (ad === "students" && st === "log") return [["📝 Tổng quan nhật ký", tk("Hoạt động", num(/(\d+)\s*hoat dong/i, null) || num(/(\d+) hoạt động/), "trong khoảng thời gian", "clip:violet") + tk("Sinh viên hoạt động", num(/(\d+) sinh viên/), "người", "users:blue") + tk("Phút học", num(/(\d+) phút học/), "tổng cộng", "clock:teal") + tk("Lượt kiểm tra", num(/(\d+) lượt kiểm tra/), "lượt", "target:orange") + tk("Câu hỏi gửi Kiến", num(/(\d+) câu hỏi/), "câu", "chat:green"), "sel:#page-content table"]];
+    if (ad === "students" && st === "log") return [["📝 Tổng quan nhật ký", tk("Hoạt động", num(/(\d+)\s*hoat dong/i, null) || num(/(\d+) hoạt động/), "trong khoảng thời gian", "clip:violet") + tk("Sinh viên hoạt động", num(/(\d+) sinh viên/), "người", "users:blue") + tk("Phút học", num(/(\d+) phút học/), "tổng cộng", "clock:teal") + tk("Lượt kiểm tra", num(/(\d+) lượt kiểm tra/), "lượt", "target:orange") + tk("Câu hỏi gửi Kiến", num(/(\d+) câu hỏi/), "câu", "chat:green") + tk("Thời gian", esc(document.querySelector("#page-content .kp-act-lbl")?.textContent || "Toàn bộ thời gian"), "bấm để đổi khoảng thời gian", "cal:violet", "sel:.kp-act-filters"), "sel:#page-content table"]];
     if (ad === "mastery") return [["🎯 Tổng quan kết quả kiểm tra", tk("Thuần thục từ Pre-test", num(/Thuần thục từ Pre-test\s*(\d+)/), "lượt bài", "star:green") + tk("Thuần thục ở Post-test", num(/Thuần thục ở Post-test\s*(\d+)/), "lượt bài", "award:violet") + tk("Mới làm Pre-test", num(/Mới làm Pre-test\s*(\d+)/), "lượt bài", "target:amber") + tk("Chưa làm", num(/Chưa làm\s*(\d+)/), "sinh viên", "userx:rose"), "re:muc thuan thuc"]];
     if (ad === "reports") { let n = 0; try { n = KP.repStudents().length; } catch (e) { n = S.length; } return [["📑 Tổng quan báo cáo", tk("Sinh viên trong phạm vi", n, "theo bộ lọc hiện tại", "users:violet") + tk("Chỉ số đã chọn", num(/Đã chọn\s*(\d+)/), "trên 21 chỉ số", "chart:blue") + tk("Bài học", NL, "Giải phẫu và Sinh lý", "book:teal") + tk("Lớp", new Set(S.map((s) => s.class)).size, "lớp", "flag:amber"), "re:tao bao cao"]]; }
     if (ad === "accounts" && at === "pw") return [["🔑 Tổng quan tài khoản sinh viên", tk("Lớp", new Set(S.map((s) => s.class)).size, "lớp đang quản lý", "flag:blue", "re:^lop") + tk("Tài khoản sinh viên", S.length, "tài khoản", "users:violet") + tk("Đã đăng nhập", S.filter((s) => s.lastLogin || s.lastSeen).length, `trên ${S.length} sinh viên`, "online:green") + tk("Chờ đổi mật khẩu", S.filter((s) => s.mustChangePassword).length, "sinh viên", "key:amber"), "re:danh sach tai khoan sv"]];
@@ -14727,6 +14930,9 @@ document.addEventListener("click", (e) => { if (!e.target.closest?.("[data-kp-ai
     if (state.page !== "admin" || (typeof isStaff === "function" && !isStaff())) return;
     if (pc.querySelector(".kp-tks, .faculty-kpi, .kpi, .kp-mk-i, .rpg-page")) return;
     const r = statsFor(); if (!r) return;
+    // Kết quả kiểm tra: gộp ô tổng quan vào ngay khung bảng thuần thục (một khung, ô chọn bài ở góc phải)
+    const mc = state.admin === "mastery" && pc.querySelector(".kp-mcard > .card-title");
+    if (mc) { mc.insertAdjacentHTML("afterend", `<div class="kp-tks kv-tks kp-autostat kp-mtks">${r[0][1]}</div>`); return; }
     const first = pc.querySelector("section.card, .card"); if (!first) return;
     const box = r.map(([h, body, go]) => `<section class="card kp-tabstat kp-autostat"><div class="card-title"><h2>${h}</h2></div><div class="kp-tks kv-tks">${go ? body.replace(/<div class="kp-tk ([^"]*)" data-ic="([^"]*)" >/g, `<div class="kp-tk $1" data-ic="$2" data-go="${go}">`) : body}</div></section>`).join("");
     let n = first; while (n.parentElement && n.parentElement !== pc && !n.parentElement.querySelector(":scope > .kp-sec-tabs")) n = n.parentElement;
@@ -15020,13 +15226,19 @@ document.addEventListener("click", (e) => { if (!e.target.closest?.("[data-kp-ai
   KP.lessonMgr = function () {
     if (!isAdm()) return "";
     const grp = (sg, t) => { const L = lessons.filter((l) => l.s === sg); return `<div class="kl-grp kl-${sg}"><h4>${t} <small>${L.length} bài</small></h4><div class="kl-chips">${L.map((l) => `<span class="kl-chip"><b>${l.id}</b> ${esc(l.name)}<button type="button" data-kl="ren" data-l="${l.id}" title="Sửa tên">✎</button><button type="button" data-kl="del" data-l="${l.id}" title="Xóa bài" class="danger">✕</button></span>`).join("") || `<span class="kp-muted">Chưa có bài ${t} nào.</span>`}</div><div class="kl-add"><input data-kl-nl="${sg}" maxlength="80" placeholder="Tên bài ${t} mới, ví dụ: Hệ Xương & Khớp"><button type="button" class="btn" data-kl="add" data-sg="${sg}">+ Thêm bài ${t}</button></div></div>`; };
-    return `<section class="card kl-card"><div class="card-title"><h2>📚 Danh sách bài học</h2><span class="tiny-tag">${lessons.length} bài</span></div><p class="kp-muted" style="margin:0 0 12px;font-size:13.5px">Thêm bài mới cho phần Giải phẫu hoặc Sinh lý; mã bài (GP-01, SL-01…) được đánh tự động. Sau đó vào Bài giảng, Video, Tài liệu tham khảo để tải tài liệu cho từng bài.</p>${grp("GP", "Giải phẫu")}${grp("SL", "Sinh lý")}</section>`;
+    return `<section class="card kl-card"><div class="card-title"><h2>📚 Danh sách bài học</h2><span class="row" style="gap:8px"><span class="tiny-tag">${lessons.length} bài</span><button type="button" class="btn secondary kl-restore" data-kl="restore" title="Hiện lại đủ 17 bài gốc với tên ban đầu">↺ Khôi phục 17 bài gốc</button></span></div><p class="kp-muted" style="margin:0 0 12px;font-size:13.5px">Thêm bài mới cho phần Giải phẫu hoặc Sinh lý; mã bài (GP-01, SL-01…) được đánh tự động. Sau đó vào Bài giảng, Video, Tài liệu tham khảo để tải tài liệu cho từng bài.</p>${grp("GP", "Giải phẫu")}${grp("SL", "Sinh lý")}</section>`;
   };
+  // kéo chuột qua lại để cuộn ngang bảng bài học (điện thoại/iPad vuốt bằng tay)
+  let klD = null;
+  document.addEventListener("mousedown", (e) => { const w = e.target.closest?.(".kl-wrap"); if (!w || e.button !== 0 || e.target.closest("input,button") || w.scrollWidth <= w.clientWidth) return; klD = { w, x: e.clientX, l: w.scrollLeft }; });
+  document.addEventListener("mousemove", (e) => { if (!klD) return; const dx = e.clientX - klD.x; if (Math.abs(dx) > 3) { klD.w.scrollLeft = klD.l - dx; klD.w.classList.add("kl-drag"); e.preventDefault(); } });
+  document.addEventListener("mouseup", () => { if (klD) { klD.w.classList.remove("kl-drag"); klD = null; } });
   document.addEventListener("keydown", (e) => { if (e.key === "Enter" && e.target.matches?.("[data-kl-nl]")) { e.preventDefault(); addLesson(e.target.dataset.klNl, e.target.value); } });
   document.addEventListener("click", (e) => {
     const t = e.target.closest?.("[data-kl]"); if (!t || !isAdm()) return;
     const a = t.dataset.kl;
     if (a === "add") return addLesson(t.dataset.sg, document.querySelector(`[data-kl-nl="${t.dataset.sg}"]`)?.value);
+    if (a === "restore") { const n = KP.restoreBuiltin ? KP.restoreBuiltin() : 0; try { logLesson("Thêm bài", "Khôi phục 17 bài gốc"); } catch (x) {} return toast(n ? "📚 Đã hiện lại đủ 17 bài gốc với tên ban đầu." : "17 bài gốc đang hiện đủ, đúng tên ban đầu."); }
     const L = lessons.find((x) => x.id === t.dataset.l); if (!L) return;
     const m = document.getElementById("modal");
     if (a === "ren") {
@@ -18803,6 +19015,24 @@ ${h.length ? `<h3 class="ph-h">Ảnh trước đây</h3><div class="ph-hist">${h
 (function () {
   const FLAG = "kien-sample-purged-v1";
   const BUILTIN = /^(GP-0[1-9]|SL-0[1-8])$/;
+  const RFLAG = "kien-builtin-restored-v1";
+  // hiện lại 17 bài gốc và trả tên gốc; bài, tài liệu, câu hỏi bộ môn tự thêm giữ nguyên
+  function restoreKeys(set) {
+    let n = 0;
+    const hid = arr("kien-hidden-lessons") || [], h2 = hid.filter((id) => !BUILTIN.test(id));
+    if (h2.length !== hid.length) { set("kien-hidden-lessons", h2); n += hid.length - h2.length; }
+    const cl = arr("kien-custom-lessons") || [], c2 = cl.filter((x) => !(x && BUILTIN.test(String(x.id || ""))));
+    if (c2.length !== cl.length) { set("kien-custom-lessons", c2); n += cl.length - c2.length; }
+    return n;
+  }
+  window.KP = window.KP || {};
+  KP.restoreBuiltin = () => {
+    const ch = []; const set = (k, v) => { localStorage.setItem(k, JSON.stringify(v)); ch.push(k); };
+    const n = restoreKeys(set);
+    try { applyLessonEdits(); } catch (e) {}
+    try { KP.syncApply ? KP.syncApply(ch, { render: true, quiet: true }) : render(); } catch (e) { try { render(); } catch (x) {} }
+    return n;
+  };
   const rd = (k, d) => { try { const v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch (e) { return d; } };
   const arr = (k) => { const v = rd(k, null); return Array.isArray(v) ? v : null; };
   const demoStu = (s) => s && (s.sample || s.createdAt === "demo-seed" || s.createdAt === "sample" || /Demo/.test(s.class || ""));
@@ -18815,7 +19045,8 @@ ${h.length ? `<h3 class="ph-h">Ảnh trước đây</h3><div class="ph-hist">${h
   function purge() {
     const changed = [];
     const set = (k, v) => { localStorage.setItem(k, JSON.stringify(v)); changed.push(k); };
-    const filt = (k, bad) => { const a = arr(k); if (a == null) return set(k, []); const b = a.filter((x) => !bad(x)); if (b.length !== a.length) set(k, b); };
+    let real = false;
+    const filt = (k, bad) => { const a = arr(k); if (a == null) return set(k, []); const b = a.filter((x) => !bad(x)); if (b.length !== a.length) { set(k, b); real = true; } };
     filt("kien-students-v2", demoStu);
     filt("kien-teachers", demoGv);
     filt("kien-faculty-lectures", demoLec);
@@ -18826,6 +19057,9 @@ ${h.length ? `<h3 class="ph-h">Ảnh trước đây</h3><div class="ph-hist">${h
     if (rd("kien-sample-ids", null)) { localStorage.removeItem("kien-sample-ids"); }
     // bài học có sẵn (GP-01…SL-08) mang nội dung mẫu: ẩn đi nếu bộ môn chưa đặt tên lại hay đưa nội dung thật vào.
     // Chỉ làm một lần (cờ đồng bộ lên máy chủ), để bài Admin chủ động hiện lại sau này không bị ẩn lần nữa.
+    changed.real = real;
+    // 17 bài gốc (GP-01…SL-08) luôn hiện lại một lần, đúng tên ban đầu (theo yêu cầu bộ môn 27/11/2026)
+    if (!rd(RFLAG, null)) { set(RFLAG, Date.now()); if (!rd(FLAG, null)) set(FLAG, Date.now()); restoreKeys(set); changed.real = changed.real || changed.restored; return changed; }
     if (rd(FLAG, null)) return changed;
     set(FLAG, Date.now());
     const used = new Set();
@@ -18849,9 +19083,10 @@ ${h.length ? `<h3 class="ph-h">Ảnh trước đây</h3><div class="ph-hist">${h
       let ch = [];
       try { ch = purge(); } catch (e) { console.warn("kien purge", e); }
       if (!ch.length) return;
+      const restored = ch.includes("kien-builtin-restored-v1") && (ch.includes("kien-hidden-lessons") || ch.includes("kien-custom-lessons"));
       try { if (ch.includes("kien-hidden-lessons") || ch.includes("kien-custom-lessons")) applyLessonEdits(); } catch (e) {}
       try { KP.syncApply ? KP.syncApply(ch, { render: true, quiet: true }) : render(); } catch (e) {}
-      try { toast("🧹 Đã gỡ dữ liệu mẫu còn sót. Dữ liệu thật vẫn giữ nguyên."); } catch (e) {}
+      try { if (restored) toast("📚 Đã hiện lại 17 bài Giải phẫu và Sinh lý gốc."); else if (ch.real) toast("🧹 Đã gỡ dữ liệu mẫu còn sót. Dữ liệu thật vẫn giữ nguyên."); } catch (e) {}
     };
     // chờ tải xong dữ liệu (kho tài liệu lớn, máy chủ) rồi mới dọn
     (window.KP && KP.vault ? KP.vault.ready() : Promise.resolve()).then(() => setTimeout(go, 2500));
