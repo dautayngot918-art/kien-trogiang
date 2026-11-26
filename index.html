@@ -10231,11 +10231,9 @@ document.addEventListener("click", (e) => {
   setInterval(() => {
     if (typeof activeUser === "undefined" || !activeUser) { set(""); return; }
     const wait = KP.syncWaiting && KP.syncWaiting();
-    const pend = KP.syncPending && KP.syncPending() > 0;
-    const net = KP.cloud && KP.cloud.busy && KP.cloud.busy();
+    // chỉ hiện khi thật sự có nội dung mới (bài học, tài liệu, câu hỏi…), không hiện mỗi lần kiểm tra máy chủ
     if (wait) return set("wait", "Có nội dung mới · bấm để cập nhật");
-    if (pend || net) return set("run", "Đang cập nhật…");
-    if (el && el.dataset.st === "run" && Date.now() - shownAt > 250) KP.updDone();
+    if (el && el.dataset.st === "wait") set("");
   }, 300);
 })();
 
@@ -12184,6 +12182,7 @@ document.addEventListener("click", (e) => {
   function journeyHTML() {
     const id = read(lastKey(), null) || "GP-01";
     const l = lessons.find((x) => x.id === id) || lessons[0];
+    if (!l) return ""; // chưa có bài nào đang mở cho SV
     const idx = lessons.indexOf(l) + 1;
     const pct = Math.max(4, Math.round((idx / lessons.length) * 100));
     const fresh = !read(lastKey(), null);
@@ -18101,7 +18100,7 @@ ${h.length ? `<h3 class="ph-h">Ảnh trước đây</h3><div class="ph-hist">${h
     const y = scrollY;
     try { render(); scrollTo(0, y); } catch (e) { console.warn(e); }
     const q = quietRender; quietRender = false;
-    if (!q && keys.some((k) => STORES[k] || EXTRA[k])) {
+    if (!q && keys.some((k) => DOT.test(k))) {
       try { KP.updDone && KP.updDone(); } catch (e) {}
     }
   }
@@ -18122,7 +18121,11 @@ ${h.length ? `<h3 class="ph-h">Ảnh trước đây</h3><div class="ph-hist">${h
   };
   // chấm tròn cập nhật: còn nội dung mới chưa áp dụng (đang chờ bạn rảnh tay)?
   KP.syncPending = () => pend.size;
-  KP.syncWaiting = () => pend.size > 0 && busy();
+  // chỉ báo chấm khi có bài học / tài liệu / bài giảng / nhắc việc / khảo sát mới. Hoạt động của SV (hỏi Kiến, làm bài,
+  // đăng nhập, đổi hồ sơ) và danh sách tài khoản vẫn đồng bộ, nhưng âm thầm, không hiện chấm.
+  const DOT = /^kien-(managed-sources|faculty-lectures|docs-v1|faculty-reminders|custom-lessons|hidden-lessons|assets|survey-form)$/;
+  const hasContent = () => [...pend].some((k) => DOT.test(k));
+  KP.syncWaiting = () => hasContent() && busy();
   KP.syncForce = () => { clearTimeout(timer); try { if (typeof quiz !== "undefined" && quiz && !quiz.done) { toast("Kiến sẽ cập nhật ngay khi bạn làm xong bài kiểm tra."); return; } } catch (e) {} const m = document.getElementById("modal"); if (m && m.open) m.close(); const a = document.activeElement; if (a && a.blur) a.blur(); apply(); };
   KP.syncNow = () => { Object.keys(STORES).forEach((k) => pend.add(k)); apply(); };
 })();
